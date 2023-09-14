@@ -19,23 +19,46 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mpssea00714.github.io","root":"/Whats-Up-Coding/","images":"/Whats-Up-Coding/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/Whats-Up-Coding/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="What&#39;s up Coding">
-<meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/index.html">
+    <meta name="description" content="前言鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。  建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了  安裝所需工具 Git因為在本地端的Blog做更新時需要上傳同步到GitHu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Pages教學">
+<meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/index.html">
 <meta property="og:site_name" content="What&#39;s up Coding">
+<meta property="og:description" content="前言鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。  建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了  安裝所需工具 Git因為在本地端的Blog做更新時需要上傳同步到GitHu">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg">
+<meta property="article:published_time" content="2023-09-13T03:27:37.000Z">
+<meta property="article:modified_time" content="2023-09-14T15:28:44.166Z">
 <meta property="article:author" content="David">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="GitHub">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg">
 
 
-<link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/">
+<link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-TW","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/","path":"GitHubPages_Tutorial/GitHubPages_Tutorial_Post/","title":"GitHub Pages教學"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>What's up Coding</title>
+<title>GitHub Pages教學 | What's up Coding</title>
   
 
 
@@ -65,7 +88,7 @@
 
     <a href="/Whats-Up-Coding/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">What's up Coding</h1>
+      <p class="site-title">What's up Coding</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -87,7 +110,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -100,6 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">安裝所需工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E6%AD%A5%E9%A9%9F"><span class="nav-number">3.</span> <span class="nav-text">安裝步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BRepository-%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="nav-number">3.0.1.</span> <span class="nav-text">建立Repository(儲存庫)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub-Pages%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.0.2.</span> <span class="nav-text">GitHub Pages設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9EGitHub-Pages%E9%A6%96%E9%A0%81"><span class="nav-number">3.0.3.</span> <span class="nav-text">新增GitHub Pages首頁</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -133,16 +157,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -156,13 +181,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | What's up Coding">
+      <meta itemprop="name" content="GitHub Pages教學 | What's up Coding">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/" class="post-title-link" itemprop="url">GitHub Pages教學</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          GitHub Pages教學
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -191,8 +216,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
 <blockquote>
 <p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
 </blockquote>
@@ -256,7 +280,6 @@
 以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
 </ul>
 
-      
     </div>
 
     
@@ -264,89 +287,22 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+          <div class="post-tags">
+              <a href="/Whats-Up-Coding/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/Whats-Up-Coding/tags/GitHub/" rel="tag"># GitHub</a>
+          </div>
 
+        
 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
-      <meta itemprop="name" content="David">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="What's up Coding">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | What's up Coding">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Whats-Up-Coding/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2023-09-13 11:15:51" itemprop="dateCreated datePublished" datetime="2023-09-13T11:15:51+08:00">2023-09-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Whats-Up-Coding/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-angle-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -355,6 +311,14 @@
 
 
 
+
+  <script src="https://utteranc.es/client.js"
+        repo="mpssea00714/Whats-Up-Coding"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+  </script>
 </div>
   </main>
 
