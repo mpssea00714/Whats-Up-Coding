@@ -171,9 +171,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2023-09-20 21:47:42 / 修改時間：21:55:22" itemprop="dateCreated datePublished" datetime="2023-09-20T21:47:42+08:00">2023-09-20</time>
+      <time title="創建時間：2023-09-20 21:47:42" itemprop="dateCreated datePublished" datetime="2023-09-20T21:47:42+08:00">2023-09-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-09-24 17:51:58" itemprop="dateModified" datetime="2023-09-24T17:51:58+08:00">2023-09-24</time>
     </span>
 
   
@@ -209,7 +215,7 @@
 <li><p>初始化 Hexo<br>這裡以兩種狀況分成兩種做法：</p>
 <ul>
 <li>沒有準備資料夾 : 新建資料夾+初始化 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 會在叫出CMD的路徑下建立該新資料夾</span><br><span class="line">$ hexo init &lt;資料夾名稱&gt;   </span><br></pre></td></tr></table></figure></li>
-<li>已準備資料夾 : 在已準備資料夾內初始化 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 用CMD輸入以下指令來切換路徑進入該資料夾或用滑鼠點進要安裝的資料夾內在路徑輸入CMD也可</span><br><span class="line">$ cd &lt;資料夾名稱 or 資料夾路徑&gt;</span><br><span class="line"></span><br><span class="line">//進入資料夾後用CMD輸入輸入以下指令進行Hexo初始化</span><br><span class="line"><span class="code">    $ hexo init</span></span><br></pre></td></tr></table></figure>
+<li>已準備資料夾 : 在已準備資料夾內初始化 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 用CMD輸入以下指令來切換路徑進入該資料夾或用滑鼠點進要安裝的資料夾內在路徑輸入CMD也可</span><br><span class="line">$ cd &lt;資料夾名稱 or 資料夾路徑&gt;</span><br><span class="line"></span><br><span class="line">//進入資料夾後用CMD輸入輸入以下指令進行Hexo初始化</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
  下圖範例為在桌面路徑下建立HexoTest的資料夾<br> <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/1_HexoInit.jpg" alt="1_HexoInit"></li>
 </ul>
 </li>
@@ -229,7 +235,7 @@
 </li>
 <li><p><strong>package.json</strong> :<br>記錄所有載入應用程式中需要的所有模組。</p>
 </li>
-<li><p><strong>themes</strong> :<br>用來存放套版主題的地方，<strong>Hexo</strong> 會根據主題來解析 scouce 資料夾中的檔案並產生態頁面。預設主題為 **<a target="_blank" rel="noopener" href="https://github.com/hexojshexo-theme-landscape">landscape</a>*<em>，</em>後續更換主題也是將檔案載到這個地方。</p>
+<li><p><strong>themes</strong> :<br>用來存放套版主題的地方，<strong>Hexo</strong> 會根據主題來解析 scouce 資料夾中的檔案並產生態頁面。預設主題為 <a target="_blank" rel="noopener" href="https://github.com/hexojshexo-theme-landscape">landscape</a>，*後續更換主題也是將檔案載到這個地方。</p>
 </li>
 <li><p><strong>source :</strong><br>所有的檔案或是資料夾通常都會在這邊。以 <code>_</code> 開頭的檔案、資料夾或隱藏檔案會被 Hexo忽略(不被佈署到<code>public</code> 資料夾)，除了 <code>_post</code> 資料夾以外，因為這裡面放的是我們上架的文章。這些靜態檔案（<code>Markdown</code>, <code>HTML</code> 等）會經過發佈後會被放進 <code>public</code>資料夾，而其他檔案則是用複製的方式到 <code>public</code>資料夾。</p>
 </li>
