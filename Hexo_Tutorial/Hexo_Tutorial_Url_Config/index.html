@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Whats-Up-Coding/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Whats-Up-Coding/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Whats-Up-Coding/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/Whats-Up-Coding/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Whats-Up-Coding/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mpssea00714.github.io","root":"/Whats-Up-Coding/","images":"/Whats-Up-Coding/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/Whats-Up-Coding/js/config.js"></script>
+
+    <meta name="description" content="前言我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。 URL設定介紹_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。可參考下圖設定檔中的 permalink 欄位設定的規則。 12permalink: :year&#x2F;:month&#x2F;:da">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo-URL連結設定">
+<meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/index.html">
+<meta property="og:site_name" content="What&#39;s up Coding">
+<meta property="og:description" content="前言我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。 URL設定介紹_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。可參考下圖設定檔中的 permalink 欄位設定的規則。 12permalink: :year&#x2F;:month&#x2F;:da">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg">
+<meta property="article:published_time" content="2023-10-04T13:28:57.000Z">
+<meta property="article:modified_time" content="2023-10-04T15:11:20.972Z">
+<meta property="article:author" content="David">
+<meta property="article:tag" content="2023">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg">
+
+
+<link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/","path":"Hexo_Tutorial/Hexo_Tutorial_Url_Config/","title":"Hexo-URL連結設定"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo-URL連結設定 | What's up Coding</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Whats-Up-Coding/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Whats-Up-Coding/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">What's up Coding</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL%E8%A8%AD%E5%AE%9A%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">URL設定介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Url%E8%A8%AD%E5%AE%9A%E5%8E%9F%E5%89%87"><span class="nav-number">3.</span> <span class="nav-text">Url設定原則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E6%AD%A5%E9%A9%9F"><span class="nav-number">4.</span> <span class="nav-text">設定步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">5.</span> <span class="nav-text">結語</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.0.1.</span> <span class="nav-text">參考資料</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">David</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/Whats-Up-Coding/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">標籤</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
+      <meta itemprop="name" content="David">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo-URL連結設定 | What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo-URL連結設定
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2023-10-04 21:28:57 / 修改時間：23:11:20" itemprop="dateCreated datePublished" datetime="2023-10-04T21:28:57+08:00">2023-10-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。</p>
+<h2 id="URL設定介紹"><a href="#URL設定介紹" class="headerlink" title="URL設定介紹"></a>URL設定介紹</h2><p>_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。<br>可參考下圖設定檔中的 permalink 欄位設定的規則。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg" alt="1_permalinkDefault"></p>
+<h2 id="Url設定原則"><a href="#Url設定原則" class="headerlink" title="Url設定原則"></a>Url設定原則</h2><p>應該維持一個原則就是Url連結基本上就是固定不會一直被改變的。<br>對於預設的分類方式優缺點:</p>
+<ul>
+<li>優點:我想不到甚麼優點，哈。</li>
+<li>缺點:<ol>
+<li>以日期為Url的階層邏輯沒有可讀性與記憶點，應該沒甚麼人會單獨記文章日期來尋找文章最少也是對文章標題有記憶吧。</li>
+<li>以文章日期做Url連結，若有讀者將喜歡的文章收藏起來，改天作者因為重構或修改文章內容而修改連結日期，就會導致讀者收藏的連結失效。</li>
+</ol>
+</li>
+</ul>
+<h2 id="設定步驟"><a href="#設定步驟" class="headerlink" title="設定步驟"></a>設定步驟</h2><p>每個人的分類方式不同，這邊以我自己目前使用的分類:標題(title)作說明，關於Url讀取title參數原理是與_post資料夾內同步的。<br>舉例:</p>
+<ol>
+<li><p>有篇在2023&#x2F;01&#x2F;01產出在_post資料夾內名為UrlConfigTemp1的檔案,在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;UrlConfigTemp1</p>
+</li>
+<li><p>但若把UrlConfigTemp1的檔案放在_post資料夾內的TempGroup的資料夾中後，,在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;TempGroup&#x2F;UrlConfigTemp1</p>
+</li>
+</ol>
+<p>步驟:</p>
+<ol>
+<li>到設定檔_config.yml中找到 permalink 欄位改為只以標題作為連結的設定  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></li>
+<li>將_config.yml修改後，在Hexo資料夾中呼叫Cmd執行以下語法，可在本機開啟預覽頁面確認Url連結是否正確  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
+  <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg" alt="2_permalinkTitle"></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在架站剛開始先規劃好分類方式,避免之後文章開始多了之後才重整理作品造成時間成本浪費。<br>另外或許對於Url用標題分類有同樣疑問就是:<br>若有讀者一樣在作者將檔案換位置前已經收藏了連結，那收藏連結一樣會在作者修改文章位置後失效的問題。<br>對於這個狀況有另一種Url設定方式提供參考 &#x3D;&gt;<br><a target="_blank" rel="noopener" href="https://riemann.blog/posts/d3aa7087/">Hexo-永久連結設定</a>(直接將每個Url綁定一組固定編碼不會隨著title路徑變化的方式呈現)。</p>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a target="_blank" rel="noopener" href="https://old-oomusou.goodjack.tw/hexo/uri-category/">如何使 Hexo 以文章分類為URI</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Whats-Up-Coding/tags/2023/" rel="tag"># 2023</a>
+              <a href="/Whats-Up-Coding/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/Whats-Up-Coding/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/" rel="prev" title="用Hexo自訂主題(Theme)教學">
+                  <i class="fa fa-angle-left"></i> 用Hexo自訂主題(Theme)教學
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+  <script src="https://utteranc.es/client.js"
+        repo="mpssea00714/Whats-Up-Coding"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+  </script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">David</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Whats-Up-Coding/js/comments.js"></script><script src="/Whats-Up-Coding/js/utils.js"></script><script src="/Whats-Up-Coding/js/motion.js"></script><script src="/Whats-Up-Coding/js/schemes/muse.js"></script><script src="/Whats-Up-Coding/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
