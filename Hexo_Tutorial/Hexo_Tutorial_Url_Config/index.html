@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg">
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg">
 <meta property="article:published_time" content="2023-10-04T13:28:57.000Z">
-<meta property="article:modified_time" content="2023-10-04T15:11:20.972Z">
+<meta property="article:modified_time" content="2023-10-04T15:16:14.540Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="2023">
 <meta property="article:tag" content="Tutorial">
@@ -185,7 +185,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2023-10-04 21:28:57 / 修改時間：23:11:20" itemprop="dateCreated datePublished" datetime="2023-10-04T21:28:57+08:00">2023-10-04</time>
+      <time title="創建時間：2023-10-04 21:28:57 / 修改時間：23:16:14" itemprop="dateCreated datePublished" datetime="2023-10-04T21:28:57+08:00">2023-10-04</time>
     </span>
 
   
@@ -212,9 +212,9 @@
 </ul>
 <h2 id="設定步驟"><a href="#設定步驟" class="headerlink" title="設定步驟"></a>設定步驟</h2><p>每個人的分類方式不同，這邊以我自己目前使用的分類:標題(title)作說明，關於Url讀取title參數原理是與_post資料夾內同步的。<br>舉例:</p>
 <ol>
-<li><p>有篇在2023&#x2F;01&#x2F;01產出在_post資料夾內名為UrlConfigTemp1的檔案,在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;UrlConfigTemp1</p>
+<li><p>有篇在2023&#x2F;01&#x2F;01產出在_post資料夾內名為UrlConfigTemp1的檔案，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;UrlConfigTemp1</p>
 </li>
-<li><p>但若把UrlConfigTemp1的檔案放在_post資料夾內的TempGroup的資料夾中後，,在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;TempGroup&#x2F;UrlConfigTemp1</p>
+<li><p>但若把UrlConfigTemp1的檔案放在_post資料夾內的TempGroup的資料夾中後，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;TempGroup&#x2F;UrlConfigTemp1</p>
 </li>
 </ol>
 <p>步驟:</p>
@@ -223,7 +223,7 @@
 <li>將_config.yml修改後，在Hexo資料夾中呼叫Cmd執行以下語法，可在本機開啟預覽頁面確認Url連結是否正確  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
   <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg" alt="2_permalinkTitle"></li>
 </ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在架站剛開始先規劃好分類方式,避免之後文章開始多了之後才重整理作品造成時間成本浪費。<br>另外或許對於Url用標題分類有同樣疑問就是:<br>若有讀者一樣在作者將檔案換位置前已經收藏了連結，那收藏連結一樣會在作者修改文章位置後失效的問題。<br>對於這個狀況有另一種Url設定方式提供參考 &#x3D;&gt;<br><a target="_blank" rel="noopener" href="https://riemann.blog/posts/d3aa7087/">Hexo-永久連結設定</a>(直接將每個Url綁定一組固定編碼不會隨著title路徑變化的方式呈現)。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在架站剛開始先規劃好分類方式，避免之後文章開始多了之後才重整理作品造成時間成本浪費。<br>另外或許對於Url用標題分類有同樣疑問就是:<br>若有讀者一樣在作者將檔案換位置前已經收藏了連結，那收藏連結一樣會在作者修改文章位置後失效的問題。<br>對於這個狀況有另一種Url設定方式提供參考 &#x3D;&gt;<br><a target="_blank" rel="noopener" href="https://riemann.blog/posts/d3aa7087/">Hexo-永久連結設定</a>(直接將每個Url綁定一組固定編碼不會隨著title路徑變化的方式呈現)。</p>
 <h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a target="_blank" rel="noopener" href="https://old-oomusou.goodjack.tw/hexo/uri-category/">如何使 Hexo 以文章分類為URI</a></p>
 
     </div>
