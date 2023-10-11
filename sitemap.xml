@@ -79,6 +79,13 @@
   </url>
   
   <url>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/GitHub/</loc>
+    <lastmod>2023-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Hexo/</loc>
     <lastmod>2023-10-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -87,13 +94,6 @@
   
   <url>
     <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Theme/</loc>
-    <lastmod>2023-10-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/GitHub/</loc>
     <lastmod>2023-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
