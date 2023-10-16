@@ -19,17 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mpssea00714.github.io","root":"/Whats-Up-Coding/","images":"/Whats-Up-Coding/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/Whats-Up-Coding/js/config.js"></script>
 
-    <meta name="description" content="前言我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。 URL設定介紹_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。可參考下圖設定檔中的 permalink 欄位設定的規則。 12permalink: :year&#x2F;:month&#x2F;:da">
+    <meta name="description" content="前言我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-URL連結設定">
 <meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/index.html">
 <meta property="og:site_name" content="What&#39;s up Coding">
-<meta property="og:description" content="前言我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。 URL設定介紹_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。可參考下圖設定檔中的 permalink 欄位設定的規則。 12permalink: :year&#x2F;:month&#x2F;:da">
+<meta property="og:description" content="前言我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg">
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg">
 <meta property="article:published_time" content="2023-10-04T13:28:57.000Z">
-<meta property="article:modified_time" content="2023-10-04T15:16:14.540Z">
+<meta property="article:modified_time" content="2023-10-16T12:47:46.822Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="2023">
 <meta property="article:tag" content="Tutorial">
@@ -183,9 +183,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2023-10-04 21:28:57 / 修改時間：23:16:14" itemprop="dateCreated datePublished" datetime="2023-10-04T21:28:57+08:00">2023-10-04</time>
+      <time title="創建時間：2023-10-04 21:28:57" itemprop="dateCreated datePublished" datetime="2023-10-04T21:28:57+08:00">2023-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-10-16 20:47:46" itemprop="dateModified" datetime="2023-10-16T20:47:46+08:00">2023-10-16</time>
     </span>
 
   
@@ -198,6 +204,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。</p>
+<span id="more"></span>
 <h2 id="URL設定介紹"><a href="#URL設定介紹" class="headerlink" title="URL設定介紹"></a>URL設定介紹</h2><p>_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。<br>可參考下圖設定檔中的 permalink 欄位設定的規則。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
 <p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg" alt="1_permalinkDefault"></p>
