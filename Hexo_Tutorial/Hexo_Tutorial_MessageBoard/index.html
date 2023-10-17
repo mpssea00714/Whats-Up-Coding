@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Whats-Up-Coding/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Whats-Up-Coding/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Whats-Up-Coding/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/Whats-Up-Coding/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Whats-Up-Coding/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mpssea00714.github.io","root":"/Whats-Up-Coding/","images":"/Whats-Up-Coding/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/Whats-Up-Coding/js/config.js"></script>
+
+    <meta name="description" content="前言留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo留言板功能">
+<meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/index.html">
+<meta property="og:site_name" content="What&#39;s up Coding">
+<meta property="og:description" content="前言留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg">
+<meta property="article:published_time" content="2023-10-17T03:16:02.000Z">
+<meta property="article:modified_time" content="2023-10-17T14:27:05.408Z">
+<meta property="article:author" content="David">
+<meta property="article:tag" content="2023">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg">
+
+
+<link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/","path":"Hexo_Tutorial/Hexo_Tutorial_MessageBoard/","title":"Hexo留言板功能"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo留言板功能 | What's up Coding</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Whats-Up-Coding/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Whats-Up-Coding/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">What's up Coding</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/Whats-Up-Coding/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/Whats-Up-Coding/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%97%E4%BB%B6%E9%81%B8%E6%93%87%E8%88%87%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">套件選擇與介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E6%AD%A5%E9%A9%9F"><span class="nav-number">3.</span> <span class="nav-text">安裝步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">David</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/Whats-Up-Coding/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">標籤</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
+      <meta itemprop="name" content="David">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo留言板功能 | What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo留言板功能
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2023-10-17 11:16:02 / 修改時間：22:27:05" itemprop="dateCreated datePublished" datetime="2023-10-17T11:16:02+08:00">2023-10-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
+<span id="more"></span>
+
+<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
+<ul>
+<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
+</li>
+<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
+</li>
+<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a target="_blank" rel="noopener" href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
+</li>
+</ul>
+<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><p>進入 <a target="_blank" rel="noopener" href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
+</li>
+<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a target="_blank" rel="noopener" href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
+</li>
+<li><p>進入 <a target="_blank" rel="noopener" href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
+</li>
+<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
+</li>
+<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
+</li>
+<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
+</li>
+<li><p>點開comments.njk檔後，找到程式碼片段</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
+</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
+<li><a target="_blank" rel="noopener" href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
+<li><a target="_blank" rel="noopener" href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
+<li><a target="_blank" rel="noopener" href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Whats-Up-Coding/tags/2023/" rel="tag"># 2023</a>
+              <a href="/Whats-Up-Coding/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/Whats-Up-Coding/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/" rel="prev" title="Hexo-URL連結設定">
+                  <i class="fa fa-angle-left"></i> Hexo-URL連結設定
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+  <script src="https://utteranc.es/client.js"
+        repo="mpssea00714/Whats-Up-Coding"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+  </script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">David</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Whats-Up-Coding/js/comments.js"></script><script src="/Whats-Up-Coding/js/utils.js"></script><script src="/Whats-Up-Coding/js/motion.js"></script><script src="/Whats-Up-Coding/js/schemes/muse.js"></script><script src="/Whats-Up-Coding/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
