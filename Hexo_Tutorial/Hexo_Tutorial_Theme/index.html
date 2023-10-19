@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/6_NextFolder.jpg">
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/7_NextHomePage.jpg">
 <meta property="article:published_time" content="2023-09-24T09:58:26.000Z">
-<meta property="article:modified_time" content="2023-10-19T03:34:45.947Z">
+<meta property="article:modified_time" content="2023-10-19T07:39:24.814Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="2023">
 <meta property="article:tag" content="Tutorial">
@@ -208,7 +208,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-10-19 11:34:45" itemprop="dateModified" datetime="2023-10-19T11:34:45+08:00">2023-10-19</time>
+      <time title="修改時間：2023-10-19 15:39:24" itemprop="dateModified" datetime="2023-10-19T15:39:24+08:00">2023-10-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -240,16 +240,16 @@
 <span id="more"></span>
 <h2 id="架構介紹"><a href="#架構介紹" class="headerlink" title="架構介紹"></a>架構介紹</h2><p>跟主題有關設定主要會調整到兩個地方_config.yml檔案跟themes資料夾</p>
 <ul>
-<li><p><strong>_config.yml :</strong><br>有關網站的配置都會在這份檔案中設定調整。<br>例如：網站標題、網站作者、網址、部屬到Github儲存庫設定、使用主題名稱等等‧<br>針對此篇主題只顯示檔案中有關主題設定片段內容，<br>如檔案所示Hexo主題是使用landscape作為預設版面</p>
+<li><p><strong>_config.yml :</strong><br>有關網站的配置都會在這份檔案中設定調整。<br>例如：網站標題、網站作者、網址、部屬到GitHub儲存庫設定、使用主題名稱等等‧<br>針對此篇主題只顯示檔案中有關主題設定片段內容，<br>如檔案所示Hexo主題是使用landscape作為預設版面</p>
   <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span> <span class="comment">#主題(模板)名稱</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>themes</strong> :<br>用來存放套版主題的地方，<strong>Hexo</strong> 會根據主題(Themes)來解析 scouce 資料夾中的檔案並產生態頁面。預設主題為 <a target="_blank" rel="noopener" href="https://github.com/hexojshexo-theme-landscape">landscape</a>，後續更換主題也是將檔案載到這個地方。</p>
+<li><p><strong>themes</strong> :<br>用來存放套版主題的地方，<strong>Hexo</strong> 會根據主題(Themes)來解析 source 資料夾中的檔案並產生靜態頁面。預設主題為 <a target="_blank" rel="noopener" href="https://github.com/hexojshexo-theme-landscape">landscape</a>，後續更換主題也是將檔案載到這個地方。</p>
 </li>
 </ul>
 <h2 id="更換主題"><a href="#更換主題" class="headerlink" title="更換主題"></a>更換主題</h2><ol>
 <li><p>尋找主題<br>可以在Hexo提供的 <strong><a target="_blank" rel="noopener" href="https://hexo.io/themes/">主題</a></strong> 頁中尋找喜歡的模板，裡面提供眾多開源者貢獻的作品供大家使用欣賞，在每個主題下的 Visit preview site 可以預覽主題渲染後實際的表現是不是理想中的樣子再下載。<br>在教學中就用主題中最熱門的 <strong><a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a></strong> 來當作範例</p>
 </li>
-<li><p>下載主題<br>選好主題後點選標題進入GitHub頁面(例:<a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">Next</a>)，在GitHub頁面中複製Repository的Git Url。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/3_GitHub_Url.jpg" alt="3_GitHub_Url"><br>回到本機端的Theme資料夾，在路徑中開啟CMD<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/4_CMD.jpg" alt="4_CMD"><br>輸入以下Git語法透過剛剛複製的Repository Git Url將程式碼下載到Theme資料夾中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/5_CMD_Download.jpg" alt="5_CMD_Download"><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/6_NextFolder.jpg" alt="6_NextFolder"></p>
+<li><p>下載主題<br>選好主題後點選標題進入GitHub頁面(例:<a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">Next</a>)，在GitHub頁面中複製Repository的Url。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/3_GitHub_Url.jpg" alt="3_GitHub_Url"><br>回到本機端的Theme資料夾，在路徑中開啟CMD<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/4_CMD.jpg" alt="4_CMD"><br>輸入以下Git語法透過剛剛複製的Repository Url將程式碼下載到Theme資料夾中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/5_CMD_Download.jpg" alt="5_CMD_Download"><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/6_NextFolder.jpg" alt="6_NextFolder"></p>
 <br></li>
 <li><p>設定主題<br>上個步驟將主題模板下載到Themes資料夾後，回到根目錄的 _config.yml 中的 theme 段落原本預設為 landscape 的名稱改為 next(或你想要的主題名稱)，如下:</p>
  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment">#主題(模板)名稱</span></span><br></pre></td></tr></table></figure>
@@ -260,10 +260,12 @@
 <li><p>首頁預覽<br>在 themes資料夾與_config.yml設定完成後，回到根目錄的CMD中執行以下指令。<br><strong>維持[文章或內容修改後，佈署到GitHub前執行以下指令完成更新]的習慣，來避免更新不完全</strong></p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br></pre></td></tr></table></figure>
 <p> 更新成最新狀態後輸入以下指令後，點擊連結 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 就出現以 <strong>next</strong> 預設模板建立的Blog首頁。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server   -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意:</strong> 若踩到上一步提醒的雷(設定檔的模板名稱與模板資料夾不同名)，就會在CMD上顯示No Layout:index.html的告警</p>
 </blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server   -- 在本機端可預覽網站</span><br></pre></td></tr></table></figure>
+
+
 <p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/7_NextHomePage.jpg" alt="7_NextHomePage"></p>
 <br></li>
 <li><p>佈署上GitHub Pages<br>在本機預覽後接著輸入以下指令將這次更新的內容佈署到GitHub上，才能在真正的Blog連結看到這次的主題模板修改</p>
