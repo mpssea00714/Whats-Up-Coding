@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/</loc>
     
     <lastmod>2023-12-29</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</loc>
     
     <lastmod>2023-12-29</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/hello-world/</loc>
     
     <lastmod>2023-12-11</lastmod>
     
@@ -48,15 +48,6 @@
   
   <url>
     <loc>https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</loc>
-    
-    <lastmod>2023-12-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/hello-world/</loc>
     
     <lastmod>2023-12-11</lastmod>
     
@@ -110,7 +101,25 @@
   </url>
   
   <url>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</loc>
+    
+    <lastmod>2023-12-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mpssea00714.github.io/Whats-Up-Coding/google805856572dbe075d.html</loc>
+    
+    <lastmod>2023-12-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/categories/index.html</loc>
     
     <lastmod>2023-12-11</lastmod>
     
@@ -129,15 +138,6 @@
   
   <url>
     <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/index.html</loc>
-    
-    <lastmod>2023-12-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/categories/index.html</loc>
     
     <lastmod>2023-12-11</lastmod>
     
@@ -169,14 +169,14 @@
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/GitHub/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Hexo/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Hexo/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Markdown/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -204,14 +204,14 @@
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Markdown/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Next/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Next/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/GitHub/</loc>
     <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
