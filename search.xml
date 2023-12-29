@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/Whats-Up-Coding/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub Pages 教學</title>
+    <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
+<span id="more"></span>
+<blockquote>
+<p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
+</blockquote>
+<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
+<li><strong><a href="https://git-scm.com/">Git</a></strong><br>因為在本地端的Blog做更新時需要上傳同步到GitHub Pages所以需要在本地端電腦安裝<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg" alt="1_Git"></li>
+</ul>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><h3 id="建立Repository-儲存庫"><a href="#建立Repository-儲存庫" class="headerlink" title="建立Repository(儲存庫)"></a>建立Repository(儲存庫)</h3></li>
+</ol>
+<ul>
+<li>在GitHub 首頁點選右邊+號列表的 New Repository新增一個要建立Blog用的儲存庫<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg" alt="2_CreateNewRepository">  <br /></li>
+<li>進入新增Repository畫面後，基本上都照預設設定就好，主要是為Repository name欄位命名，依建立的Repository name，之後Blog的URL就以這個階層邏輯建立: <strong>https:&#x2F;&#x2F;[Owner].github.io&#x2F;[<strong>Repository name</strong>]&#x2F;</strong><br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg" alt="2_CreateNewRepository_2"><br>  <code>Owner: GitHub帳號名稱</code><br>  <code>Description: 欄位可以為這個Repository的說明目的或相關的內容</code><br>  <code>Add a README file 建議勾選</code>  <br /></li>
+<li>建立好Repository後就會出現以下畫面，儲存庫預設的分支現在已經改為main了不是master<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg" alt="3_FinishRepository"></li>
+</ul>
+<ol start="2">
+<li><h3 id="GitHub-Pages設定"><a href="#GitHub-Pages設定" class="headerlink" title="GitHub Pages設定"></a>GitHub Pages設定</h3></li>
+</ol>
+<ul>
+<li>接著上方橫向選單看到Settings後再進入左邊列表的Pages，在Pages頁面將Branch設定成main儲存後，會看到上方有Visit site的連結，可以點選進入GitHub Pages的首頁。<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg" alt="4_GitPage"></li>
+</ul>
+<blockquote>
+<p>如果沒有可能需要等個30秒後重新整理就有看到了，我當初進入Pages時也沒出現Visit site也很緊張，結果等了一陣子才出現</p>
+</blockquote>
+<ul>
+<li>從Visit site 進入GitHub Pages首頁<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg" alt="5_SetPage"></li>
+</ul>
+<ol start="3">
+<li><h3 id="新增GitHub-Pages首頁"><a href="#新增GitHub-Pages首頁" class="headerlink" title="新增GitHub Pages首頁"></a>新增GitHub Pages首頁</h3></li>
+</ol>
+<ul>
+<li>GitHub Pages首頁的內容是當初建立Repository時README.md的內容，如果要顯示自己想要的首頁畫面，需要新增一個index的html檔，系統預設會去吃檔名index的檔案。<br>  新增index的方式有兩種:<br>  1.直接在網頁上透過Repository上新增index的html檔案<br>  2.是從GitHub上下載到本地端(自己電腦)新增index檔案後再上傳同步到GitHub<br>  以下分別介紹兩種新增index方法<ul>
+<li>3.1 線上新增index :<ul>
+<li>上方橫向選單看到Code ⇒ Create New File在新增的檔案內容<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg" alt="6_AddIndex"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>新增內容後點選右邊Commit Changes<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg" alt="7_EditIndex"><br /></li>
+<li>可在Commit Changes的介面補充這次修改內容或目的<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg" alt="8_EditIndex"><br /></li>
+</ul>
+</li>
+<li>3.2 從本地端新增 :<br><code>必須先在本機安裝Git，才能執行以下指令</code><ul>
+<li>在本機資料夾中從路徑呼叫CMD(命令提示字元)<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg" alt="11_LocalFolder"><br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg" alt="12_Cmd"><br /></li>
+<li>複製GitHub上指定repository的Git網址<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg" alt="13_GetGitUrl"><br /></li>
+<li>回到CMD中輸入git clone [repository的網址]，系統就會從GitHub上把指定的repository整份下載到我們指定的資料夾中<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg" alt="14_GitClone"><br /></li>
+<li>在資料夾中新增html空白檔案，貼上下個步驟準備好的內容後儲存<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg" alt="15_GitCloneRepo"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>在CMD中輸入以下Git相關指令<ol>
+<li><code>git add index.html</code></li>
+<li><code>git commit -m &quot;add index&quot;</code></li>
+<li><code>git remote add origin [repository的網址]</code></li>
+<li><code>git push -u origin main</code><br /></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>從以上兩個建議的方法2擇1執行完成後，回GitHub頁面確認是否已經將剛剛新增的檔案同步到線上的儲存庫中<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg" alt="9_EditIndex">  <br /></li>
+<li>確認完後再重新從Settings裡面的Page連結到首頁，畫面就會變成index檔案中的內容<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg" alt="10_IndexHomepage">  <br /></li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><ul>
+<li>以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://gitbook.tw/chapters/github/using-github-pages/">使用 GitHub 免費製作個人網站</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10301923">設定 GitHub Page，建立文件網站</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建立選單頁面</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
+<span id="more"></span>
+
+<h2 id="新增about頁面"><a href="#新增about頁面" class="headerlink" title="新增about頁面"></a>新增about頁面</h2><p>about頁面的內容通常會對作者做簡單介紹或創建平台的原因等，視每人需求來表現自己的頁面呈現。</p>
+<p>categories&#x2F;tags&#x2F;about三種頁面與發佈文章的定位不同，需獨立頁面來統整特定屬性的呈現，<br>例如:<br>標籤頁面:含各種標籤搜尋<br>類別頁面:含各種類別搜尋<br>關於我:關於作者或平台的簡介<br>如有以上需求我們可以使用以下語法，以about為例</p>
+<ol>
+<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 about 的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page about //新增about頁面</span><br></pre></td></tr></table></figure></li>
+<li>執行以下語法可以在本地端預覽新建的about頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁的about進入，如要編輯內容在about資料夾中的 <code>index.md</code> 編輯即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/AboutPage_1.jpg" alt="AboutPage_1"></li>
+</ol>
+<h2 id="分類與標籤的區別"><a href="#分類與標籤的區別" class="headerlink" title="分類與標籤的區別"></a>分類與標籤的區別</h2><ol>
+<li>層次結構：<ul>
+<li>分類： 通常具有層次結構，允許你創建一個有序的主題層次。例如，你可以擁有「技術」分類下的「前端開發」子分類，這種結構更具組織性。</li>
+<li>標籤： 不像分類有明確的層次結構，標籤是單獨的關鍵字或短語，用於描述內容的主題或屬性，不具有層次性。</li>
+</ul>
+</li>
+<li>數量限制：<ul>
+<li>分類： 通常一篇內容只能歸類到一個分類，分類用於更嚴格和結構化的組織。例如，一篇文章可能只屬於「科技」或「生活」其中一個分類。</li>
+<li>標籤： 一篇內容可以擁有多個標籤，標籤是用來標記文章的關鍵字或主題，一篇文章可以同時擁有多個標籤，從而更全面地描述內容。</li>
+</ul>
+</li>
+<li>用途和應用場景：<ul>
+<li>分類： 主要用於將內容整體組織，提供更清晰的主題結構。通常在網站導覽菜單中以分類為基礎建立不同的頁面。</li>
+<li>標籤： 主要用於標記和描述內容的細節和特點，提供更靈活的搜索和篩選選項。標籤可以使相似主題的內容在不同的分類中彼此聯繫。</li>
+</ul>
+</li>
+<li>可見性和導航：<ul>
+<li>分類： 通常體現在網站的主導航結構中，是用戶瀏覽和尋找特定主題的主要途徑。</li>
+<li>標籤： 通常以雲標籤或類似的方式呈現，用戶可以點擊標籤查看相關內容，而不必遵循固定的層次結構。</li>
+</ul>
+</li>
+</ol>
+<p>總結來說，分類提供了一個結構化的、有序的方式組織內容，而標籤則提供了更靈活、更細緻的方式來標記和描述內容的特徵。在實際應用中，通常可以同時使用分類和標籤以充分發揮組織和搜尋功能。</p>
+<h3 id="設定分類-文章中附上分類屬性與階層"><a href="#設定分類-文章中附上分類屬性與階層" class="headerlink" title="設定分類:文章中附上分類屬性與階層"></a>設定分類:文章中附上分類屬性與階層</h3><ol>
+<li>在文章檔案中，都有預設的標頭區塊，可新增需要的類別如紅框表示。<br>分類帶有階層屬性因此如果需要做更細的分類寫法，只需在中括號內將類別名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPage_2.jpg" alt="CategoriesPage_2"></li>
+</ol>
+<h3 id="設定分類頁面"><a href="#設定分類頁面" class="headerlink" title="設定分類頁面:"></a>設定分類頁面:</h3><ol>
+<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 categories  的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories  //新增分類頁面</span><br></pre></td></tr></table></figure></li>
+<li>在新建的categories  資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;categories”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageSet_4.jpg" alt="CategoriesPageSet_4"> </li>
+<li>執行以下語法可以在本地端預覽新建的分類頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁類別連結進入，裡面記錄每篇文章新增的類別連結與階層性排序<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageDemo_3.jpg" alt="CategoriesPageDemo_3"></li>
+</ol>
+<h3 id="設定標籤-在每頁發文中附上標籤屬性"><a href="#設定標籤-在每頁發文中附上標籤屬性" class="headerlink" title="設定標籤:在每頁發文中附上標籤屬性"></a>設定標籤:在每頁發文中附上標籤屬性</h3><ol>
+<li>在文章檔案中，都有預設的標頭區塊，可新增需要的標籤如紅框表示。<br>標籤可在文章中帶有多個標籤的特性，只需在中括號內將標籤名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPage_6.jpg" alt="TagsPage_6"></li>
+</ol>
+<h3 id="設定標籤頁面"><a href="#設定標籤頁面" class="headerlink" title="設定標籤頁面:"></a>設定標籤頁面:</h3><ol>
+<li><p>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 tags 的資料夾(與_post同階層)與首頁。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page tags   //新增分類頁面</span><br></pre></td></tr></table></figure></li>
+<li><p>在新建的tags資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;tags”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageSet_5.jpg" alt="TagsPageSet_5"> </p>
+</li>
+<li><p>執行以下語法可以在本地端預覽新建的標籤頁面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁標籤連結進入，裡面記錄在文章建立出的每個標籤項目<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageDemo_7.jpg" alt="TagsPageDemo_7"></p>
+</li>
+</ol>
+<h2 id="關閉留言板"><a href="#關閉留言板" class="headerlink" title="關閉留言板"></a>關閉留言板</h2><p>建立categories&#x2F;tags&#x2F;about頁面時發現這類獨立頁面保有留言版功能，但是否需要留言板看使用者需求。<br>這邊也提供針對特定頁面關閉留言板的功能。在需要關閉留言版的文件中，在預設版塊中新增 <code>comments: false</code> 就會在需要的頁面中關閉留言板功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CloseComment_8.jpg" alt="CloseComment_8"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹為獨立屬性的頁面新增的語法，為部落格增添統整功能</p>
+<p>發布文章語法: hexo new post 標題</p>
+<p>發布頁面語法: hexo new page 標題</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://hsuan777.github.io/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/">Hexo教學(六) 文章標籤與分類</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>留言板</tag>
+        <tag>標籤</tag>
+        <tag>類別</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo發佈文章教學</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
+<span id="more"></span>
+
+<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
+<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
+</li>
+<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
+<blockquote>
+<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
+</blockquote>
+<ol start="3">
+<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
+</blockquote>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
+<ol start="4">
+<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a href="https://markdown.tw/">Markdown官網</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo留言板功能</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
+<span id="more"></span>
+
+<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
+<ul>
+<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
+</li>
+<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
+</li>
+<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
+</li>
+</ul>
+<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><p>進入 <a href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
+</li>
+<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
+</li>
+<li><p>進入 <a href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
+</li>
+<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
+</li>
+<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
+</li>
+<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
+</li>
+<li><p>點開comments.njk檔後，找到程式碼片段</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
+</li>
+</ol>
+<h2 id="關閉指定頁面留言區"><a href="#關閉指定頁面留言區" class="headerlink" title="關閉指定頁面留言區"></a>關閉指定頁面留言區</h2><p>依上述步驟設定就會在每個頁面都保有留言版功能，但像標籤&#x2F;分類&#x2F;關於的頁面一般不會開啟留言版功能，根據以下步驟我們可以指定不需開啟留言版的頁面做設定。<br>我們只要在指定文章開頭加上 comments: false，就可將指定的文章關閉留言版功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/SetSwitchUtterances.jpg" alt="SetSwitchUtterances"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
+<li><a href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
+<li><a href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
+<li><a href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo_主題[next]功能小補帖</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
+<span id="more"></span>
+
+<h2 id="內容Search功能"><a href="#內容Search功能" class="headerlink" title="內容Search功能"></a>內容Search功能</h2><p>開啟搜尋功能前須先安裝以下套件,在Hexo資料夾開啟CMD後,輸入以下指令安裝<br><code>npm install hexo-generator-searchdb --save</code><br>進入Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml中,修改local_search項目中<code>enable : true</code> 即可,就會在首頁看到多了搜尋的選項與介面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg" alt="search_1"><br>點擊搜尋後即可在功能中查詢相關內容<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/searchOperate_2.jpg" alt="searchOperate_2"></p>
+<h2 id="顯示滾動百分比"><a href="#顯示滾動百分比" class="headerlink" title="顯示滾動百分比"></a>顯示滾動百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>reading_progress: false</code> 修改成 <code>reading_progress: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_4.jpg" alt="reading_progress_4"><br>即可呈現滾動百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_demo_5.jpg" alt="reading_progress_demo_5"></p>
+<h2 id="顯示閱讀百分比"><a href="#顯示閱讀百分比" class="headerlink" title="顯示閱讀百分比"></a>顯示閱讀百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>scrollpercent: false</code> 修改成 <code>scrollpercent: true</code> 即可呈現閱讀百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6.jpg" alt="reading_Percent_6"></p>
+<h2 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h2><p>使用next主題後會在頁尾的地方出現 [由 Hexo 強力驅動] 的提示字,若想關閉的話在Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml查詢powered關鍵字，將其中屬性 <code>enable: false</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/power_7.jpg" alt="power_7"><br>另外在上面的 copyright 欄位也可以加入引用提示字給讀者參考,例: [XXX - 轉載文章請附上作者及原文連結]<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/copyright_8.jpg" alt="copyright_8"></p>
+<h2 id="自動新增繼續閱讀"><a href="#自動新增繼續閱讀" class="headerlink" title="自動新增繼續閱讀"></a>自動新增繼續閱讀</h2><p>只顯示部分內容,若要閱讀全文則需點擊[閱讀全文]的按鈕,<br>在文章中加上<code>&lt;!-- more --&gt;</code>，就會在該處斷開，以下文章則需點擊閱讀全文才會展開<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/readMore_9.jpg" alt="readMore_9"></p>
+<h2 id="關閉歸檔的勉勵句"><a href="#關閉歸檔的勉勵句" class="headerlink" title="關閉歸檔的勉勵句"></a>關閉歸檔的勉勵句</h2><p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10.jpg" alt="cheers_enabled_10"><br>我們在歸檔的畫面常會看到預設的語句: <code>嗯..! 目前共有 x 篇文章。 繼續努力。</code><br>覺得很煩完全沒有被勉勵的感覺的話,需要在以下到 themes &#x3D;&gt; next &#x3D;&gt; layout &#x3D;&gt; archive.njk檔案中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10_3.jpg" alt="cheers_enabled_10_3"><br>將以下程式碼註解。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10_2.jpg" alt="cheers_enabled_10_2"></p>
+<h2 id="網站瀏覽數量"><a href="#網站瀏覽數量" class="headerlink" title="網站瀏覽數量"></a>網站瀏覽數量</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到 <code>busuanzi_count</code> 屬性後,修改成下方範例即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_11.jpg" alt="busuanzi_count_11"><br>在頁尾看到瀏覽數量<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_demo_12.jpg" alt="busuanzi_count_demo_12"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上為此系列教學的最後一篇,若之後有相關更新也會繼續補充。<br>架設部落格過程中,也是以初學者角度將每一步操作的過程記錄下來,以便整理後可以分享提供給同樣需求的讀者參考,希望我們在學習與分享的道路上一起努力前進。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://israynotarray.com/hexo/20201003/38607376/">試著學 Hexo - NexT 主題篇 - 可以安裝的套件</a><br><a href="https://garyissogood.github.io/hexo/20200210/1699950564/">hexo Blog頁面與Next主題</a><br><a href="https://ithelp.ithome.com.tw/articles/10269050">設定你的 Hexo 佈景主題</a><br><a href="https://blog.typeart.cc/HEXO%E6%90%AD%E9%85%8D%E4%B8%BB%E9%A1%8Cnext%E5%9F%BA%E7%A4%8E%E9%85%8D%E7%BD%AE%E6%95%99%E5%AD%B8/#%E6%96%B0%E5%A2%9Etags%E3%80%81categories%E3%80%81archives-%E9%A0%81%E9%9D%A2">HEXO搭配主題next基礎配置教學</a><br><a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">Hexo教學 Next主題設定與頁面功能</a><br><a href="https://heidiliu2020.github.io/hexo-theme/">學習筆記 如何更換 Hexo 主題 &amp; 自訂樣式</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>架設部落格 GitHub Pages + Hexo 套版教學</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前一篇提供GitHub作為部落格的相關架設與設定教學，這篇主要是接著GitHub Pages初步架設後，用Hexo做Blog套版與匯入相關設定，使GitHub Pages 的畫面與功能有Blog的樣子</p>
+<span id="more"></span>
+<h2 id="為什麼要用Hexo"><a href="#為什麼要用Hexo" class="headerlink" title="為什麼要用Hexo?"></a>為什麼要用Hexo?</h2><p>像支援GitHub Pages這種靜態網站框架(<strong><strong>Jekyll、Hugo…</strong></strong>)很多，<br>但既然是教學學較多人用的框架做範例，中間遇到的坑會相對比較少。<br>幾個用Hexo的好處:</p>
+<ol>
+<li>學習成本低，中文資源完善</li>
+<li>支援 MarkDown 格式撰寫</li>
+<li>支援一鍵部署到 GitHub Pages</li>
+<li>豐富的色彩主題與外掛<blockquote>
+<p>當然以上的好處也是需要使用過後，開始比較才能體現出的優點</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
+<li><a href="https://nodejs.org/zh-tw/download">Node.js</a><br>由於Hexo是使用 Node.js編寫，因此需要 Node.js 環境若電腦上沒有的需要安裝 Node.js 喔！</li>
+<li><a href="https://git-scm.com/">Git</a><br>在本地Blog有文章要增修改動設定的異動若要同步到Blog需要安裝Git才能與GitHub Pages同步</li>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code (vs code)</a><br>在本地Blog做編輯時需要一款好的編輯器，Vs Code只是其中一種若本來就有擅用的文字編輯器此工具可忽略</li>
+</ul>
+<h2 id="安裝設定"><a href="#安裝設定" class="headerlink" title="安裝設定"></a>安裝設定</h2><ol>
+<li><p>安裝Hexo<br>打開CMD輸入以下指令就會在本地安裝Hexo建置工具</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化 Hexo<br>這裡以兩種狀況分成兩種做法：</p>
+<ul>
+<li>沒有準備資料夾 : 新建資料夾+初始化 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">// 會在叫出CMD的路徑下建立該新資料夾</span><br><span class="line">$ hexo init &lt;資料夾名稱&gt;   </span><br></pre></td></tr></table></figure></li>
+<li>已準備資料夾 : 在已準備資料夾內初始化 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">// 用CMD輸入以下指令來切換路徑進入該資料夾或用滑鼠點進要安裝的資料夾內在路徑輸入CMD也可</span><br><span class="line">$ cd &lt;資料夾名稱 or 資料夾路徑&gt;</span><br><span class="line"></span><br><span class="line">//進入資料夾後用CMD輸入輸入以下指令進行Hexo初始化</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+ 下圖範例為在桌面路徑下建立HexoTest的資料夾<br> <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/1_HexoInit.jpg" alt="1_HexoInit"></li>
+</ul>
+</li>
+<li><p>在資料夾安裝所需檔案</p>
+ <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.1 正式佈署到GitHub前，我們可先在本機端瀏覽剛安裝初始化完的預設Blog畫面，輸入以下指令後，點擊連結 <a href="http://localhost:4000/">http://localhost:4000/</a> 就出現以 <a href="https://github.com/hexojshexo-theme-landscape">landscape</a> 預設模板建立的Blog首頁。 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+ <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/8_HomePage.jpg" alt="8_HomePage"></li>
+</ul>
+</li>
+<li><p>設定檔結構介紹<br>安裝完成後，資料夾中已經準備好下方這些檔案和資料夾，針對幾個重要的檔案做相關說明</p>
+<blockquote>
+<p>其實之後用久了依自己需求做調整後，會更清晰這些檔案的操作原理</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/2_HexoInit.jpg" alt="2_HexoInit"></p>
+<ul>
+<li><p><strong>_config.yml :</strong><br>有關網站的配置都會在這份檔案中設定調整。<br>例如：網站標題、網站作者、網址、部屬到GitHub儲存庫設定、使用主題名稱等等</p>
+   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">GitHub</span> <span class="string">Pages教學</span>  <span class="comment">#網站標題</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">教學用</span>         <span class="comment">#網站副標題</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">測試教學用</span>  <span class="comment">#對網站的描述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">心情，</span> <span class="string">部落格</span>   <span class="comment">#網站的關鍵詞</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">World</span>           <span class="comment">#作者名字</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-TW</span>         <span class="comment">#網站使用的語言(多語系: [zh-TW, en])</span></span><br><span class="line"><span class="attr">timezone:</span>               <span class="comment">#網站時區，非必填</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>package.json</strong> :<br>記錄所有載入應用程式中需要的所有模組。</p>
+</li>
+<li><p><strong>themes</strong> :<br>用來存放套版主題的地方，<strong>Hexo</strong> 會根據主題來解析 source 資料夾中的檔案並產生態頁面。預設主題為 <a href="https://github.com/hexojshexo-theme-landscape">landscape</a>，後續更換主題也是將檔案載到這個地方。</p>
+</li>
+<li><p><strong>source</strong> :<br>所有的檔案或是資料夾通常都會在這邊。以 <code>_</code> 開頭的檔案、資料夾或隱藏檔案會被 Hexo忽略(不會被佈署到<code>public</code> 資料夾)，除了 <code>_post</code> 資料夾以外，因為這裡面放的是我們上架的文章。這些靜態檔案（<code>Markdown</code>， <code>HTML</code> 等）會經過發佈後會被放進 <code>public</code>資料夾，而其他檔案則是用複製的方式到 <code>public</code>資料夾。</p>
+</li>
+<li><p><strong>scaffolds</strong> :<br>資料夾中有三種預設模板：post、page 和 draft，分別對應：要發布的文章、頁面、草稿。<br>這些是檔案模板，每使用 <code>$ hexo new &lt;type&gt; &lt;name&gt;</code> 創造一個新的貼文或頁面，Hexo就會依指令中的<code>&lt;type&gt;</code> 名稱對應 <code>scaffolds</code> 中的同名模板為你建立檔案雛型。</p>
+</li>
+</ul>
+<h2 id="部署到-GitHub設定"><a href="#部署到-GitHub設定" class="headerlink" title="部署到 GitHub設定"></a>部署到 GitHub設定</h2><ol>
+<li><p>安裝Git相關套件 :<br>在Hexo 資料夾開啟CMD輸入以下指令安裝部署所需套件，若沒有安裝此套件要佈署到GitHub時會出現 [ERROR <em>Deployer not found</em>: <em>git</em>.] 相關警告語</p>
+ <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 _config.yml 檔案的 Deployment 設定 :<br>這邊指的 _config.yml是指Hexo根目錄第一層的檔案，因很多資料夾都會有同檔名的設定檔，因此提醒一下。<br>進入_config.yml 後可找到下圖的預設內容<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/9_DefaultDeploy.jpg" alt="9_DefaultDeploy"><br>將預設內容修改為以下設定 </p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/username/repositoryName.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>輸入指令佈署上GitHub<br>在CMD中輸入以下指令將Hexo的設定與檔案佈署到GitHub上，佈署成功後可到綁定的Repository ⇒ Settings ⇒ Pages ⇒ Visit site 確認佈署後的畫面已套版上Hexo的內容。 </p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy 或 $ hexo d(簡寫)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>佈署後一樣需要等幾秒鐘才會在首頁上看到套版後的樣子，不要急!!!</p>
+</blockquote>
+<p> 通常完成每次文章或內容修改後，會依序輸入以下指令，來避免更新不完全：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>完成佈署後可到GitHub上綁定的Repository中確認完成佈署或直接到個人頁面 <strong>https:&#x2F;&#x2F;[username].github.io&#x2F;[Repository name]</strong>  確認。</p>
+<blockquote>
+<p>在完成初步的Hexo套版後還有一些功能可能之後會需要的，例如:留言板、SEO、文章分類、標籤等等，之後再附上相關教學</p>
+</blockquote>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10207725">Hexo - 前端也能建置部落格！安裝與建置篇</a></li>
+<li><a href="https://hackmd.io/@Heidi-Liu/note-hexo-github">如何使用 Hexo + GitHub Pages 架設個人網誌</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>GitHub</tag>
+        <tag>中文化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>設定選單</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>建立部落格到現在好像才發現一般首頁都會有類似關於我(about)&#x2F;分類&#x2F;標籤的相關選單連結，引導讀者可以更認識作者與文章查詢更方便的功能。</p>
+<span id="more"></span>
+
+<h2 id="開啟首頁選單"><a href="#開啟首頁選單" class="headerlink" title="開啟首頁選單"></a>開啟首頁選單</h2><ol>
+<li><p>以主題next為例，在使用的主題(Themes)資料夾中開啟_config檔案(紅框1所示路徑)，拉到 menu 設定區塊(紅框2所示)，會看到選單項目預設下都用 # 被註解掉，如要開放選單連結就把 # 給刪掉，下圖所示我先把首頁&#x2F;關於我&#x2F;標籤&#x2F;類別選項開啟後存檔。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/ThemeHomePageConfig_1.jpg" alt="ThemeHomePageConfig_1">  </p>
+</li>
+<li><p>執行以下語法可以在本地端預覽開啟選單的首頁畫面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> 預覽頁面，可看到首頁已開啟選單連結。<img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/HomePage_2.jpg" alt="HomePage_2"></p>
+</li>
+<li><p>確認無誤後再執行以下指令，將內容發佈到GitHub上，就會在blog中出現新的首頁選單。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>目前這些被開啟的選單項目除了首頁外，沒有對應的連結頁面呈現，有別於建立新文章的語法，下篇會介紹為每個選單項目建立獨立頁面。</p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo_SEO設定</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這篇就來聊聊SEO的相關基本設定,讓自己在Google的搜尋中容易被搜尋到吧</p>
+<span id="more"></span>
+
+<h2 id="Google-Search-Console註冊"><a href="#Google-Search-Console註冊" class="headerlink" title="Google Search Console註冊"></a>Google Search Console註冊</h2><p>若要在Google 的SEO上做相關設定需先進入 <a href="https://search.google.com/search-console/about">Google Search Console</a> ,可以讓我們在 Google 搜尋引擎登錄新建的網站,提供檢索分析,管理你的網站在搜尋引擎上的SEO表現 ,讓我們更加了解網站的流量和被查詢的關鍵字等。</p>
+<ol>
+<li><p>進入Google Search Console 從左上角選擇新增資源後,建議先選擇網站前置字元的方式驗證,網址欄位輸入部落格首頁網址像是: <code>https://username.github.io/RepoName/</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/RegisterSeo_1.jpg" alt="RegisterSeo_1"></p>
+</li>
+<li><p>下一步會提供幾個方式(html&#x2F;GA&#x2F;代碼管理器&#x2F;網域名稱供應商…)來驗證這個網站是本人所擁有,這裡建議先用最簡單的html方式驗證,網頁會請你下載一個html檔案,下載後將檔案中的內修改為以下格式(若沒在內容中加入 <code>layout: false</code> 後面驗證會導致失敗)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/Verification_3.jpg" alt="Verification_3"></p>
+</li>
+<li><p>將修改後的html檔案放在Hexo目錄的Source資料夾中(與_post同階層)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/FileLayer_4.jpg" alt="FileLayer_4"></p>
+</li>
+<li><p>修改後我們將剛剛加入的html檔案佈署到網站中，所以別忘輸入以下語法做完整的佈署</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>佈署完成後會在Google Search Console 左邊選單中的設定中,看到擁有驗證權已經變成綠勾勾了<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/RegisterOk_5.jpg" alt="RegisterOk_5"></p>
+</li>
+<li><p>完成這步驟後,要等幾天的時間讓 Google Search Console 分析出部落格有哪些熱門關鍵字以及哪些地方可以優化，到時在看他的數據建議調整優化。</p>
+</li>
+<li><p>若想確認網站是否已經登入Google的搜尋引擎中另一個方法是可以在Google搜尋中輸入 <code>site:部落格網址</code>,若搜尋結果有出現部落格代表已經登入成功<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/BlogSearch_6.jpg" alt="BlogSearch_6"></p>
+</li>
+</ol>
+<h2 id="Sitemap-註冊"><a href="#Sitemap-註冊" class="headerlink" title="Sitemap 註冊"></a>Sitemap 註冊</h2><p>註冊成功網站後,由於新網站曝光度不高的狀況下,我們要讓網站下的網址(例如:每篇內容)可被Google的爬蟲搜尋到裡面的關鍵字等,因此需要產生一份網站地圖給搜尋引擎爬蟲使用,讓他收錄網站下的每個連結網址的內容提升關鍵字的曝光度。</p>
+<ol>
+<li><p>回到Hexo中呼叫CMD後,輸入以下語法安裝自動生成網站地圖的套件</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-sitemap</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure></li>
+<li><p>在Hexo根目錄中的_config.yml中新增以下語法後存檔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/SitemapConfig_7.jpg" alt="SitemapConfig_7"></p>
+</li>
+<li><p>套件產生site.xml檔後佈署到網站上</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>佈署完成後可在網站網址的後面加上 <code>/sitemap.xml</code>  (例如: <code>https://部落格網址/sitemap.xml</code>)看是否有類似以下畫面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/SitemapXml_8.jpg" alt="SitemapXml_8"></p>
+</li>
+<li><p>確認有佈署成功後將sitemap檔案註冊到 Google Search Console,回到Google Search Console頁面點選左邊選單的產生索引 ⇒ Sitemap 在新增 Sitemap的欄位貼上 sitemap.xml<br>即可在下方的 已提交的Sitemap中看看狀態是否為成功。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo-Tutorial-SeoSetting/RegisterSitemapXml_9.jpg" alt="RegisterSitemapXml_9"></p>
+</li>
+<li><p>這樣 Google 的爬蟲就會定期去看 sitemap.xml 檔案是否有更新，若有更新它就會去爬你的部落格並加入到搜尋引擎中。</p>
+</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹部落格在SEO中的基本登入設定,在登入成功與收錄成功所花費的時間,我也真的不太了解,有聽說1-2禮拜也有幾天的,目前這塊自己也在摸索中,與大家一起努力調整自己的SEO吧。當然如果有高手也歡迎提點指教</p>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a href="https://askie.today/upload-sitemap-google-search-console-seo-hexo-blog/">輕鬆地提交 Hexo 部落格的 Sitemap.xml 到 Google Search Console</a><br><a href="https://ithelp.ithome.com.tw/articles/10249885">試著學 Hexo - SEO 篇 - Google Search Console</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>SEO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用Hexo自訂主題(Theme)教學</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>完成 <strong><a href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/">用Hexo套版GitHub Pages當部落格</a></strong> 教學後，若覺得預設的主題  landscape 不是你想要的風格，這篇教學針對如何更換其他主題來套版部落格的介面，簡單來說就是幫部落格換衣服</p>
+<span id="more"></span>
+<h2 id="架構介紹"><a href="#架構介紹" class="headerlink" title="架構介紹"></a>架構介紹</h2><p>跟主題有關設定主要會調整到兩個地方_config.yml檔案跟themes資料夾</p>
+<ul>
+<li><p><strong>_config.yml :</strong><br>有關網站的配置都會在這份檔案中設定調整。<br>例如：網站標題、網站作者、網址、部屬到GitHub儲存庫設定、使用主題名稱等等‧<br>針對此篇主題只顯示檔案中有關主題設定片段內容，<br>如檔案所示Hexo主題是使用landscape作為預設版面</p>
+  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span> <span class="comment">#主題(模板)名稱</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>themes</strong> :<br>用來存放套版主題的地方，<strong>Hexo</strong> 會根據主題(Themes)來解析 source 資料夾中的檔案並產生靜態頁面。預設主題為 <a href="https://github.com/hexojshexo-theme-landscape">landscape</a>，後續更換主題也是將檔案載到這個地方。</p>
+</li>
+</ul>
+<h2 id="更換主題"><a href="#更換主題" class="headerlink" title="更換主題"></a>更換主題</h2><ol>
+<li><p>尋找主題<br>可以在Hexo提供的 <strong><a href="https://hexo.io/themes/">主題</a></strong> 頁中尋找喜歡的模板，裡面提供眾多開源者貢獻的作品供大家使用欣賞，在每個主題下的 Visit preview site 可以預覽主題渲染後實際的表現是不是理想中的樣子再下載。<br>在教學中就用主題中最熱門的 <strong><a href="https://theme-next.js.org/">Next</a></strong> 來當作範例</p>
+</li>
+<li><p>下載主題<br>選好主題後點選標題進入GitHub頁面(例:<a href="https://github.com/next-theme/hexo-theme-next">Next</a>)，在GitHub頁面中複製Repository的Url。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/3_GitHub_Url.jpg" alt="3_GitHub_Url"><br>回到本機端的Theme資料夾，在路徑中開啟CMD<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/4_CMD.jpg" alt="4_CMD"><br>輸入以下Git語法透過剛剛複製的Repository Url將程式碼下載到Theme資料夾中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/5_CMD_Download.jpg" alt="5_CMD_Download"><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/6_NextFolder.jpg" alt="6_NextFolder"></p>
+<br></li>
+<li><p>設定主題<br>上個步驟將主題模板下載到Themes資料夾後，回到根目錄的 _config.yml 中的 theme 段落原本預設為 landscape 的名稱改為 next(或你想要的主題名稱)，如下:</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment">#主題(模板)名稱</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意:</strong> 若_config.yml中設定名稱如上，就必須把下載的Next資料夾名稱也設定同名(原下載資料夾名稱為:hexo-theme-next)，重點就是Themes內的主題資料夾名稱要與_config.yml內的設定名稱一致。</p>
+</blockquote>
+</li>
+<li><p>首頁預覽<br>在 themes資料夾與_config.yml設定完成後，回到根目錄的CMD中執行以下指令。<br><strong>維持[文章或內容修改後，佈署到GitHub前執行以下指令完成更新]的習慣，來避免更新不完全</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br></pre></td></tr></table></figure>
+<p> 更新成最新狀態後輸入以下指令後，點擊連結 <a href="http://localhost:4000/">http://localhost:4000/</a> 就出現以 <strong>next</strong> 預設模板建立的Blog首頁。</p>
+<blockquote>
+<p><strong>注意:</strong> 若踩到上一步提醒的雷(設定檔的模板名稱與模板資料夾不同名)，就會在CMD上顯示No Layout:index.html的告警</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo server   -- 在本機端可預覽網站</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/7_NextHomePage.jpg" alt="7_NextHomePage"></p>
+<br></li>
+<li><p>佈署上GitHub Pages<br>在本機預覽後接著輸入以下指令將這次更新的內容佈署到GitHub上，才能在真正的Blog連結看到這次的主題模板修改</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>完成佈署後就完成這次更新模板設定，挑選模板過程也可以注意該模板專案是否有經常優化、更新套件、修Bug等Commit紀錄，代表有經常在維護的專案，選擇Next作範例也是這原因。</p>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10257569">建立自己Blog系列(三) Hexo next theme 介紹</a></li>
+</ul>
+<h4 id="相關連結"><a href="#相關連結" class="headerlink" title="相關連結"></a>相關連結</h4><ul>
+<li><a href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/">架設部落格 GitHub Pages + Hexo 教學</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Theme</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-URL連結設定</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。</p>
+<span id="more"></span>
+<h2 id="URL設定介紹"><a href="#URL設定介紹" class="headerlink" title="URL設定介紹"></a>URL設定介紹</h2><p>_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。<br>可參考下圖設定檔中的 permalink 欄位設定的規則。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg" alt="1_permalinkDefault"></p>
+<h2 id="Url設定原則"><a href="#Url設定原則" class="headerlink" title="Url設定原則"></a>Url設定原則</h2><p>應該維持一個原則就是Url連結基本上就是固定不會一直被改變的。<br>對於預設的分類方式優缺點:</p>
+<ul>
+<li>優點:我想不到甚麼優點，哈。</li>
+<li>缺點:<ol>
+<li>以日期為Url的階層邏輯沒有可讀性與記憶點，應該沒甚麼人會單獨記文章日期來尋找文章最少也是對文章標題有記憶吧。</li>
+<li>以文章日期做Url連結，若有讀者將喜歡的文章收藏起來，改天作者因為重構或修改文章內容而修改連結日期，就會導致讀者收藏的連結失效。</li>
+</ol>
+</li>
+</ul>
+<h2 id="設定步驟"><a href="#設定步驟" class="headerlink" title="設定步驟"></a>設定步驟</h2><p>每個人的分類方式不同，這邊以我自己目前使用的分類:標題(title)作說明，關於Url讀取title參數原理是與_post資料夾內同步的。<br>舉例:</p>
+<ol>
+<li><p>有篇在2023&#x2F;01&#x2F;01產出在_post資料夾內名為UrlConfigTemp1的檔案，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;UrlConfigTemp1</p>
+</li>
+<li><p>但若把UrlConfigTemp1的檔案放在_post資料夾內的TempGroup的資料夾中後，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;TempGroup&#x2F;UrlConfigTemp1</p>
+</li>
+</ol>
+<p>步驟:</p>
+<ol>
+<li>到設定檔_config.yml中找到 permalink 欄位改為只以標題作為連結的設定  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></li>
+<li>將_config.yml修改後，在Hexo資料夾中呼叫Cmd執行以下語法，可在本機開啟預覽頁面確認Url連結是否正確  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
+  <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg" alt="2_permalinkTitle"></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在架站剛開始先規劃好分類方式，避免之後文章開始多了之後才重整理作品造成時間成本浪費。<br>另外或許對於Url用標題分類有同樣疑問就是:<br>若有讀者一樣在作者將檔案換位置前已經收藏了連結，那收藏連結一樣會在作者修改文章位置後失效的問題。<br>對於這個狀況有另一種Url設定方式提供參考 &#x3D;&gt;<br><a href="https://riemann.blog/posts/d3aa7087/">Hexo-永久連結設定</a>(直接將每個Url綁定一組固定編碼不會隨著title路徑變化的方式呈現)。</p>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a href="https://old-oomusou.goodjack.tw/hexo/uri-category/">如何使 Hexo 以文章分類為URI</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>

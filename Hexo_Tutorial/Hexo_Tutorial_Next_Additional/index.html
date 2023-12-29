@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Whats-Up-Coding/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Whats-Up-Coding/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Whats-Up-Coding/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/Whats-Up-Coding/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Whats-Up-Coding/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mpssea00714.github.io","root":"/Whats-Up-Coding/","images":"/Whats-Up-Coding/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/Whats-Up-Coding/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/Whats-Up-Coding/js/config.js"></script>
+
+    <meta name="description" content="前言此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo_主題[next]功能小補帖">
+<meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/index.html">
+<meta property="og:site_name" content="What&#39;s up Coding">
+<meta property="og:description" content="前言此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/searchOperate_2.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_4.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_demo_5.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/power_7.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/copyright_8.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/readMore_9.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10_3.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10_2.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_11.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_demo_12.jpg">
+<meta property="article:published_time" content="2023-12-29T04:06:35.000Z">
+<meta property="article:modified_time" content="2023-12-29T12:44:43.497Z">
+<meta property="article:author" content="David">
+<meta property="article:tag" content="2023">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Next">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg">
+
+
+<link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/","path":"Hexo_Tutorial/Hexo_Tutorial_Next_Additional/","title":"Hexo_主題[next]功能小補帖"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo_主題[next]功能小補帖 | What's up Coding</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Whats-Up-Coding/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Whats-Up-Coding/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">What's up Coding</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/Whats-Up-Coding/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/Whats-Up-Coding/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/Whats-Up-Coding/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/Whats-Up-Coding/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/Whats-Up-Coding/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A7%E5%AE%B9Search%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">內容Search功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%AF%E7%A4%BA%E6%BB%BE%E5%8B%95%E7%99%BE%E5%88%86%E6%AF%94"><span class="nav-number">3.</span> <span class="nav-text">顯示滾動百分比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%AF%E7%A4%BA%E9%96%B1%E8%AE%80%E7%99%BE%E5%88%86%E6%AF%94"><span class="nav-number">4.</span> <span class="nav-text">顯示閱讀百分比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%AC%8A%E5%AE%A3%E5%91%8A"><span class="nav-number">5.</span> <span class="nav-text">版權宣告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8B%95%E6%96%B0%E5%A2%9E%E7%B9%BC%E7%BA%8C%E9%96%B1%E8%AE%80"><span class="nav-number">6.</span> <span class="nav-text">自動新增繼續閱讀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%9C%E9%96%89%E6%AD%B8%E6%AA%94%E7%9A%84%E5%8B%89%E5%8B%B5%E5%8F%A5"><span class="nav-number">7.</span> <span class="nav-text">關閉歸檔的勉勵句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B6%B2%E7%AB%99%E7%80%8F%E8%A6%BD%E6%95%B8%E9%87%8F"><span class="nav-number">8.</span> <span class="nav-text">網站瀏覽數量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">9.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">David</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/Whats-Up-Coding/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/Whats-Up-Coding/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/Whats-Up-Coding/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="回到頂端">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
+      <meta itemprop="name" content="David">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo_主題[next]功能小補帖 | What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo_主題[next]功能小補帖
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2023-12-29 12:06:35 / 修改時間：20:44:43" itemprop="dateCreated datePublished" datetime="2023-12-29T12:06:35+08:00">2023-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">教學</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">閱讀次數：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
+<span id="more"></span>
+
+<h2 id="內容Search功能"><a href="#內容Search功能" class="headerlink" title="內容Search功能"></a>內容Search功能</h2><p>開啟搜尋功能前須先安裝以下套件,在Hexo資料夾開啟CMD後,輸入以下指令安裝<br><code>npm install hexo-generator-searchdb --save</code><br>進入Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml中,修改local_search項目中<code>enable : true</code> 即可,就會在首頁看到多了搜尋的選項與介面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg" alt="search_1"><br>點擊搜尋後即可在功能中查詢相關內容<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/searchOperate_2.jpg" alt="searchOperate_2"></p>
+<h2 id="顯示滾動百分比"><a href="#顯示滾動百分比" class="headerlink" title="顯示滾動百分比"></a>顯示滾動百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>reading_progress: false</code> 修改成 <code>reading_progress: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_4.jpg" alt="reading_progress_4"><br>即可呈現滾動百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_demo_5.jpg" alt="reading_progress_demo_5"></p>
+<h2 id="顯示閱讀百分比"><a href="#顯示閱讀百分比" class="headerlink" title="顯示閱讀百分比"></a>顯示閱讀百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>scrollpercent: false</code> 修改成 <code>scrollpercent: true</code> 即可呈現閱讀百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6.jpg" alt="reading_Percent_6"></p>
+<h2 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h2><p>使用next主題後會在頁尾的地方出現 [由 Hexo 強力驅動] 的提示字,若想關閉的話在Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml查詢powered關鍵字，將其中屬性 <code>enable: false</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/power_7.jpg" alt="power_7"><br>另外在上面的 copyright 欄位也可以加入引用提示字給讀者參考,例: [XXX - 轉載文章請附上作者及原文連結]<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/copyright_8.jpg" alt="copyright_8"></p>
+<h2 id="自動新增繼續閱讀"><a href="#自動新增繼續閱讀" class="headerlink" title="自動新增繼續閱讀"></a>自動新增繼續閱讀</h2><p>只顯示部分內容,若要閱讀全文則需點擊[閱讀全文]的按鈕,<br>在文章中加上<code>&lt;!-- more --&gt;</code>，就會在該處斷開，以下文章則需點擊閱讀全文才會展開<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/readMore_9.jpg" alt="readMore_9"></p>
+<h2 id="關閉歸檔的勉勵句"><a href="#關閉歸檔的勉勵句" class="headerlink" title="關閉歸檔的勉勵句"></a>關閉歸檔的勉勵句</h2><p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10.jpg" alt="cheers_enabled_10"><br>我們在歸檔的畫面常會看到預設的語句: <code>嗯..! 目前共有 x 篇文章。 繼續努力。</code><br>覺得很煩完全沒有被勉勵的感覺的話,需要在以下到 themes &#x3D;&gt; next &#x3D;&gt; layout &#x3D;&gt; archive.njk檔案中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10_3.jpg" alt="cheers_enabled_10_3"><br>將以下程式碼註解。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next-Additional/cheers_enabled_10_2.jpg" alt="cheers_enabled_10_2"></p>
+<h2 id="網站瀏覽數量"><a href="#網站瀏覽數量" class="headerlink" title="網站瀏覽數量"></a>網站瀏覽數量</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到 <code>busuanzi_count</code> 屬性後,修改成下方範例即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_11.jpg" alt="busuanzi_count_11"><br>在頁尾看到瀏覽數量<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_demo_12.jpg" alt="busuanzi_count_demo_12"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上為此系列教學的最後一篇,若之後有相關更新也會繼續補充。<br>架設部落格過程中,也是以初學者角度將每一步操作的過程記錄下來,以便整理後可以分享提供給同樣需求的讀者參考,希望我們在學習與分享的道路上一起努力前進。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://israynotarray.com/hexo/20201003/38607376/">試著學 Hexo - NexT 主題篇 - 可以安裝的套件</a><br><a target="_blank" rel="noopener" href="https://garyissogood.github.io/hexo/20200210/1699950564/">hexo Blog頁面與Next主題</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10269050">設定你的 Hexo 佈景主題</a><br><a target="_blank" rel="noopener" href="https://blog.typeart.cc/HEXO%E6%90%AD%E9%85%8D%E4%B8%BB%E9%A1%8Cnext%E5%9F%BA%E7%A4%8E%E9%85%8D%E7%BD%AE%E6%95%99%E5%AD%B8/#%E6%96%B0%E5%A2%9Etags%E3%80%81categories%E3%80%81archives-%E9%A0%81%E9%9D%A2">HEXO搭配主題next基礎配置教學</a><br><a target="_blank" rel="noopener" href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">Hexo教學 Next主題設定與頁面功能</a><br><a target="_blank" rel="noopener" href="https://heidiliu2020.github.io/hexo-theme/">學習筆記 如何更換 Hexo 主題 &amp; 自訂樣式</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Whats-Up-Coding/tags/2023/" rel="tag"># 2023</a>
+              <a href="/Whats-Up-Coding/tags/Tutorial/" rel="tag"># Tutorial</a>
+              <a href="/Whats-Up-Coding/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/Whats-Up-Coding/tags/Next/" rel="tag"># Next</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/" rel="prev" title="Hexo_SEO設定">
+                  <i class="fa fa-angle-left"></i> Hexo_SEO設定
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+  <script src="https://utteranc.es/client.js"
+        repo="mpssea00714/Whats-Up-Coding"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+  </script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">David - 轉載文章請附上作者及原文連結</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Whats-Up-Coding/js/comments.js"></script><script src="/Whats-Up-Coding/js/utils.js"></script><script src="/Whats-Up-Coding/js/motion.js"></script><script src="/Whats-Up-Coding/js/schemes/muse.js"></script><script src="/Whats-Up-Coding/js/next-boot.js"></script><script src="/Whats-Up-Coding/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/Whats-Up-Coding/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
