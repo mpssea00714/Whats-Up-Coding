@@ -187,13 +187,6 @@
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/AI/</loc>
-    <lastmod>2024-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Hexo/</loc>
     <lastmod>2024-01-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -208,14 +201,7 @@
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/SQL/</loc>
-    <lastmod>2024-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Problems/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/AI/</loc>
     <lastmod>2024-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -229,21 +215,14 @@
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Next/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/SQL/</loc>
     <lastmod>2024-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/%E4%B8%AD%E6%96%87%E5%8C%96/</loc>
-    <lastmod>2024-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/SEO/</loc>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Problems/</loc>
     <lastmod>2024-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -265,6 +244,27 @@
   
   <url>
     <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/%E9%A1%9E%E5%88%A5/</loc>
+    <lastmod>2024-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/%E4%B8%AD%E6%96%87%E5%8C%96/</loc>
+    <lastmod>2024-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/Next/</loc>
+    <lastmod>2024-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://mpssea00714.github.io/Whats-Up-Coding/tags/SEO/</loc>
     <lastmod>2024-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
