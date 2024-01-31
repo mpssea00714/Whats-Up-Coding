@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/Whats-Up-Coding/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AutoGPT安裝教學</title>
     <url>/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前使用ChatGPT的互動方式是與AI用一問一答的方式分解自己待解決的問題,近期使用的AutoGPT則是有能力去設想你的問題需要什麼，自主搜集資料生成訴求，幫你與ChatGPT在互動中提出一連串的問題,來解決你的問題。</p>
@@ -58,6 +34,98 @@
         <tag>2023</tag>
         <tag>Tutorial</tag>
         <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/Whats-Up-Coding/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL_中文字變問號</title>
+    <url>/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有時在工作情境中需要手動執行SQL語法更新含有中文字時,難免會遇到明明程式執行的時候一樣的中文字有正常顯示,但手動執行SQL語法時,一樣的中文字卻變成了問號(?)。</p>
+<span id="more"></span>
+
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>手動執行SQL語法時造成有些中文顯示問號(?)是因為中文是用Unicode編碼組成,若確定輸入的中文內容會顯示問號(?)的話,可在輸入的字串前置[N]字,即可解決中文變成問號(?)的狀況。<br>例如:要更新的中文字中含有[俥]字</p>
+<h6 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> <span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/./ChineseWord_Translate_Error/Modified_Before.jpg" alt="Modified_Before"></p>
+<h6 id="修改後"><a href="#修改後" class="headerlink" title="修改後"></a>修改後</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> N<span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/./ChineseWord_Translate_Error/Modified_After.jpg" alt="Modified_After"></p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>SQL</tag>
+        <tag>Problems</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo發佈文章教學</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
+<span id="more"></span>
+
+<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
+<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
+</li>
+<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
+<blockquote>
+<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
+</blockquote>
+<ol start="3">
+<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
+</blockquote>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
+<ol start="4">
+<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a href="https://markdown.tw/">Markdown官網</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -139,130 +207,6 @@
         <tag>2023</tag>
         <tag>Tutorial</tag>
         <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建立選單頁面</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
-<span id="more"></span>
-
-<h2 id="新增about頁面"><a href="#新增about頁面" class="headerlink" title="新增about頁面"></a>新增about頁面</h2><p>about頁面的內容通常會對作者做簡單介紹或創建平台的原因等，視每人需求來表現自己的頁面呈現。</p>
-<p>categories&#x2F;tags&#x2F;about三種頁面與發佈文章的定位不同，需獨立頁面來統整特定屬性的呈現，<br>例如:<br>標籤頁面:含各種標籤搜尋<br>類別頁面:含各種類別搜尋<br>關於我:關於作者或平台的簡介<br>如有以上需求我們可以使用以下語法，以about為例</p>
-<ol>
-<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 about 的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page about //新增about頁面</span><br></pre></td></tr></table></figure></li>
-<li>執行以下語法可以在本地端預覽新建的about頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
-<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁的about進入，如要編輯內容在about資料夾中的 <code>index.md</code> 編輯即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/AboutPage_1.jpg" alt="AboutPage_1"></li>
-</ol>
-<h2 id="分類與標籤的區別"><a href="#分類與標籤的區別" class="headerlink" title="分類與標籤的區別"></a>分類與標籤的區別</h2><ol>
-<li>層次結構：<ul>
-<li>分類： 通常具有層次結構，允許你創建一個有序的主題層次。例如，你可以擁有「技術」分類下的「前端開發」子分類，這種結構更具組織性。</li>
-<li>標籤： 不像分類有明確的層次結構，標籤是單獨的關鍵字或短語，用於描述內容的主題或屬性，不具有層次性。</li>
-</ul>
-</li>
-<li>數量限制：<ul>
-<li>分類： 通常一篇內容只能歸類到一個分類，分類用於更嚴格和結構化的組織。例如，一篇文章可能只屬於「科技」或「生活」其中一個分類。</li>
-<li>標籤： 一篇內容可以擁有多個標籤，標籤是用來標記文章的關鍵字或主題，一篇文章可以同時擁有多個標籤，從而更全面地描述內容。</li>
-</ul>
-</li>
-<li>用途和應用場景：<ul>
-<li>分類： 主要用於將內容整體組織，提供更清晰的主題結構。通常在網站導覽菜單中以分類為基礎建立不同的頁面。</li>
-<li>標籤： 主要用於標記和描述內容的細節和特點，提供更靈活的搜索和篩選選項。標籤可以使相似主題的內容在不同的分類中彼此聯繫。</li>
-</ul>
-</li>
-<li>可見性和導航：<ul>
-<li>分類： 通常體現在網站的主導航結構中，是用戶瀏覽和尋找特定主題的主要途徑。</li>
-<li>標籤： 通常以雲標籤或類似的方式呈現，用戶可以點擊標籤查看相關內容，而不必遵循固定的層次結構。</li>
-</ul>
-</li>
-</ol>
-<p>總結來說，分類提供了一個結構化的、有序的方式組織內容，而標籤則提供了更靈活、更細緻的方式來標記和描述內容的特徵。在實際應用中，通常可以同時使用分類和標籤以充分發揮組織和搜尋功能。</p>
-<h3 id="設定分類-文章中附上分類屬性與階層"><a href="#設定分類-文章中附上分類屬性與階層" class="headerlink" title="設定分類:文章中附上分類屬性與階層"></a>設定分類:文章中附上分類屬性與階層</h3><ol>
-<li>在文章檔案中，都有預設的標頭區塊，可新增需要的類別如紅框表示。<br>分類帶有階層屬性因此如果需要做更細的分類寫法，只需在中括號內將類別名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPage_2.jpg" alt="CategoriesPage_2"></li>
-</ol>
-<h3 id="設定分類頁面"><a href="#設定分類頁面" class="headerlink" title="設定分類頁面:"></a>設定分類頁面:</h3><ol>
-<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 categories  的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories  //新增分類頁面</span><br></pre></td></tr></table></figure></li>
-<li>在新建的categories  資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;categories”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageSet_4.jpg" alt="CategoriesPageSet_4"> </li>
-<li>執行以下語法可以在本地端預覽新建的分類頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
-<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁類別連結進入，裡面記錄每篇文章新增的類別連結與階層性排序<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageDemo_3.jpg" alt="CategoriesPageDemo_3"></li>
-</ol>
-<h3 id="設定標籤-在每頁發文中附上標籤屬性"><a href="#設定標籤-在每頁發文中附上標籤屬性" class="headerlink" title="設定標籤:在每頁發文中附上標籤屬性"></a>設定標籤:在每頁發文中附上標籤屬性</h3><ol>
-<li>在文章檔案中，都有預設的標頭區塊，可新增需要的標籤如紅框表示。<br>標籤可在文章中帶有多個標籤的特性，只需在中括號內將標籤名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPage_6.jpg" alt="TagsPage_6"></li>
-</ol>
-<h3 id="設定標籤頁面"><a href="#設定標籤頁面" class="headerlink" title="設定標籤頁面:"></a>設定標籤頁面:</h3><ol>
-<li><p>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 tags 的資料夾(與_post同階層)與首頁。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page tags   //新增分類頁面</span><br></pre></td></tr></table></figure></li>
-<li><p>在新建的tags資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;tags”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageSet_5.jpg" alt="TagsPageSet_5"> </p>
-</li>
-<li><p>執行以下語法可以在本地端預覽新建的標籤頁面</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
-<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁標籤連結進入，裡面記錄在文章建立出的每個標籤項目<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageDemo_7.jpg" alt="TagsPageDemo_7"></p>
-</li>
-</ol>
-<h2 id="關閉留言板"><a href="#關閉留言板" class="headerlink" title="關閉留言板"></a>關閉留言板</h2><p>建立categories&#x2F;tags&#x2F;about頁面時發現這類獨立頁面保有留言版功能，但是否需要留言板看使用者需求。<br>這邊也提供針對特定頁面關閉留言板的功能。在需要關閉留言版的文件中，在預設版塊中新增 <code>comments: false</code> 就會在需要的頁面中關閉留言板功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CloseComment_8.jpg" alt="CloseComment_8"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹為獨立屬性的頁面新增的語法，為部落格增添統整功能</p>
-<p>發布文章語法: hexo new post 標題</p>
-<p>發布頁面語法: hexo new page 標題</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://hsuan777.github.io/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/">Hexo教學(六) 文章標籤與分類</a></p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>留言板</tag>
-        <tag>標籤</tag>
-        <tag>類別</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo發佈文章教學</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
-<span id="more"></span>
-
-<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
-<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
-</li>
-<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
-<blockquote>
-<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
-</blockquote>
-<ol start="3">
-<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
-</blockquote>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
-<ol start="4">
-<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a href="https://markdown.tw/">Markdown官網</a></p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -529,6 +473,126 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo建立選單頁面</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
+<span id="more"></span>
+
+<h2 id="新增about頁面"><a href="#新增about頁面" class="headerlink" title="新增about頁面"></a>新增about頁面</h2><p>about頁面的內容通常會對作者做簡單介紹或創建平台的原因等，視每人需求來表現自己的頁面呈現。</p>
+<p>categories&#x2F;tags&#x2F;about三種頁面與發佈文章的定位不同，需獨立頁面來統整特定屬性的呈現，<br>例如:<br>標籤頁面:含各種標籤搜尋<br>類別頁面:含各種類別搜尋<br>關於我:關於作者或平台的簡介<br>如有以上需求我們可以使用以下語法，以about為例</p>
+<ol>
+<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 about 的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page about //新增about頁面</span><br></pre></td></tr></table></figure></li>
+<li>執行以下語法可以在本地端預覽新建的about頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁的about進入，如要編輯內容在about資料夾中的 <code>index.md</code> 編輯即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/AboutPage_1.jpg" alt="AboutPage_1"></li>
+</ol>
+<h2 id="分類與標籤的區別"><a href="#分類與標籤的區別" class="headerlink" title="分類與標籤的區別"></a>分類與標籤的區別</h2><ol>
+<li>層次結構：<ul>
+<li>分類： 通常具有層次結構，允許你創建一個有序的主題層次。例如，你可以擁有「技術」分類下的「前端開發」子分類，這種結構更具組織性。</li>
+<li>標籤： 不像分類有明確的層次結構，標籤是單獨的關鍵字或短語，用於描述內容的主題或屬性，不具有層次性。</li>
+</ul>
+</li>
+<li>數量限制：<ul>
+<li>分類： 通常一篇內容只能歸類到一個分類，分類用於更嚴格和結構化的組織。例如，一篇文章可能只屬於「科技」或「生活」其中一個分類。</li>
+<li>標籤： 一篇內容可以擁有多個標籤，標籤是用來標記文章的關鍵字或主題，一篇文章可以同時擁有多個標籤，從而更全面地描述內容。</li>
+</ul>
+</li>
+<li>用途和應用場景：<ul>
+<li>分類： 主要用於將內容整體組織，提供更清晰的主題結構。通常在網站導覽菜單中以分類為基礎建立不同的頁面。</li>
+<li>標籤： 主要用於標記和描述內容的細節和特點，提供更靈活的搜索和篩選選項。標籤可以使相似主題的內容在不同的分類中彼此聯繫。</li>
+</ul>
+</li>
+<li>可見性和導航：<ul>
+<li>分類： 通常體現在網站的主導航結構中，是用戶瀏覽和尋找特定主題的主要途徑。</li>
+<li>標籤： 通常以雲標籤或類似的方式呈現，用戶可以點擊標籤查看相關內容，而不必遵循固定的層次結構。</li>
+</ul>
+</li>
+</ol>
+<p>總結來說，分類提供了一個結構化的、有序的方式組織內容，而標籤則提供了更靈活、更細緻的方式來標記和描述內容的特徵。在實際應用中，通常可以同時使用分類和標籤以充分發揮組織和搜尋功能。</p>
+<h3 id="設定分類-文章中附上分類屬性與階層"><a href="#設定分類-文章中附上分類屬性與階層" class="headerlink" title="設定分類:文章中附上分類屬性與階層"></a>設定分類:文章中附上分類屬性與階層</h3><ol>
+<li>在文章檔案中，都有預設的標頭區塊，可新增需要的類別如紅框表示。<br>分類帶有階層屬性因此如果需要做更細的分類寫法，只需在中括號內將類別名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPage_2.jpg" alt="CategoriesPage_2"></li>
+</ol>
+<h3 id="設定分類頁面"><a href="#設定分類頁面" class="headerlink" title="設定分類頁面:"></a>設定分類頁面:</h3><ol>
+<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 categories  的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories  //新增分類頁面</span><br></pre></td></tr></table></figure></li>
+<li>在新建的categories  資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;categories”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageSet_4.jpg" alt="CategoriesPageSet_4"> </li>
+<li>執行以下語法可以在本地端預覽新建的分類頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁類別連結進入，裡面記錄每篇文章新增的類別連結與階層性排序<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageDemo_3.jpg" alt="CategoriesPageDemo_3"></li>
+</ol>
+<h3 id="設定標籤-在每頁發文中附上標籤屬性"><a href="#設定標籤-在每頁發文中附上標籤屬性" class="headerlink" title="設定標籤:在每頁發文中附上標籤屬性"></a>設定標籤:在每頁發文中附上標籤屬性</h3><ol>
+<li>在文章檔案中，都有預設的標頭區塊，可新增需要的標籤如紅框表示。<br>標籤可在文章中帶有多個標籤的特性，只需在中括號內將標籤名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPage_6.jpg" alt="TagsPage_6"></li>
+</ol>
+<h3 id="設定標籤頁面"><a href="#設定標籤頁面" class="headerlink" title="設定標籤頁面:"></a>設定標籤頁面:</h3><ol>
+<li><p>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 tags 的資料夾(與_post同階層)與首頁。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page tags   //新增分類頁面</span><br></pre></td></tr></table></figure></li>
+<li><p>在新建的tags資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;tags”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageSet_5.jpg" alt="TagsPageSet_5"> </p>
+</li>
+<li><p>執行以下語法可以在本地端預覽新建的標籤頁面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁標籤連結進入，裡面記錄在文章建立出的每個標籤項目<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageDemo_7.jpg" alt="TagsPageDemo_7"></p>
+</li>
+</ol>
+<h2 id="關閉留言板"><a href="#關閉留言板" class="headerlink" title="關閉留言板"></a>關閉留言板</h2><p>建立categories&#x2F;tags&#x2F;about頁面時發現這類獨立頁面保有留言版功能，但是否需要留言板看使用者需求。<br>這邊也提供針對特定頁面關閉留言板的功能。在需要關閉留言版的文件中，在預設版塊中新增 <code>comments: false</code> 就會在需要的頁面中關閉留言板功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CloseComment_8.jpg" alt="CloseComment_8"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹為獨立屬性的頁面新增的語法，為部落格增添統整功能</p>
+<p>發布文章語法: hexo new post 標題</p>
+<p>發布頁面語法: hexo new page 標題</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://hsuan777.github.io/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/">Hexo教學(六) 文章標籤與分類</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>留言板</tag>
+        <tag>標籤</tag>
+        <tag>類別</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-URL連結設定</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。</p>
+<span id="more"></span>
+<h2 id="URL設定介紹"><a href="#URL設定介紹" class="headerlink" title="URL設定介紹"></a>URL設定介紹</h2><p>_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。<br>可參考下圖設定檔中的 permalink 欄位設定的規則。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg" alt="1_permalinkDefault"></p>
+<h2 id="Url設定原則"><a href="#Url設定原則" class="headerlink" title="Url設定原則"></a>Url設定原則</h2><p>應該維持一個原則就是Url連結基本上就是固定不會一直被改變的。<br>對於預設的分類方式優缺點:</p>
+<ul>
+<li>優點:我想不到甚麼優點，哈。</li>
+<li>缺點:<ol>
+<li>以日期為Url的階層邏輯沒有可讀性與記憶點，應該沒甚麼人會單獨記文章日期來尋找文章最少也是對文章標題有記憶吧。</li>
+<li>以文章日期做Url連結，若有讀者將喜歡的文章收藏起來，改天作者因為重構或修改文章內容而修改連結日期，就會導致讀者收藏的連結失效。</li>
+</ol>
+</li>
+</ul>
+<h2 id="設定步驟"><a href="#設定步驟" class="headerlink" title="設定步驟"></a>設定步驟</h2><p>每個人的分類方式不同，這邊以我自己目前使用的分類:標題(title)作說明，關於Url讀取title參數原理是與_post資料夾內同步的。<br>舉例:</p>
+<ol>
+<li><p>有篇在2023&#x2F;01&#x2F;01產出在_post資料夾內名為UrlConfigTemp1的檔案，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;UrlConfigTemp1</p>
+</li>
+<li><p>但若把UrlConfigTemp1的檔案放在_post資料夾內的TempGroup的資料夾中後，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;TempGroup&#x2F;UrlConfigTemp1</p>
+</li>
+</ol>
+<p>步驟:</p>
+<ol>
+<li>到設定檔_config.yml中找到 permalink 欄位改為只以標題作為連結的設定  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></li>
+<li>將_config.yml修改後，在Hexo資料夾中呼叫Cmd執行以下語法，可在本機開啟預覽頁面確認Url連結是否正確  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
+  <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg" alt="2_permalinkTitle"></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在架站剛開始先規劃好分類方式，避免之後文章開始多了之後才重整理作品造成時間成本浪費。<br>另外或許對於Url用標題分類有同樣疑問就是:<br>若有讀者一樣在作者將檔案換位置前已經收藏了連結，那收藏連結一樣會在作者修改文章位置後失效的問題。<br>對於這個狀況有另一種Url設定方式提供參考 &#x3D;&gt;<br><a href="https://riemann.blog/posts/d3aa7087/">Hexo-永久連結設定</a>(直接將每個Url綁定一組固定編碼不會隨著title路徑變化的方式呈現)。</p>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a href="https://old-oomusou.goodjack.tw/hexo/uri-category/">如何使 Hexo 以文章分類為URI</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用Hexo自訂主題(Theme)教學</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>完成 <strong><a href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/">用Hexo套版GitHub Pages當部落格</a></strong> 教學後，若覺得預設的主題  landscape 不是你想要的風格，這篇教學針對如何更換其他主題來套版部落格的介面，簡單來說就是幫部落格換衣服</p>
@@ -583,49 +647,6 @@
         <tag>Tutorial</tag>
         <tag>Hexo</tag>
         <tag>Theme</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo-URL連結設定</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我們已經了解所有文章都會在Hexo資料夾中source&#x2F;_post目錄中，這篇將進一步介紹文章對應的Url設定與修改方式。</p>
-<span id="more"></span>
-<h2 id="URL設定介紹"><a href="#URL設定介紹" class="headerlink" title="URL設定介紹"></a>URL設定介紹</h2><p>_config.yml設定檔中對於每篇文章的Url設定是依 [年&#x2F;月&#x2F;日&#x2F;標題] 的階層來對應文章。<br>可參考下圖設定檔中的 permalink 欄位設定的規則。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/1_permalinkDefault.jpg" alt="1_permalinkDefault"></p>
-<h2 id="Url設定原則"><a href="#Url設定原則" class="headerlink" title="Url設定原則"></a>Url設定原則</h2><p>應該維持一個原則就是Url連結基本上就是固定不會一直被改變的。<br>對於預設的分類方式優缺點:</p>
-<ul>
-<li>優點:我想不到甚麼優點，哈。</li>
-<li>缺點:<ol>
-<li>以日期為Url的階層邏輯沒有可讀性與記憶點，應該沒甚麼人會單獨記文章日期來尋找文章最少也是對文章標題有記憶吧。</li>
-<li>以文章日期做Url連結，若有讀者將喜歡的文章收藏起來，改天作者因為重構或修改文章內容而修改連結日期，就會導致讀者收藏的連結失效。</li>
-</ol>
-</li>
-</ul>
-<h2 id="設定步驟"><a href="#設定步驟" class="headerlink" title="設定步驟"></a>設定步驟</h2><p>每個人的分類方式不同，這邊以我自己目前使用的分類:標題(title)作說明，關於Url讀取title參數原理是與_post資料夾內同步的。<br>舉例:</p>
-<ol>
-<li><p>有篇在2023&#x2F;01&#x2F;01產出在_post資料夾內名為UrlConfigTemp1的檔案，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;UrlConfigTemp1</p>
-</li>
-<li><p>但若把UrlConfigTemp1的檔案放在_post資料夾內的TempGroup的資料夾中後，在Url上顯示: localhost:4000&#x2F;2023&#x2F;01&#x2F;01&#x2F;TempGroup&#x2F;UrlConfigTemp1</p>
-</li>
-</ol>
-<p>步驟:</p>
-<ol>
-<li>到設定檔_config.yml中找到 permalink 欄位改為只以標題作為連結的設定  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure></li>
-<li>將_config.yml修改後，在Hexo資料夾中呼叫Cmd執行以下語法，可在本機開啟預覽頁面確認Url連結是否正確  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
-  <img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Url_Config/2_permalinkTitle.jpg" alt="2_permalinkTitle"></li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在架站剛開始先規劃好分類方式，避免之後文章開始多了之後才重整理作品造成時間成本浪費。<br>另外或許對於Url用標題分類有同樣疑問就是:<br>若有讀者一樣在作者將檔案換位置前已經收藏了連結，那收藏連結一樣會在作者修改文章位置後失效的問題。<br>對於這個狀況有另一種Url設定方式提供參考 &#x3D;&gt;<br><a href="https://riemann.blog/posts/d3aa7087/">Hexo-永久連結設定</a>(直接將每個Url綁定一組固定編碼不會隨著title路徑變化的方式呈現)。</p>
-<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a href="https://old-oomusou.goodjack.tw/hexo/uri-category/">如何使 Hexo 以文章分類為URI</a></p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
