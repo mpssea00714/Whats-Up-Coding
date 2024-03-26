@@ -21,7 +21,7 @@
 
     <meta name="description" content="前言因前陣子在工作上遇到一些特別的廠商遇到了一些特別的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IT_Exp_ApiFormatTrap">
+<meta property="og:title" content="IT踩坑日常- API格式(x-www-form-urlencoded)">
 <meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/index.html">
 <meta property="og:site_name" content="What&#39;s up Coding">
 <meta property="og:description" content="前言因前陣子在工作上遇到一些特別的廠商遇到了一些特別的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_ApiFormatTrap%5CIT_Exp_ApiFormatTrap_2.jpg">
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_ApiFormatTrap%5CIT_Exp_ApiFormatTrap_3.jpg">
 <meta property="article:published_time" content="2024-03-26T05:31:37.000Z">
-<meta property="article:modified_time" content="2024-03-26T12:04:44.449Z">
+<meta property="article:modified_time" content="2024-03-26T12:11:22.728Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="2024">
 <meta property="article:tag" content="API">
@@ -44,10 +44,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/","path":"IT_Exp/IT_Exp_ApiFormatTrap/","title":"IT_Exp_ApiFormatTrap"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/","path":"IT_Exp/IT_Exp_ApiFormatTrap/","title":"IT踩坑日常- API格式(x-www-form-urlencoded)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>IT_Exp_ApiFormatTrap | What's up Coding</title>
+<title>IT踩坑日常- API格式(x-www-form-urlencoded) | What's up Coding</title>
   
 
 
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">過程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%91%E4%BB%A5%E7%82%BA%E7%9A%84Key-Value%E8%A1%A8%E7%A4%BA%E5%BC%8F"><span class="nav-number">2.0.1.</span> <span class="nav-text">我以為的Key-Value表示式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%A6%E9%9A%9B%E4%B8%8A%E7%9A%84array-object-Key-Value%E8%A1%A8%E7%A4%BA%E5%BC%8F"><span class="nav-number">2.0.2.</span> <span class="nav-text">實際上的array[object] Key-Value表示式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%BB%9E"><span class="nav-number">3.</span> <span class="nav-text">疑點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">過程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E9%BB%9E"><span class="nav-number">3.</span> <span class="nav-text">疑點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -214,12 +214,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="IT_Exp_ApiFormatTrap | What's up Coding">
+      <meta itemprop="name" content="IT踩坑日常- API格式(x-www-form-urlencoded) | What's up Coding">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          IT_Exp_ApiFormatTrap
+          IT踩坑日常- API格式(x-www-form-urlencoded)
         </h1>
 
         <div class="post-meta-container">
@@ -231,7 +231,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2024-03-26 13:31:37 / 修改時間：20:04:44" itemprop="dateCreated datePublished" datetime="2024-03-26T13:31:37+08:00">2024-03-26</time>
+      <time title="創建時間：2024-03-26 13:31:37 / 修改時間：20:11:22" itemprop="dateCreated datePublished" datetime="2024-03-26T13:31:37+08:00">2024-03-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -272,13 +272,15 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
 
 <h2 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h2><p>在x-www-form-urlencoded 格式中表現的方式是以Key-Value的方式來呈現，與Json把整個資料表達成一個字串的方式不同，在撰寫Request時在前面兩個屬性dep_id&#x2F;all_count都還沒甚麼問題,,但到了一個Array[Object]的結構時，可能我下的指令也沒有很精確，因為Copilot其實也是回我類似的結構寫法。</p>
-<h4 id="我以為的Key-Value表示式"><a href="#我以為的Key-Value表示式" class="headerlink" title="我以為的Key-Value表示式"></a>我以為的Key-Value表示式</h4><p>(C# 撰寫為例)</p>
+<ul>
+<li>我以為的Key-Value表示式<br>(C# 撰寫為例)</li>
+</ul>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;list&quot;</span>, JsonConvert.SerializeObject(request.List) &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>我以為的Key-Value表示式是這樣(Postman 測試為例)<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_ApiFormatTrap%5CIT_Exp_ApiFormatTrap_1.jpg" alt="IT_Exp_ApiFormatTrap_1"></p>
-<h4 id="實際上的array-object-Key-Value表示式"><a href="#實際上的array-object-Key-Value表示式" class="headerlink" title="實際上的array[object] Key-Value表示式"></a>實際上的array[object] Key-Value表示式</h4><p>是這樣(C# 撰寫為例)</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;, </span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>]&quot;</span>, item.Tran_Code); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>]&quot;</span>, item.Tkt_No); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>]&quot;</span>, item.Tkt_Tp); </span><br><span class="line">    count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<ul>
+<li>實際上的array[object] Key-Value表示式<br>是這樣(C# 撰寫為例)<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;, </span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>]&quot;</span>, item.Tran_Code); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>]&quot;</span>, item.Tkt_No); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>]&quot;</span>, item.Tkt_Tp); </span><br><span class="line">    count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
 <p>實際上的array[object] Key-Value表示式是這樣(Postman 測試為例):<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_ApiFormatTrap%5CIT_Exp_ApiFormatTrap_2.jpg" alt="IT_Exp_ApiFormatTrap_2"></p>
 <h2 id="疑點"><a href="#疑點" class="headerlink" title="疑點"></a>疑點</h2><p>在撰寫 array[object] 這塊表示式時,浪費了一部分時間，主要是因為在寫這個寫法之前，我還有嘗試另種寫法就是在讀取object的Member值的時候，照理說可以用 <code>item.Tran_Code</code> 或是 <code>item[Tran_Code]</code>的方法來取值，但我不知為何用.(dot)的方式來取值對方的回應是失敗的，這點我深深不解……<br>如下所示(C# 撰寫為例)</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>&quot;</span>, item.Tran_Code); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>&quot;</span>, item.Tkt_No); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>&quot;</span>, item.Tkt_Tp); </span><br><span class="line">	count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
