@@ -25,80 +25,39 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo建立選單頁面</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
+    <title>AutoGPT安裝教學</title>
+    <url>/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前使用ChatGPT的互動方式是與AI用一問一答的方式分解自己待解決的問題,近期使用的AutoGPT則是有能力去設想你的問題需要什麼，自主搜集資料生成訴求，幫你與ChatGPT在互動中提出一連串的問題,來解決你的問題。</p>
 <span id="more"></span>
-
-<h2 id="新增about頁面"><a href="#新增about頁面" class="headerlink" title="新增about頁面"></a>新增about頁面</h2><p>about頁面的內容通常會對作者做簡單介紹或創建平台的原因等，視每人需求來表現自己的頁面呈現。</p>
-<p>categories&#x2F;tags&#x2F;about三種頁面與發佈文章的定位不同，需獨立頁面來統整特定屬性的呈現，<br>例如:<br>標籤頁面:含各種標籤搜尋<br>類別頁面:含各種類別搜尋<br>關於我:關於作者或平台的簡介<br>如有以上需求我們可以使用以下語法，以about為例</p>
-<ol>
-<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 about 的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page about //新增about頁面</span><br></pre></td></tr></table></figure></li>
-<li>執行以下語法可以在本地端預覽新建的about頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
-<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁的about進入，如要編輯內容在about資料夾中的 <code>index.md</code> 編輯即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/AboutPage_1.jpg" alt="AboutPage_1"></li>
+<p>簡單說就是AI會幫你做自主連環詢問的方式取代需要人工與ChatGPT一問一答的解決方式。</p>
+<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ol>
+<li><a href="https://www.python.org/downloads/">Python</a><br>AutoGPT專案由Python運行因此需先下載相關環境</li>
+<li><a href="https://git-scm.com/downloads">Git</a><br>需將AutoGPT專案從GitHub上下載到本地端運行AutoGPT</li>
+<li><a href="https://platform.openai.com/account/api-keys">OpenAI</a> 帳號<br>需到OpenAI 官網註冊後取得API_Key才能讓AutoGPT使用你的金鑰詢問ChatGPT做相關互動</li>
 </ol>
-<h2 id="分類與標籤的區別"><a href="#分類與標籤的區別" class="headerlink" title="分類與標籤的區別"></a>分類與標籤的區別</h2><ol>
-<li>層次結構：<ul>
-<li>分類： 通常具有層次結構，允許你創建一個有序的主題層次。例如，你可以擁有「技術」分類下的「前端開發」子分類，這種結構更具組織性。</li>
-<li>標籤： 不像分類有明確的層次結構，標籤是單獨的關鍵字或短語，用於描述內容的主題或屬性，不具有層次性。</li>
-</ul>
-</li>
-<li>數量限制：<ul>
-<li>分類： 通常一篇內容只能歸類到一個分類，分類用於更嚴格和結構化的組織。例如，一篇文章可能只屬於「科技」或「生活」其中一個分類。</li>
-<li>標籤： 一篇內容可以擁有多個標籤，標籤是用來標記文章的關鍵字或主題，一篇文章可以同時擁有多個標籤，從而更全面地描述內容。</li>
-</ul>
-</li>
-<li>用途和應用場景：<ul>
-<li>分類： 主要用於將內容整體組織，提供更清晰的主題結構。通常在網站導覽菜單中以分類為基礎建立不同的頁面。</li>
-<li>標籤： 主要用於標記和描述內容的細節和特點，提供更靈活的搜索和篩選選項。標籤可以使相似主題的內容在不同的分類中彼此聯繫。</li>
-</ul>
-</li>
-<li>可見性和導航：<ul>
-<li>分類： 通常體現在網站的主導航結構中，是用戶瀏覽和尋找特定主題的主要途徑。</li>
-<li>標籤： 通常以雲標籤或類似的方式呈現，用戶可以點擊標籤查看相關內容，而不必遵循固定的層次結構。</li>
-</ul>
-</li>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li>安裝Python 3.8以上的版本<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/1_PythonInstall.png" alt="1_PythonInstall"></li>
+<li>安裝Git<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/2_GitInstall.png" alt="2_GitInstall"></li>
+<li>進入<a href="https://github.com/Significant-Gravitas/AutoGPT">AutoGPT</a>的GitHub專案中,注意下載版本為 <code>stable</code> 分支而不是 <code>master</code> 分支(在README.md上有特別提醒)<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/3_BranchNotice.png" alt="3_BranchNotice"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/4_Clone.png" alt="4_Clone"></li>
+<li>下載完後會看到一個AutoGPT的專案資料夾出現</li>
+<li>接著在本機端開啟CMD(命令提示字元)中,進入AutoGPT資料夾後,繼續輸入 <code>pip3 install -r requirements.txt</code> 安裝必要套件,程式會依照檔案中的套件名稱去安裝所有相關套件</li>
+<li>安裝過程中會安裝到 [此專案] <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 因文字解析的Error導致安裝失敗,因此目前解決方式先在 <code>requirements.txt</code> 檔案中找到 <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 開頭用 # 註解掉,讓系統跳過安裝這套件,再重新執行 <code>pip3 install -r requirements.txt</code> 就可以順利安裝完成<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/5_RequirementError.jpg" alt="5_RequirementError"></li>
+<li>安裝完成後,先改去<a href="https://platform.openai.com/account/api-keys">OpenAI官網</a>登入OpenAI 取得API Key,登入後照以下截圖新增API-Key 後,將sk-開頭的字串複製起來<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/6_OpenAI_ApiKey.jpg" alt="6_OpenAI_ApiKey"></li>
+<li>在AutoGPT資料夾中打開 .env.template 檔案,在截圖所示的地方將複製的API-Key貼上以蓋掉[your-openai-api-key] 字串後存檔,讓AutoGPT藉由你的授權金鑰與ChatGPT互動交叉詢問。<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/7_templateFIle.jpg" alt="7_templateFIle"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/8_PasteKey.jpg" alt="8_PasteKey"></li>
+<li>回到CMD中輸入此語法 <code>move .env.template .env</code> 將剛剛的模板檔案轉換成系統的環境設定檔<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/9_MoveTemplate.jpg" alt="9_MoveTemplate"></li>
+<li>以上安裝步驟完成後,在CMD輸入 <code>python -m autogpt</code>  就可正常啟動AutoGPT了<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/10_LaunchAutoGpt.jpg" alt="10_LaunchAutoGpt"></li>
 </ol>
-<p>總結來說，分類提供了一個結構化的、有序的方式組織內容，而標籤則提供了更靈活、更細緻的方式來標記和描述內容的特徵。在實際應用中，通常可以同時使用分類和標籤以充分發揮組織和搜尋功能。</p>
-<h3 id="設定分類-文章中附上分類屬性與階層"><a href="#設定分類-文章中附上分類屬性與階層" class="headerlink" title="設定分類:文章中附上分類屬性與階層"></a>設定分類:文章中附上分類屬性與階層</h3><ol>
-<li>在文章檔案中，都有預設的標頭區塊，可新增需要的類別如紅框表示。<br>分類帶有階層屬性因此如果需要做更細的分類寫法，只需在中括號內將類別名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPage_2.jpg" alt="CategoriesPage_2"></li>
-</ol>
-<h3 id="設定分類頁面"><a href="#設定分類頁面" class="headerlink" title="設定分類頁面:"></a>設定分類頁面:</h3><ol>
-<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 categories  的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories  //新增分類頁面</span><br></pre></td></tr></table></figure></li>
-<li>在新建的categories  資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;categories”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageSet_4.jpg" alt="CategoriesPageSet_4"> </li>
-<li>執行以下語法可以在本地端預覽新建的分類頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
-<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁類別連結進入，裡面記錄每篇文章新增的類別連結與階層性排序<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageDemo_3.jpg" alt="CategoriesPageDemo_3"></li>
-</ol>
-<h3 id="設定標籤-在每頁發文中附上標籤屬性"><a href="#設定標籤-在每頁發文中附上標籤屬性" class="headerlink" title="設定標籤:在每頁發文中附上標籤屬性"></a>設定標籤:在每頁發文中附上標籤屬性</h3><ol>
-<li>在文章檔案中，都有預設的標頭區塊，可新增需要的標籤如紅框表示。<br>標籤可在文章中帶有多個標籤的特性，只需在中括號內將標籤名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPage_6.jpg" alt="TagsPage_6"></li>
-</ol>
-<h3 id="設定標籤頁面"><a href="#設定標籤頁面" class="headerlink" title="設定標籤頁面:"></a>設定標籤頁面:</h3><ol>
-<li><p>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 tags 的資料夾(與_post同階層)與首頁。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page tags   //新增分類頁面</span><br></pre></td></tr></table></figure></li>
-<li><p>在新建的tags資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;tags”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageSet_5.jpg" alt="TagsPageSet_5"> </p>
-</li>
-<li><p>執行以下語法可以在本地端預覽新建的標籤頁面</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
-<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁標籤連結進入，裡面記錄在文章建立出的每個標籤項目<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageDemo_7.jpg" alt="TagsPageDemo_7"></p>
-</li>
-</ol>
-<h2 id="關閉留言板"><a href="#關閉留言板" class="headerlink" title="關閉留言板"></a>關閉留言板</h2><p>建立categories&#x2F;tags&#x2F;about頁面時發現這類獨立頁面保有留言版功能，但是否需要留言板看使用者需求。<br>這邊也提供針對特定頁面關閉留言板的功能。在需要關閉留言版的文件中，在預設版塊中新增 <code>comments: false</code> 就會在需要的頁面中關閉留言板功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CloseComment_8.jpg" alt="CloseComment_8"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹為獨立屬性的頁面新增的語法，為部落格增添統整功能</p>
-<p>發布文章語法: hexo new post 標題</p>
-<p>發布頁面語法: hexo new page 標題</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://hsuan777.github.io/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/">Hexo教學(六) 文章標籤與分類</a></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在安裝過程中發現大部分中文教學都沒提到當初下載的專案分支應為 <code>stable</code> 而非預設的 <code>master</code> ,導致依教學安裝的讀者應該都會在資料夾中找不到 <code>requirements.txt</code> 或是 <code>.env.template</code> 之類的問題,而在安裝 <code>requirements.txt</code> 中的套件時,也會遇到安裝 <a href="vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master">此專案</a> 發生解析文字的Bug,目前就是先跳過此套件來解決,如有相關解決的方式也歡迎提供分享。</p>
 ]]></content>
       <categories>
         <category>教學</category>
-        <category>Blog</category>
+        <category>AI</category>
+        <category>AutoGPT</category>
       </categories>
       <tags>
         <tag>2023</tag>
         <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>留言板</tag>
-        <tag>標籤</tag>
-        <tag>類別</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -183,39 +142,80 @@
       </tags>
   </entry>
   <entry>
-    <title>AutoGPT安裝教學</title>
-    <url>/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前使用ChatGPT的互動方式是與AI用一問一答的方式分解自己待解決的問題,近期使用的AutoGPT則是有能力去設想你的問題需要什麼，自主搜集資料生成訴求，幫你與ChatGPT在互動中提出一連串的問題,來解決你的問題。</p>
+    <title>Hexo建立選單頁面</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
 <span id="more"></span>
-<p>簡單說就是AI會幫你做自主連環詢問的方式取代需要人工與ChatGPT一問一答的解決方式。</p>
-<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ol>
-<li><a href="https://www.python.org/downloads/">Python</a><br>AutoGPT專案由Python運行因此需先下載相關環境</li>
-<li><a href="https://git-scm.com/downloads">Git</a><br>需將AutoGPT專案從GitHub上下載到本地端運行AutoGPT</li>
-<li><a href="https://platform.openai.com/account/api-keys">OpenAI</a> 帳號<br>需到OpenAI 官網註冊後取得API_Key才能讓AutoGPT使用你的金鑰詢問ChatGPT做相關互動</li>
+
+<h2 id="新增about頁面"><a href="#新增about頁面" class="headerlink" title="新增about頁面"></a>新增about頁面</h2><p>about頁面的內容通常會對作者做簡單介紹或創建平台的原因等，視每人需求來表現自己的頁面呈現。</p>
+<p>categories&#x2F;tags&#x2F;about三種頁面與發佈文章的定位不同，需獨立頁面來統整特定屬性的呈現，<br>例如:<br>標籤頁面:含各種標籤搜尋<br>類別頁面:含各種類別搜尋<br>關於我:關於作者或平台的簡介<br>如有以上需求我們可以使用以下語法，以about為例</p>
+<ol>
+<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 about 的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page about //新增about頁面</span><br></pre></td></tr></table></figure></li>
+<li>執行以下語法可以在本地端預覽新建的about頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁的about進入，如要編輯內容在about資料夾中的 <code>index.md</code> 編輯即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/AboutPage_1.jpg" alt="AboutPage_1"></li>
 </ol>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li>安裝Python 3.8以上的版本<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/1_PythonInstall.png" alt="1_PythonInstall"></li>
-<li>安裝Git<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/2_GitInstall.png" alt="2_GitInstall"></li>
-<li>進入<a href="https://github.com/Significant-Gravitas/AutoGPT">AutoGPT</a>的GitHub專案中,注意下載版本為 <code>stable</code> 分支而不是 <code>master</code> 分支(在README.md上有特別提醒)<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/3_BranchNotice.png" alt="3_BranchNotice"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/4_Clone.png" alt="4_Clone"></li>
-<li>下載完後會看到一個AutoGPT的專案資料夾出現</li>
-<li>接著在本機端開啟CMD(命令提示字元)中,進入AutoGPT資料夾後,繼續輸入 <code>pip3 install -r requirements.txt</code> 安裝必要套件,程式會依照檔案中的套件名稱去安裝所有相關套件</li>
-<li>安裝過程中會安裝到 [此專案] <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 因文字解析的Error導致安裝失敗,因此目前解決方式先在 <code>requirements.txt</code> 檔案中找到 <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 開頭用 # 註解掉,讓系統跳過安裝這套件,再重新執行 <code>pip3 install -r requirements.txt</code> 就可以順利安裝完成<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/5_RequirementError.jpg" alt="5_RequirementError"></li>
-<li>安裝完成後,先改去<a href="https://platform.openai.com/account/api-keys">OpenAI官網</a>登入OpenAI 取得API Key,登入後照以下截圖新增API-Key 後,將sk-開頭的字串複製起來<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/6_OpenAI_ApiKey.jpg" alt="6_OpenAI_ApiKey"></li>
-<li>在AutoGPT資料夾中打開 .env.template 檔案,在截圖所示的地方將複製的API-Key貼上以蓋掉[your-openai-api-key] 字串後存檔,讓AutoGPT藉由你的授權金鑰與ChatGPT互動交叉詢問。<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/7_templateFIle.jpg" alt="7_templateFIle"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/8_PasteKey.jpg" alt="8_PasteKey"></li>
-<li>回到CMD中輸入此語法 <code>move .env.template .env</code> 將剛剛的模板檔案轉換成系統的環境設定檔<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/9_MoveTemplate.jpg" alt="9_MoveTemplate"></li>
-<li>以上安裝步驟完成後,在CMD輸入 <code>python -m autogpt</code>  就可正常啟動AutoGPT了<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/10_LaunchAutoGpt.jpg" alt="10_LaunchAutoGpt"></li>
+<h2 id="分類與標籤的區別"><a href="#分類與標籤的區別" class="headerlink" title="分類與標籤的區別"></a>分類與標籤的區別</h2><ol>
+<li>層次結構：<ul>
+<li>分類： 通常具有層次結構，允許你創建一個有序的主題層次。例如，你可以擁有「技術」分類下的「前端開發」子分類，這種結構更具組織性。</li>
+<li>標籤： 不像分類有明確的層次結構，標籤是單獨的關鍵字或短語，用於描述內容的主題或屬性，不具有層次性。</li>
+</ul>
+</li>
+<li>數量限制：<ul>
+<li>分類： 通常一篇內容只能歸類到一個分類，分類用於更嚴格和結構化的組織。例如，一篇文章可能只屬於「科技」或「生活」其中一個分類。</li>
+<li>標籤： 一篇內容可以擁有多個標籤，標籤是用來標記文章的關鍵字或主題，一篇文章可以同時擁有多個標籤，從而更全面地描述內容。</li>
+</ul>
+</li>
+<li>用途和應用場景：<ul>
+<li>分類： 主要用於將內容整體組織，提供更清晰的主題結構。通常在網站導覽菜單中以分類為基礎建立不同的頁面。</li>
+<li>標籤： 主要用於標記和描述內容的細節和特點，提供更靈活的搜索和篩選選項。標籤可以使相似主題的內容在不同的分類中彼此聯繫。</li>
+</ul>
+</li>
+<li>可見性和導航：<ul>
+<li>分類： 通常體現在網站的主導航結構中，是用戶瀏覽和尋找特定主題的主要途徑。</li>
+<li>標籤： 通常以雲標籤或類似的方式呈現，用戶可以點擊標籤查看相關內容，而不必遵循固定的層次結構。</li>
+</ul>
+</li>
 </ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在安裝過程中發現大部分中文教學都沒提到當初下載的專案分支應為 <code>stable</code> 而非預設的 <code>master</code> ,導致依教學安裝的讀者應該都會在資料夾中找不到 <code>requirements.txt</code> 或是 <code>.env.template</code> 之類的問題,而在安裝 <code>requirements.txt</code> 中的套件時,也會遇到安裝 <a href="vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master">此專案</a> 發生解析文字的Bug,目前就是先跳過此套件來解決,如有相關解決的方式也歡迎提供分享。</p>
+<p>總結來說，分類提供了一個結構化的、有序的方式組織內容，而標籤則提供了更靈活、更細緻的方式來標記和描述內容的特徵。在實際應用中，通常可以同時使用分類和標籤以充分發揮組織和搜尋功能。</p>
+<h3 id="設定分類-文章中附上分類屬性與階層"><a href="#設定分類-文章中附上分類屬性與階層" class="headerlink" title="設定分類:文章中附上分類屬性與階層"></a>設定分類:文章中附上分類屬性與階層</h3><ol>
+<li>在文章檔案中，都有預設的標頭區塊，可新增需要的類別如紅框表示。<br>分類帶有階層屬性因此如果需要做更細的分類寫法，只需在中括號內將類別名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPage_2.jpg" alt="CategoriesPage_2"></li>
+</ol>
+<h3 id="設定分類頁面"><a href="#設定分類頁面" class="headerlink" title="設定分類頁面:"></a>設定分類頁面:</h3><ol>
+<li>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 categories  的資料夾(與_post同階層)與首頁。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories  //新增分類頁面</span><br></pre></td></tr></table></figure></li>
+<li>在新建的categories  資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;categories”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageSet_4.jpg" alt="CategoriesPageSet_4"> </li>
+<li>執行以下語法可以在本地端預覽新建的分類頁面<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁類別連結進入，裡面記錄每篇文章新增的類別連結與階層性排序<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CategoriesPageDemo_3.jpg" alt="CategoriesPageDemo_3"></li>
+</ol>
+<h3 id="設定標籤-在每頁發文中附上標籤屬性"><a href="#設定標籤-在每頁發文中附上標籤屬性" class="headerlink" title="設定標籤:在每頁發文中附上標籤屬性"></a>設定標籤:在每頁發文中附上標籤屬性</h3><ol>
+<li>在文章檔案中，都有預設的標頭區塊，可新增需要的標籤如紅框表示。<br>標籤可在文章中帶有多個標籤的特性，只需在中括號內將標籤名稱以逗號區隔即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPage_6.jpg" alt="TagsPage_6"></li>
+</ol>
+<h3 id="設定標籤頁面"><a href="#設定標籤頁面" class="headerlink" title="設定標籤頁面:"></a>設定標籤頁面:</h3><ol>
+<li><p>在Hexo資料夾中呼叫CMD出來，接著輸入以下語法，，系統會引用在資料夾 scaffolds 下預設模板 <code>page.md</code> ，建立在source 資料夾下名為 tags 的資料夾(與_post同階層)與首頁。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page tags   //新增分類頁面</span><br></pre></td></tr></table></figure></li>
+<li><p>在新建的tags資料夾中打開 <code>Index.md</code>  在預設區塊中加入 屬性 <code>type : &quot;tags”</code>(如下圖)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageSet_5.jpg" alt="TagsPageSet_5"> </p>
+</li>
+<li><p>執行以下語法可以在本地端預覽新建的標籤頁面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure></li>
+<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> ，可從首頁標籤連結進入，裡面記錄在文章建立出的每個標籤項目<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/TagsPageDemo_7.jpg" alt="TagsPageDemo_7"></p>
+</li>
+</ol>
+<h2 id="關閉留言板"><a href="#關閉留言板" class="headerlink" title="關閉留言板"></a>關閉留言板</h2><p>建立categories&#x2F;tags&#x2F;about頁面時發現這類獨立頁面保有留言版功能，但是否需要留言板看使用者需求。<br>這邊也提供針對特定頁面關閉留言板的功能。在需要關閉留言版的文件中，在預設版塊中新增 <code>comments: false</code> 就會在需要的頁面中關閉留言板功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/CloseComment_8.jpg" alt="CloseComment_8"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹為獨立屬性的頁面新增的語法，為部落格增添統整功能</p>
+<p>發布文章語法: hexo new post 標題</p>
+<p>發布頁面語法: hexo new page 標題</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://hsuan777.github.io/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/">Hexo教學(六) 文章標籤與分類</a></p>
 ]]></content>
       <categories>
         <category>教學</category>
-        <category>AI</category>
-        <category>AutoGPT</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>2023</tag>
         <tag>Tutorial</tag>
-        <tag>AI</tag>
+        <tag>Hexo</tag>
+        <tag>留言板</tag>
+        <tag>標籤</tag>
+        <tag>類別</tag>
       </tags>
   </entry>
   <entry>
@@ -263,6 +263,92 @@
         <tag>Tutorial</tag>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo留言板功能</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
+<span id="more"></span>
+
+<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
+<ul>
+<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
+</li>
+<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
+</li>
+<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
+</li>
+</ul>
+<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><p>進入 <a href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
+</li>
+<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
+</li>
+<li><p>進入 <a href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
+</li>
+<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
+</li>
+<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
+</li>
+<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
+</li>
+<li><p>點開comments.njk檔後，找到程式碼片段</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
+</li>
+</ol>
+<h2 id="關閉指定頁面留言區"><a href="#關閉指定頁面留言區" class="headerlink" title="關閉指定頁面留言區"></a>關閉指定頁面留言區</h2><p>依上述步驟設定就會在每個頁面都保有留言版功能，但像標籤&#x2F;分類&#x2F;關於的頁面一般不會開啟留言版功能，根據以下步驟我們可以指定不需開啟留言版的頁面做設定。<br>我們只要在指定文章開頭加上 comments: false，就可將指定的文章關閉留言版功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/SetSwitchUtterances.jpg" alt="SetSwitchUtterances"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
+<li><a href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
+<li><a href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
+<li><a href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo_主題[next]功能小補帖</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
+<span id="more"></span>
+
+<h2 id="內容Search功能"><a href="#內容Search功能" class="headerlink" title="內容Search功能"></a>內容Search功能</h2><p>開啟搜尋功能前須先安裝以下套件,在Hexo資料夾開啟CMD後,輸入以下指令安裝<br><code>npm install hexo-generator-searchdb --save</code><br>進入Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml中,修改local_search項目中<code>enable : true</code> 即可,就會在首頁看到多了搜尋的選項與介面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg" alt="search_1"><br>點擊搜尋後即可在功能中查詢相關內容<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/searchOperate_2.jpg" alt="searchOperate_2"></p>
+<h2 id="顯示滾動百分比"><a href="#顯示滾動百分比" class="headerlink" title="顯示滾動百分比"></a>顯示滾動百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>reading_progress: false</code> 修改成 <code>reading_progress: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_4.jpg" alt="reading_progress_4"><br>即可呈現滾動百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_demo_5.jpg" alt="reading_progress_demo_5"></p>
+<h2 id="顯示閱讀百分比"><a href="#顯示閱讀百分比" class="headerlink" title="顯示閱讀百分比"></a>顯示閱讀百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>scrollpercent: false</code> 修改成 <code>scrollpercent: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6.jpg" alt="reading_Percent_6"><br>即可呈現閱讀百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6_2.jpg" alt="reading_Percent_6_2"></p>
+<h2 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h2><p>使用next主題後會在頁尾的地方出現 [由 Hexo 強力驅動] 的提示字,若想關閉的話在Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml查詢powered關鍵字，將其中屬性 <code>enable: false</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/power_7.jpg" alt="power_7"><br>另外在上面的 copyright 欄位也可以加入引用提示字給讀者參考,例: [XXX - 轉載文章請附上作者及原文連結]<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/copyright_8.jpg" alt="copyright_8"></p>
+<h2 id="自動新增繼續閱讀"><a href="#自動新增繼續閱讀" class="headerlink" title="自動新增繼續閱讀"></a>自動新增繼續閱讀</h2><p>只顯示部分內容,若要閱讀全文則需點擊[閱讀全文]的按鈕,<br>在文章中加上<code>&lt;!-- more --&gt;</code>，就會在該處斷開，以下文章則需點擊閱讀全文才會展開<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/readMore_9.jpg" alt="readMore_9"></p>
+<h2 id="關閉歸檔的勉勵句"><a href="#關閉歸檔的勉勵句" class="headerlink" title="關閉歸檔的勉勵句"></a>關閉歸檔的勉勵句</h2><p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10.jpg" alt="cheers_enabled_10"><br>我們在歸檔的畫面常會看到預設的語句: <code>嗯..! 目前共有 x 篇文章。 繼續努力。</code><br>覺得很煩完全沒有被勉勵的感覺的話,需要在以下到 themes &#x3D;&gt; next &#x3D;&gt; layout &#x3D;&gt; archive.njk檔案中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_3.jpg" alt="cheers_enabled_10_3"><br>將以下程式碼註解。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_2.jpg" alt="cheers_enabled_10_2"></p>
+<h2 id="網站瀏覽數量"><a href="#網站瀏覽數量" class="headerlink" title="網站瀏覽數量"></a>網站瀏覽數量</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到 <code>busuanzi_count</code> 屬性後,修改成下方範例即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_11.jpg" alt="busuanzi_count_11"><br>在頁尾看到瀏覽數量<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_demo_12.jpg" alt="busuanzi_count_demo_12"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上為此系列教學的最後一篇,若之後有相關更新也會繼續補充。<br>架設部落格過程中,也是以初學者角度將每一步操作的過程記錄下來,以便整理後可以分享提供給同樣需求的讀者參考,希望我們在學習與分享的道路上一起努力前進。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://israynotarray.com/hexo/20201003/38607376/">試著學 Hexo - NexT 主題篇 - 可以安裝的套件</a><br><a href="https://garyissogood.github.io/hexo/20200210/1699950564/">hexo Blog頁面與Next主題</a><br><a href="https://ithelp.ithome.com.tw/articles/10269050">設定你的 Hexo 佈景主題</a><br><a href="https://blog.typeart.cc/HEXO%E6%90%AD%E9%85%8D%E4%B8%BB%E9%A1%8Cnext%E5%9F%BA%E7%A4%8E%E9%85%8D%E7%BD%AE%E6%95%99%E5%AD%B8/#%E6%96%B0%E5%A2%9Etags%E3%80%81categories%E3%80%81archives-%E9%A0%81%E9%9D%A2">HEXO搭配主題next基礎配置教學</a><br><a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">Hexo教學 Next主題設定與頁面功能</a><br><a href="https://heidiliu2020.github.io/hexo-theme/">學習筆記 如何更換 Hexo 主題 &amp; 自訂樣式</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -360,33 +446,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo_主題[next]功能小補帖</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
-<span id="more"></span>
-
-<h2 id="內容Search功能"><a href="#內容Search功能" class="headerlink" title="內容Search功能"></a>內容Search功能</h2><p>開啟搜尋功能前須先安裝以下套件,在Hexo資料夾開啟CMD後,輸入以下指令安裝<br><code>npm install hexo-generator-searchdb --save</code><br>進入Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml中,修改local_search項目中<code>enable : true</code> 即可,就會在首頁看到多了搜尋的選項與介面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg" alt="search_1"><br>點擊搜尋後即可在功能中查詢相關內容<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/searchOperate_2.jpg" alt="searchOperate_2"></p>
-<h2 id="顯示滾動百分比"><a href="#顯示滾動百分比" class="headerlink" title="顯示滾動百分比"></a>顯示滾動百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>reading_progress: false</code> 修改成 <code>reading_progress: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_4.jpg" alt="reading_progress_4"><br>即可呈現滾動百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_demo_5.jpg" alt="reading_progress_demo_5"></p>
-<h2 id="顯示閱讀百分比"><a href="#顯示閱讀百分比" class="headerlink" title="顯示閱讀百分比"></a>顯示閱讀百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>scrollpercent: false</code> 修改成 <code>scrollpercent: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6.jpg" alt="reading_Percent_6"><br>即可呈現閱讀百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6_2.jpg" alt="reading_Percent_6_2"></p>
-<h2 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h2><p>使用next主題後會在頁尾的地方出現 [由 Hexo 強力驅動] 的提示字,若想關閉的話在Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml查詢powered關鍵字，將其中屬性 <code>enable: false</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/power_7.jpg" alt="power_7"><br>另外在上面的 copyright 欄位也可以加入引用提示字給讀者參考,例: [XXX - 轉載文章請附上作者及原文連結]<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/copyright_8.jpg" alt="copyright_8"></p>
-<h2 id="自動新增繼續閱讀"><a href="#自動新增繼續閱讀" class="headerlink" title="自動新增繼續閱讀"></a>自動新增繼續閱讀</h2><p>只顯示部分內容,若要閱讀全文則需點擊[閱讀全文]的按鈕,<br>在文章中加上<code>&lt;!-- more --&gt;</code>，就會在該處斷開，以下文章則需點擊閱讀全文才會展開<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/readMore_9.jpg" alt="readMore_9"></p>
-<h2 id="關閉歸檔的勉勵句"><a href="#關閉歸檔的勉勵句" class="headerlink" title="關閉歸檔的勉勵句"></a>關閉歸檔的勉勵句</h2><p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10.jpg" alt="cheers_enabled_10"><br>我們在歸檔的畫面常會看到預設的語句: <code>嗯..! 目前共有 x 篇文章。 繼續努力。</code><br>覺得很煩完全沒有被勉勵的感覺的話,需要在以下到 themes &#x3D;&gt; next &#x3D;&gt; layout &#x3D;&gt; archive.njk檔案中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_3.jpg" alt="cheers_enabled_10_3"><br>將以下程式碼註解。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_2.jpg" alt="cheers_enabled_10_2"></p>
-<h2 id="網站瀏覽數量"><a href="#網站瀏覽數量" class="headerlink" title="網站瀏覽數量"></a>網站瀏覽數量</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到 <code>busuanzi_count</code> 屬性後,修改成下方範例即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_11.jpg" alt="busuanzi_count_11"><br>在頁尾看到瀏覽數量<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_demo_12.jpg" alt="busuanzi_count_demo_12"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上為此系列教學的最後一篇,若之後有相關更新也會繼續補充。<br>架設部落格過程中,也是以初學者角度將每一步操作的過程記錄下來,以便整理後可以分享提供給同樣需求的讀者參考,希望我們在學習與分享的道路上一起努力前進。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://israynotarray.com/hexo/20201003/38607376/">試著學 Hexo - NexT 主題篇 - 可以安裝的套件</a><br><a href="https://garyissogood.github.io/hexo/20200210/1699950564/">hexo Blog頁面與Next主題</a><br><a href="https://ithelp.ithome.com.tw/articles/10269050">設定你的 Hexo 佈景主題</a><br><a href="https://blog.typeart.cc/HEXO%E6%90%AD%E9%85%8D%E4%B8%BB%E9%A1%8Cnext%E5%9F%BA%E7%A4%8E%E9%85%8D%E7%BD%AE%E6%95%99%E5%AD%B8/#%E6%96%B0%E5%A2%9Etags%E3%80%81categories%E3%80%81archives-%E9%A0%81%E9%9D%A2">HEXO搭配主題next基礎配置教學</a><br><a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">Hexo教學 Next主題設定與頁面功能</a><br><a href="https://heidiliu2020.github.io/hexo-theme/">學習筆記 如何更換 Hexo 主題 &amp; 自訂樣式</a></p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo_SEO設定</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這篇就來聊聊SEO的相關基本設定,讓自己在Google的搜尋中容易被搜尋到吧</p>
@@ -438,65 +497,6 @@
         <tag>Tutorial</tag>
         <tag>Hexo</tag>
         <tag>SEO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo留言板功能</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
-<span id="more"></span>
-
-<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
-<ul>
-<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
-</li>
-<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
-</li>
-<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
-</li>
-</ul>
-<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li><p>進入 <a href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
-</li>
-<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
-</li>
-<li><p>進入 <a href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
-</li>
-<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
-</li>
-<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
-</li>
-<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
-</li>
-<li><p>點開comments.njk檔後，找到程式碼片段</p>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
-<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
-  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
- <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
-</li>
-</ol>
-<h2 id="關閉指定頁面留言區"><a href="#關閉指定頁面留言區" class="headerlink" title="關閉指定頁面留言區"></a>關閉指定頁面留言區</h2><p>依上述步驟設定就會在每個頁面都保有留言版功能，但像標籤&#x2F;分類&#x2F;關於的頁面一般不會開啟留言版功能，根據以下步驟我們可以指定不需開啟留言版的頁面做設定。<br>我們只要在指定文章開頭加上 comments: false，就可將指定的文章關閉留言版功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/SetSwitchUtterances.jpg" alt="SetSwitchUtterances"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
-<li><a href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
-<li><a href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
-<li><a href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -669,6 +669,42 @@
       </tags>
   </entry>
   <entry>
+    <title>IT踩坑日常- bom頭標記導致json無法解析</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在專案中與廠商測試的過程中,發現對方API回傳的json字串出現無法解析的狀況,此篇記錄發現過程與解決的紀錄，希望之後有踩到坑的同仁可以少跌一些坑。</p>
+<span id="more"></span>
+
+<p>此次主要業務是與廠商做API介接<br>API(Post)-Response是用Json格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
+
+<h2 id="踩坑過程"><a href="#踩坑過程" class="headerlink" title="踩坑過程"></a>踩坑過程</h2><p>接收到回傳的json結果為以下值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程式在解析時丟出了無法解析的錯誤，乍看之下此字串是正常格式的json字串,但將此字串貼在記事本儲存時，會提醒你內文中含有<code>urldecode</code>的字元，儲存後的內容發生變化之類的提醒，再開啟文件之後發現原本的json字串變成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">?&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但實際上此字元也並非字面上看到的是藏著?的字元而是Bom表標頭的標記符號(不佔空間的空白，unicode編碼中表示:<code>\uFEFF</code>)導致，當json Response字串中藏著Bom標記符號時，預設使用UTF-8讀取json格式,就會遇到這個問題。</p>
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><ol>
+<li><p>程式面<br>讀取Response json或帶有Bom表的檔案內容時，先對此字串做過濾後，再做解析處理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//過濾掉Bom標頭字元​</span><br><span class="line">responseBody= responseString.Trim(new char[] &#123; &#x27;\uFEFF&#x27;&#125;);</span><br><span class="line"></span><br><span class="line">//再將json string 解析成物件​</span><br><span class="line">var result = JsonConvert.DeserializeObject&lt;DeserializeObj&gt;(responseBody);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>檔案面<br>如果是檔案的字串藏有Bom的標頭符號，可用NotePad++ 開啟文件後在上面的編碼選取轉換UTF-8後再另存新檔，之後程式如果要讀取檔案內容應該讀取新的存檔<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_JsonWithBomTrap%5CIT_Exp_JsonWithBomTrap_1.Png" alt="IT_Exp_JsonWithBomTrap_1"></p>
+</li>
+</ol>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://boywhy.blogspot.com/2014/11/c-bom.html">[C#] BOM 隱士</a></p>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>API</tag>
+        <tag>Postman</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL_中文字變問號</title>
     <url>/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有時在工作情境中需要手動執行SQL語法更新含有中文字時,難免會遇到明明程式執行的時候一樣的中文字有正常顯示,但手動執行SQL語法時,一樣的中文字卻變成了問號(?)。</p>
@@ -684,7 +720,7 @@
         <category>SQL</category>
       </categories>
       <tags>
-        <tag>2023</tag>
+        <tag>2024</tag>
         <tag>SQL</tag>
         <tag>Problems</tag>
       </tags>
