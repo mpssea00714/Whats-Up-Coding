@@ -61,87 +61,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GitHub Pages 教學</title>
-    <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
-<span id="more"></span>
-<blockquote>
-<p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
-</blockquote>
-<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
-<li><strong><a href="https://git-scm.com/">Git</a></strong><br>因為在本地端的Blog做更新時需要上傳同步到GitHub Pages所以需要在本地端電腦安裝<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg" alt="1_Git"></li>
-</ul>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li><h3 id="建立Repository-儲存庫"><a href="#建立Repository-儲存庫" class="headerlink" title="建立Repository(儲存庫)"></a>建立Repository(儲存庫)</h3></li>
-</ol>
-<ul>
-<li>在GitHub 首頁點選右邊+號列表的 New Repository新增一個要建立Blog用的儲存庫<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg" alt="2_CreateNewRepository">  <br /></li>
-<li>進入新增Repository畫面後，基本上都照預設設定就好，主要是為Repository name欄位命名，依建立的Repository name，之後Blog的URL就以這個階層邏輯建立: <strong>https:&#x2F;&#x2F;[Owner].github.io&#x2F;[<strong>Repository name</strong>]&#x2F;</strong><br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg" alt="2_CreateNewRepository_2"><br>  <code>Owner: GitHub帳號名稱</code><br>  <code>Description: 欄位可以為這個Repository的說明目的或相關的內容</code><br>  <code>Add a README file 建議勾選</code>  <br /></li>
-<li>建立好Repository後就會出現以下畫面，儲存庫預設的分支現在已經改為main了不是master<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg" alt="3_FinishRepository"></li>
-</ul>
-<ol start="2">
-<li><h3 id="GitHub-Pages設定"><a href="#GitHub-Pages設定" class="headerlink" title="GitHub Pages設定"></a>GitHub Pages設定</h3></li>
-</ol>
-<ul>
-<li>接著上方橫向選單看到Settings後再進入左邊列表的Pages，在Pages頁面將Branch設定成main儲存後，會看到上方有Visit site的連結，可以點選進入GitHub Pages的首頁。<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg" alt="4_GitPage"></li>
-</ul>
-<blockquote>
-<p>如果沒有可能需要等個30秒後重新整理就有看到了，我當初進入Pages時也沒出現Visit site也很緊張，結果等了一陣子才出現</p>
-</blockquote>
-<ul>
-<li>從Visit site 進入GitHub Pages首頁<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg" alt="5_SetPage"></li>
-</ul>
-<ol start="3">
-<li><h3 id="新增GitHub-Pages首頁"><a href="#新增GitHub-Pages首頁" class="headerlink" title="新增GitHub Pages首頁"></a>新增GitHub Pages首頁</h3></li>
-</ol>
-<ul>
-<li>GitHub Pages首頁的內容是當初建立Repository時README.md的內容，如果要顯示自己想要的首頁畫面，需要新增一個index的html檔，系統預設會去吃檔名index的檔案。<br>  新增index的方式有兩種:<br>  1.直接在網頁上透過Repository上新增index的html檔案<br>  2.是從GitHub上下載到本地端(自己電腦)新增index檔案後再上傳同步到GitHub<br>  以下分別介紹兩種新增index方法<ul>
-<li>3.1 線上新增index :<ul>
-<li>上方橫向選單看到Code ⇒ Create New File在新增的檔案內容<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg" alt="6_AddIndex"><br /></li>
-<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>新增內容後點選右邊Commit Changes<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg" alt="7_EditIndex"><br /></li>
-<li>可在Commit Changes的介面補充這次修改內容或目的<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg" alt="8_EditIndex"><br /></li>
-</ul>
-</li>
-<li>3.2 從本地端新增 :<br><code>必須先在本機安裝Git，才能執行以下指令</code><ul>
-<li>在本機資料夾中從路徑呼叫CMD(命令提示字元)<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg" alt="11_LocalFolder"><br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg" alt="12_Cmd"><br /></li>
-<li>複製GitHub上指定repository的Git網址<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg" alt="13_GetGitUrl"><br /></li>
-<li>回到CMD中輸入git clone [repository的網址]，系統就會從GitHub上把指定的repository整份下載到我們指定的資料夾中<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg" alt="14_GitClone"><br /></li>
-<li>在資料夾中新增html空白檔案，貼上下個步驟準備好的內容後儲存<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg" alt="15_GitCloneRepo"><br /></li>
-<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>在CMD中輸入以下Git相關指令<ol>
-<li><code>git add index.html</code></li>
-<li><code>git commit -m &quot;add index&quot;</code></li>
-<li><code>git remote add origin [repository的網址]</code></li>
-<li><code>git push -u origin main</code><br /></li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>從以上兩個建議的方法2擇1執行完成後，回GitHub頁面確認是否已經將剛剛新增的檔案同步到線上的儲存庫中<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg" alt="9_EditIndex">  <br /></li>
-<li>確認完後再重新從Settings裡面的Page連結到首頁，畫面就會變成index檔案中的內容<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg" alt="10_IndexHomepage">  <br /></li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><ul>
-<li>以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
-</ul>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://gitbook.tw/chapters/github/using-github-pages/">使用 GitHub 免費製作個人網站</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10301923">設定 GitHub Page，建立文件網站</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo建立選單頁面</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
@@ -629,6 +548,87 @@
       </tags>
   </entry>
   <entry>
+    <title>GitHub Pages 教學</title>
+    <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
+<span id="more"></span>
+<blockquote>
+<p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
+</blockquote>
+<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
+<li><strong><a href="https://git-scm.com/">Git</a></strong><br>因為在本地端的Blog做更新時需要上傳同步到GitHub Pages所以需要在本地端電腦安裝<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg" alt="1_Git"></li>
+</ul>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><h3 id="建立Repository-儲存庫"><a href="#建立Repository-儲存庫" class="headerlink" title="建立Repository(儲存庫)"></a>建立Repository(儲存庫)</h3></li>
+</ol>
+<ul>
+<li>在GitHub 首頁點選右邊+號列表的 New Repository新增一個要建立Blog用的儲存庫<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg" alt="2_CreateNewRepository">  <br /></li>
+<li>進入新增Repository畫面後，基本上都照預設設定就好，主要是為Repository name欄位命名，依建立的Repository name，之後Blog的URL就以這個階層邏輯建立: <strong>https:&#x2F;&#x2F;[Owner].github.io&#x2F;[<strong>Repository name</strong>]&#x2F;</strong><br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg" alt="2_CreateNewRepository_2"><br>  <code>Owner: GitHub帳號名稱</code><br>  <code>Description: 欄位可以為這個Repository的說明目的或相關的內容</code><br>  <code>Add a README file 建議勾選</code>  <br /></li>
+<li>建立好Repository後就會出現以下畫面，儲存庫預設的分支現在已經改為main了不是master<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg" alt="3_FinishRepository"></li>
+</ul>
+<ol start="2">
+<li><h3 id="GitHub-Pages設定"><a href="#GitHub-Pages設定" class="headerlink" title="GitHub Pages設定"></a>GitHub Pages設定</h3></li>
+</ol>
+<ul>
+<li>接著上方橫向選單看到Settings後再進入左邊列表的Pages，在Pages頁面將Branch設定成main儲存後，會看到上方有Visit site的連結，可以點選進入GitHub Pages的首頁。<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg" alt="4_GitPage"></li>
+</ul>
+<blockquote>
+<p>如果沒有可能需要等個30秒後重新整理就有看到了，我當初進入Pages時也沒出現Visit site也很緊張，結果等了一陣子才出現</p>
+</blockquote>
+<ul>
+<li>從Visit site 進入GitHub Pages首頁<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg" alt="5_SetPage"></li>
+</ul>
+<ol start="3">
+<li><h3 id="新增GitHub-Pages首頁"><a href="#新增GitHub-Pages首頁" class="headerlink" title="新增GitHub Pages首頁"></a>新增GitHub Pages首頁</h3></li>
+</ol>
+<ul>
+<li>GitHub Pages首頁的內容是當初建立Repository時README.md的內容，如果要顯示自己想要的首頁畫面，需要新增一個index的html檔，系統預設會去吃檔名index的檔案。<br>  新增index的方式有兩種:<br>  1.直接在網頁上透過Repository上新增index的html檔案<br>  2.是從GitHub上下載到本地端(自己電腦)新增index檔案後再上傳同步到GitHub<br>  以下分別介紹兩種新增index方法<ul>
+<li>3.1 線上新增index :<ul>
+<li>上方橫向選單看到Code ⇒ Create New File在新增的檔案內容<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg" alt="6_AddIndex"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>新增內容後點選右邊Commit Changes<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg" alt="7_EditIndex"><br /></li>
+<li>可在Commit Changes的介面補充這次修改內容或目的<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg" alt="8_EditIndex"><br /></li>
+</ul>
+</li>
+<li>3.2 從本地端新增 :<br><code>必須先在本機安裝Git，才能執行以下指令</code><ul>
+<li>在本機資料夾中從路徑呼叫CMD(命令提示字元)<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg" alt="11_LocalFolder"><br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg" alt="12_Cmd"><br /></li>
+<li>複製GitHub上指定repository的Git網址<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg" alt="13_GetGitUrl"><br /></li>
+<li>回到CMD中輸入git clone [repository的網址]，系統就會從GitHub上把指定的repository整份下載到我們指定的資料夾中<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg" alt="14_GitClone"><br /></li>
+<li>在資料夾中新增html空白檔案，貼上下個步驟準備好的內容後儲存<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg" alt="15_GitCloneRepo"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>在CMD中輸入以下Git相關指令<ol>
+<li><code>git add index.html</code></li>
+<li><code>git commit -m &quot;add index&quot;</code></li>
+<li><code>git remote add origin [repository的網址]</code></li>
+<li><code>git push -u origin main</code><br /></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>從以上兩個建議的方法2擇1執行完成後，回GitHub頁面確認是否已經將剛剛新增的檔案同步到線上的儲存庫中<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg" alt="9_EditIndex">  <br /></li>
+<li>確認完後再重新從Settings裡面的Page連結到首頁，畫面就會變成index檔案中的內容<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg" alt="10_IndexHomepage">  <br /></li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><ul>
+<li>以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://gitbook.tw/chapters/github/using-github-pages/">使用 GitHub 免費製作個人網站</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10301923">設定 GitHub Page，建立文件網站</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IT踩坑日常- API格式(x-www-form-urlencoded)</title>
     <url>/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因前陣子在工作上遇到一些<code>特別</code>的廠商遇到了一些<code>特別</code>的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。</p>
@@ -666,6 +666,38 @@
         <tag>API</tag>
         <tag>Postman</tag>
         <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IT日常- C# .NET專案升版教學</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因目前公司舊專案有升版需求(.net core 2.2 &#x3D;&gt; .net 8)，在尋找跨越多版本這個鴻溝解方時，發現微軟有提供相關的升版套件 [.NET Upgrade Assistant] 讓我們升版的流程變得更無痛。</p>
+<span id="more"></span>
+
+<h2 id="升版流程"><a href="#升版流程" class="headerlink" title="升版流程"></a>升版流程</h2><p>下載 .NET Upgrade Assistant 方法</p>
+<ol>
+<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic.jpg" alt="Vs_Pic"></p>
+</li>
+<li><p>直接依據此連結 <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CAssistant.jpg" alt="Assistant"></p>
+</li>
+</ol>
+<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic_2.jpg" alt="Vs_Pic_2"></p>
+<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_1.jpg" alt="upgrade_1"></p>
+<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_2.jpg" alt="upgrade_2"></p>
+<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_3.jpg" alt="upgrade_3"></p>
+<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_4.jpg" alt="upgrade_4"></p>
+<p>升版完成後也可在Git變更的差異檔裡看到原本的csproj的設定檔，已經把部分的套件版本一起升級了</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整個升版的過程算是十分流暢順利，當然升版過後還是要自己檢查在編譯的時候是否有部分已經不被採用的Method需要修改，這部分的細節還是免不了要手動修改。</p>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>C#</tag>
+        <tag>.Net</tag>
+        <tag>升版</tag>
       </tags>
   </entry>
   <entry>
