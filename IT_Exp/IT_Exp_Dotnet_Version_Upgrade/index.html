@@ -26,22 +26,22 @@
 <meta property="og:site_name" content="What&#39;s up Coding">
 <meta property="og:description" content="前言因目前公司舊專案有升版需求(.net core 2.2 &#x3D;&gt; .net 8)，在尋找跨越多版本這個鴻溝解方時，發現微軟有提供相關的升版套件 [.NET Upgrade Assistant] 讓我們升版的流程變得更無痛。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CAssistant.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic_2.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_1.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_2.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_3.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_4.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Assistant.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic_2.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_1.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_2.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_3.jpg">
+<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_4.jpg">
 <meta property="article:published_time" content="2024-04-24T08:15:36.000Z">
-<meta property="article:modified_time" content="2024-04-24T08:29:48.315Z">
+<meta property="article:modified_time" content="2024-04-28T08:15:35.256Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="2024">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content=".Net">
 <meta property="article:tag" content="升版">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic.jpg">
+<meta name="twitter:image" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg">
 
 
 <link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/">
@@ -233,9 +233,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2024-04-24 16:15:36 / 修改時間：16:29:48" itemprop="dateCreated datePublished" datetime="2024-04-24T16:15:36+08:00">2024-04-24</time>
+      <time title="創建時間：2024-04-24 16:15:36" itemprop="dateCreated datePublished" datetime="2024-04-24T16:15:36+08:00">2024-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2024-04-28 16:15:35" itemprop="dateModified" datetime="2024-04-28T16:15:35+08:00">2024-04-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -272,16 +278,16 @@
 
 <h2 id="升版流程"><a href="#升版流程" class="headerlink" title="升版流程"></a>升版流程</h2><p>下載 .NET Upgrade Assistant 方法</p>
 <ol>
-<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic.jpg" alt="Vs_Pic"></p>
+<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg" alt="Vs_Pic"></p>
 </li>
-<li><p>直接依據此連結 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CAssistant.jpg" alt="Assistant"></p>
+<li><p>直接依據此連結 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Assistant.jpg" alt="Assistant"></p>
 </li>
 </ol>
-<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic_2.jpg" alt="Vs_Pic_2"></p>
-<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_1.jpg" alt="upgrade_1"></p>
-<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_2.jpg" alt="upgrade_2"></p>
-<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_3.jpg" alt="upgrade_3"></p>
-<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_4.jpg" alt="upgrade_4"></p>
+<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic_2.jpg" alt="Vs_Pic_2"></p>
+<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_1.jpg" alt="upgrade_1"></p>
+<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_2.jpg" alt="upgrade_2"></p>
+<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_3.jpg" alt="upgrade_3"></p>
+<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_4.jpg" alt="upgrade_4"></p>
 <p>升版完成後也可在Git變更的差異檔裡看到原本的csproj的設定檔，已經把部分的套件版本一起升級了</p>
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整個升版的過程算是十分流暢順利，當然升版過後還是要自己檢查在編譯的時候是否有部分已經不被採用的Method需要修改，這部分的細節還是免不了要手動修改。</p>
 

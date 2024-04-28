@@ -61,6 +61,108 @@
       </tags>
   </entry>
   <entry>
+    <title>GitHub Pages 教學</title>
+    <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
+<span id="more"></span>
+<blockquote>
+<p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
+</blockquote>
+<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
+<li><strong><a href="https://git-scm.com/">Git</a></strong><br>因為在本地端的Blog做更新時需要上傳同步到GitHub Pages所以需要在本地端電腦安裝<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg" alt="1_Git"></li>
+</ul>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><h3 id="建立Repository-儲存庫"><a href="#建立Repository-儲存庫" class="headerlink" title="建立Repository(儲存庫)"></a>建立Repository(儲存庫)</h3></li>
+</ol>
+<ul>
+<li>在GitHub 首頁點選右邊+號列表的 New Repository新增一個要建立Blog用的儲存庫<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg" alt="2_CreateNewRepository">  <br /></li>
+<li>進入新增Repository畫面後，基本上都照預設設定就好，主要是為Repository name欄位命名，依建立的Repository name，之後Blog的URL就以這個階層邏輯建立: <strong>https:&#x2F;&#x2F;[Owner].github.io&#x2F;[<strong>Repository name</strong>]&#x2F;</strong><br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg" alt="2_CreateNewRepository_2"><br>  <code>Owner: GitHub帳號名稱</code><br>  <code>Description: 欄位可以為這個Repository的說明目的或相關的內容</code><br>  <code>Add a README file 建議勾選</code>  <br /></li>
+<li>建立好Repository後就會出現以下畫面，儲存庫預設的分支現在已經改為main了不是master<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg" alt="3_FinishRepository"></li>
+</ul>
+<ol start="2">
+<li><h3 id="GitHub-Pages設定"><a href="#GitHub-Pages設定" class="headerlink" title="GitHub Pages設定"></a>GitHub Pages設定</h3></li>
+</ol>
+<ul>
+<li>接著上方橫向選單看到Settings後再進入左邊列表的Pages，在Pages頁面將Branch設定成main儲存後，會看到上方有Visit site的連結，可以點選進入GitHub Pages的首頁。<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg" alt="4_GitPage"></li>
+</ul>
+<blockquote>
+<p>如果沒有可能需要等個30秒後重新整理就有看到了，我當初進入Pages時也沒出現Visit site也很緊張，結果等了一陣子才出現</p>
+</blockquote>
+<ul>
+<li>從Visit site 進入GitHub Pages首頁<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg" alt="5_SetPage"></li>
+</ul>
+<ol start="3">
+<li><h3 id="新增GitHub-Pages首頁"><a href="#新增GitHub-Pages首頁" class="headerlink" title="新增GitHub Pages首頁"></a>新增GitHub Pages首頁</h3></li>
+</ol>
+<ul>
+<li>GitHub Pages首頁的內容是當初建立Repository時README.md的內容，如果要顯示自己想要的首頁畫面，需要新增一個index的html檔，系統預設會去吃檔名index的檔案。<br>  新增index的方式有兩種:<br>  1.直接在網頁上透過Repository上新增index的html檔案<br>  2.是從GitHub上下載到本地端(自己電腦)新增index檔案後再上傳同步到GitHub<br>  以下分別介紹兩種新增index方法<ul>
+<li>3.1 線上新增index :<ul>
+<li>上方橫向選單看到Code ⇒ Create New File在新增的檔案內容<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg" alt="6_AddIndex"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>新增內容後點選右邊Commit Changes<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg" alt="7_EditIndex"><br /></li>
+<li>可在Commit Changes的介面補充這次修改內容或目的<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg" alt="8_EditIndex"><br /></li>
+</ul>
+</li>
+<li>3.2 從本地端新增 :<br><code>必須先在本機安裝Git，才能執行以下指令</code><ul>
+<li>在本機資料夾中從路徑呼叫CMD(命令提示字元)<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg" alt="11_LocalFolder"><br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg" alt="12_Cmd"><br /></li>
+<li>複製GitHub上指定repository的Git網址<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg" alt="13_GetGitUrl"><br /></li>
+<li>回到CMD中輸入git clone [repository的網址]，系統就會從GitHub上把指定的repository整份下載到我們指定的資料夾中<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg" alt="14_GitClone"><br /></li>
+<li>在資料夾中新增html空白檔案，貼上下個步驟準備好的內容後儲存<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg" alt="15_GitCloneRepo"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>在CMD中輸入以下Git相關指令<ol>
+<li><code>git add index.html</code></li>
+<li><code>git commit -m &quot;add index&quot;</code></li>
+<li><code>git remote add origin [repository的網址]</code></li>
+<li><code>git push -u origin main</code><br /></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>從以上兩個建議的方法2擇1執行完成後，回GitHub頁面確認是否已經將剛剛新增的檔案同步到線上的儲存庫中<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg" alt="9_EditIndex">  <br /></li>
+<li>確認完後再重新從Settings裡面的Page連結到首頁，畫面就會變成index檔案中的內容<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg" alt="10_IndexHomepage">  <br /></li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><ul>
+<li>以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://gitbook.tw/chapters/github/using-github-pages/">使用 GitHub 免費製作個人網站</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10301923">設定 GitHub Page，建立文件網站</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL_中文字變問號</title>
+    <url>/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有時在工作情境中需要手動執行SQL語法更新含有中文字時,難免會遇到明明程式執行的時候一樣的中文字有正常顯示,但手動執行SQL語法時,一樣的中文字卻變成了問號(?)。</p>
+<span id="more"></span>
+
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>手動執行SQL語法時造成有些中文顯示問號(?)是因為中文是用Unicode編碼組成,若確定輸入的中文內容會顯示問號(?)的話,可在輸入的字串前置[N]字,即可解決中文變成問號(?)的狀況。<br>例如:要更新的中文字中含有[俥]字</p>
+<h6 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> <span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_Before.jpg" alt="Modified_Before"></p>
+<h6 id="修改後"><a href="#修改後" class="headerlink" title="修改後"></a>修改後</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> N<span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_After.jpg" alt="Modified_After"></p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>SQL</tag>
+        <tag>Problems</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo建立選單頁面</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
@@ -548,87 +650,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GitHub Pages 教學</title>
-    <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
-<span id="more"></span>
-<blockquote>
-<p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
-</blockquote>
-<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
-<li><strong><a href="https://git-scm.com/">Git</a></strong><br>因為在本地端的Blog做更新時需要上傳同步到GitHub Pages所以需要在本地端電腦安裝<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg" alt="1_Git"></li>
-</ul>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li><h3 id="建立Repository-儲存庫"><a href="#建立Repository-儲存庫" class="headerlink" title="建立Repository(儲存庫)"></a>建立Repository(儲存庫)</h3></li>
-</ol>
-<ul>
-<li>在GitHub 首頁點選右邊+號列表的 New Repository新增一個要建立Blog用的儲存庫<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg" alt="2_CreateNewRepository">  <br /></li>
-<li>進入新增Repository畫面後，基本上都照預設設定就好，主要是為Repository name欄位命名，依建立的Repository name，之後Blog的URL就以這個階層邏輯建立: <strong>https:&#x2F;&#x2F;[Owner].github.io&#x2F;[<strong>Repository name</strong>]&#x2F;</strong><br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg" alt="2_CreateNewRepository_2"><br>  <code>Owner: GitHub帳號名稱</code><br>  <code>Description: 欄位可以為這個Repository的說明目的或相關的內容</code><br>  <code>Add a README file 建議勾選</code>  <br /></li>
-<li>建立好Repository後就會出現以下畫面，儲存庫預設的分支現在已經改為main了不是master<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg" alt="3_FinishRepository"></li>
-</ul>
-<ol start="2">
-<li><h3 id="GitHub-Pages設定"><a href="#GitHub-Pages設定" class="headerlink" title="GitHub Pages設定"></a>GitHub Pages設定</h3></li>
-</ol>
-<ul>
-<li>接著上方橫向選單看到Settings後再進入左邊列表的Pages，在Pages頁面將Branch設定成main儲存後，會看到上方有Visit site的連結，可以點選進入GitHub Pages的首頁。<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg" alt="4_GitPage"></li>
-</ul>
-<blockquote>
-<p>如果沒有可能需要等個30秒後重新整理就有看到了，我當初進入Pages時也沒出現Visit site也很緊張，結果等了一陣子才出現</p>
-</blockquote>
-<ul>
-<li>從Visit site 進入GitHub Pages首頁<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg" alt="5_SetPage"></li>
-</ul>
-<ol start="3">
-<li><h3 id="新增GitHub-Pages首頁"><a href="#新增GitHub-Pages首頁" class="headerlink" title="新增GitHub Pages首頁"></a>新增GitHub Pages首頁</h3></li>
-</ol>
-<ul>
-<li>GitHub Pages首頁的內容是當初建立Repository時README.md的內容，如果要顯示自己想要的首頁畫面，需要新增一個index的html檔，系統預設會去吃檔名index的檔案。<br>  新增index的方式有兩種:<br>  1.直接在網頁上透過Repository上新增index的html檔案<br>  2.是從GitHub上下載到本地端(自己電腦)新增index檔案後再上傳同步到GitHub<br>  以下分別介紹兩種新增index方法<ul>
-<li>3.1 線上新增index :<ul>
-<li>上方橫向選單看到Code ⇒ Create New File在新增的檔案內容<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg" alt="6_AddIndex"><br /></li>
-<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>新增內容後點選右邊Commit Changes<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg" alt="7_EditIndex"><br /></li>
-<li>可在Commit Changes的介面補充這次修改內容或目的<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg" alt="8_EditIndex"><br /></li>
-</ul>
-</li>
-<li>3.2 從本地端新增 :<br><code>必須先在本機安裝Git，才能執行以下指令</code><ul>
-<li>在本機資料夾中從路徑呼叫CMD(命令提示字元)<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg" alt="11_LocalFolder"><br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg" alt="12_Cmd"><br /></li>
-<li>複製GitHub上指定repository的Git網址<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg" alt="13_GetGitUrl"><br /></li>
-<li>回到CMD中輸入git clone [repository的網址]，系統就會從GitHub上把指定的repository整份下載到我們指定的資料夾中<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg" alt="14_GitClone"><br /></li>
-<li>在資料夾中新增html空白檔案，貼上下個步驟準備好的內容後儲存<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg" alt="15_GitCloneRepo"><br /></li>
-<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>在CMD中輸入以下Git相關指令<ol>
-<li><code>git add index.html</code></li>
-<li><code>git commit -m &quot;add index&quot;</code></li>
-<li><code>git remote add origin [repository的網址]</code></li>
-<li><code>git push -u origin main</code><br /></li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>從以上兩個建議的方法2擇1執行完成後，回GitHub頁面確認是否已經將剛剛新增的檔案同步到線上的儲存庫中<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg" alt="9_EditIndex">  <br /></li>
-<li>確認完後再重新從Settings裡面的Page連結到首頁，畫面就會變成index檔案中的內容<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg" alt="10_IndexHomepage">  <br /></li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><ul>
-<li>以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
-</ul>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://gitbook.tw/chapters/github/using-github-pages/">使用 GitHub 免費製作個人網站</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10301923">設定 GitHub Page，建立文件網站</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>IT踩坑日常- API格式(x-www-form-urlencoded)</title>
     <url>/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因前陣子在工作上遇到一些<code>特別</code>的廠商遇到了一些<code>特別</code>的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。</p>
@@ -645,15 +666,15 @@
 </ul>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;list&quot;</span>, JsonConvert.SerializeObject(request.List) &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>我以為的Key-Value表示式是這樣(Postman 測試為例)<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_ApiFormatTrap%5CIT_Exp_ApiFormatTrap_1.jpg" alt="IT_Exp_ApiFormatTrap_1"></p>
+<p>我以為的Key-Value表示式是這樣(Postman 測試為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_1.jpg" alt="IT_Exp_ApiFormatTrap_1"></p>
 <ul>
 <li>實際上的array[object] Key-Value表示式<br>是這樣(C# 撰寫為例)<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;, </span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>]&quot;</span>, item.Tran_Code); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>]&quot;</span>, item.Tkt_No); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>]&quot;</span>, item.Tkt_Tp); </span><br><span class="line">    count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>實際上的array[object] Key-Value表示式是這樣(Postman 測試為例):<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_ApiFormatTrap%5CIT_Exp_ApiFormatTrap_2.jpg" alt="IT_Exp_ApiFormatTrap_2"></p>
+<p>實際上的array[object] Key-Value表示式是這樣(Postman 測試為例):<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_2.jpg" alt="IT_Exp_ApiFormatTrap_2"></p>
 <h2 id="疑點"><a href="#疑點" class="headerlink" title="疑點"></a>疑點</h2><p>在撰寫 array[object] 這塊表示式時,浪費了一部分時間，主要是因為在寫這個寫法之前，我還有嘗試另種寫法就是在讀取object的Member值的時候，照理說可以用 <code>item.Tran_Code</code> 或是 <code>item[Tran_Code]</code>的方法來取值，但我不知為何用.(dot)的方式來取值對方的回應是失敗的，這點我深深不解……<br>如下所示(C# 撰寫為例)</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>&quot;</span>, item.Tran_Code); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>&quot;</span>, item.Tkt_No); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>&quot;</span>, item.Tkt_Tp); </span><br><span class="line">	count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>如下所示(Postman 為例)<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_ApiFormatTrap%5CIT_Exp_ApiFormatTrap_3.jpg" alt="IT_Exp_ApiFormatTrap_3"></p>
+<p>如下所示(Postman 為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_3.jpg" alt="IT_Exp_ApiFormatTrap_3"></p>
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期遇到浪費許多時間的坑,由於我是第一次遇到 x-www-form-urlencoded 的格式輸出，就當作是種學習解決後豁然開朗的感覺，但或許有人會覺得廠商沒提供範例嗎? 對，沒提供範例，請廠商提供也沒有要提供的意思，只是一直回再試試看……<br>共勉之</p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.baeldung.com/java-postman-send-array">Send Array as Part of x-www-form-urlencoded Using Postman</a></p>
 ]]></content>
@@ -676,16 +697,16 @@
 
 <h2 id="升版流程"><a href="#升版流程" class="headerlink" title="升版流程"></a>升版流程</h2><p>下載 .NET Upgrade Assistant 方法</p>
 <ol>
-<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic.jpg" alt="Vs_Pic"></p>
+<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg" alt="Vs_Pic"></p>
 </li>
-<li><p>直接依據此連結 <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CAssistant.jpg" alt="Assistant"></p>
+<li><p>直接依據此連結 <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Assistant.jpg" alt="Assistant"></p>
 </li>
 </ol>
-<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5CVs_Pic_2.jpg" alt="Vs_Pic_2"></p>
-<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_1.jpg" alt="upgrade_1"></p>
-<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_2.jpg" alt="upgrade_2"></p>
-<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_3.jpg" alt="upgrade_3"></p>
-<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_Dotnet_Version_Upgrade%5Cupgrade_4.jpg" alt="upgrade_4"></p>
+<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic_2.jpg" alt="Vs_Pic_2"></p>
+<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_1.jpg" alt="upgrade_1"></p>
+<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_2.jpg" alt="upgrade_2"></p>
+<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_3.jpg" alt="upgrade_3"></p>
+<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_4.jpg" alt="upgrade_4"></p>
 <p>升版完成後也可在Git變更的差異檔裡看到原本的csproj的設定檔，已經把部分的套件版本一起升級了</p>
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整個升版的過程算是十分流暢順利，當然升版過後還是要自己檢查在編譯的時候是否有部分已經不被採用的Method需要修改，這部分的細節還是免不了要手動修改。</p>
 ]]></content>
@@ -720,7 +741,7 @@
 <li><p>程式面<br>讀取Response json或帶有Bom表的檔案內容時，先對此字串做過濾後，再做解析處理</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//過濾掉Bom標頭字元​</span><br><span class="line">responseBody= responseString.Trim(new char[] &#123; &#x27;\uFEFF&#x27;&#125;);</span><br><span class="line"></span><br><span class="line">//再將json string 解析成物件​</span><br><span class="line">var result = JsonConvert.DeserializeObject&lt;DeserializeObj&gt;(responseBody);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>檔案面<br>如果是檔案的字串藏有Bom的標頭符號，可用NotePad++ 開啟文件後在上面的編碼選取轉換UTF-8後再另存新檔，之後程式如果要讀取檔案內容應該讀取新的存檔<br><img src="/Whats-Up-Coding/IT_Exp%5CIT_Exp_JsonWithBomTrap%5CIT_Exp_JsonWithBomTrap_1.Png" alt="IT_Exp_JsonWithBomTrap_1"></p>
+<li><p>檔案面<br>如果是檔案的字串藏有Bom的標頭符號，可用NotePad++ 開啟文件後在上面的編碼選取轉換UTF-8後再另存新檔，之後程式如果要讀取檔案內容應該讀取新的存檔<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/IT_Exp_JsonWithBomTrap_1.PNG" alt="IT_Exp_JsonWithBomTrap_1"></p>
 </li>
 </ol>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://boywhy.blogspot.com/2014/11/c-bom.html">[C#] BOM 隱士</a></p>
@@ -734,27 +755,6 @@
         <tag>API</tag>
         <tag>Postman</tag>
         <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL_中文字變問號</title>
-    <url>/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有時在工作情境中需要手動執行SQL語法更新含有中文字時,難免會遇到明明程式執行的時候一樣的中文字有正常顯示,但手動執行SQL語法時,一樣的中文字卻變成了問號(?)。</p>
-<span id="more"></span>
-
-<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>手動執行SQL語法時造成有些中文顯示問號(?)是因為中文是用Unicode編碼組成,若確定輸入的中文內容會顯示問號(?)的話,可在輸入的字串前置[N]字,即可解決中文變成問號(?)的狀況。<br>例如:要更新的中文字中含有[俥]字</p>
-<h6 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> <span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_Before.jpg" alt="Modified_Before"></p>
-<h6 id="修改後"><a href="#修改後" class="headerlink" title="修改後"></a>修改後</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> N<span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_After.jpg" alt="Modified_After"></p>
-]]></content>
-      <categories>
-        <category>SQL</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>SQL</tag>
-        <tag>Problems</tag>
       </tags>
   </entry>
 </search>
