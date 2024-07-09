@@ -25,6 +25,42 @@
       </tags>
   </entry>
   <entry>
+    <title>AutoGPT安裝教學</title>
+    <url>/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前使用ChatGPT的互動方式是與AI用一問一答的方式分解自己待解決的問題,近期使用的AutoGPT則是有能力去設想你的問題需要什麼，自主搜集資料生成訴求，幫你與ChatGPT在互動中提出一連串的問題,來解決你的問題。</p>
+<span id="more"></span>
+<p>簡單說就是AI會幫你做自主連環詢問的方式取代需要人工與ChatGPT一問一答的解決方式。</p>
+<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ol>
+<li><a href="https://www.python.org/downloads/">Python</a><br>AutoGPT專案由Python運行因此需先下載相關環境</li>
+<li><a href="https://git-scm.com/downloads">Git</a><br>需將AutoGPT專案從GitHub上下載到本地端運行AutoGPT</li>
+<li><a href="https://platform.openai.com/account/api-keys">OpenAI</a> 帳號<br>需到OpenAI 官網註冊後取得API_Key才能讓AutoGPT使用你的金鑰詢問ChatGPT做相關互動</li>
+</ol>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li>安裝Python 3.8以上的版本<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/1_PythonInstall.png" alt="1_PythonInstall"></li>
+<li>安裝Git<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/2_GitInstall.png" alt="2_GitInstall"></li>
+<li>進入<a href="https://github.com/Significant-Gravitas/AutoGPT">AutoGPT</a>的GitHub專案中,注意下載版本為 <code>stable</code> 分支而不是 <code>master</code> 分支(在README.md上有特別提醒)<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/3_BranchNotice.png" alt="3_BranchNotice"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/4_Clone.png" alt="4_Clone"></li>
+<li>下載完後會看到一個AutoGPT的專案資料夾出現</li>
+<li>接著在本機端開啟CMD(命令提示字元)中,進入AutoGPT資料夾後,繼續輸入 <code>pip3 install -r requirements.txt</code> 安裝必要套件,程式會依照檔案中的套件名稱去安裝所有相關套件</li>
+<li>安裝過程中會安裝到 [此專案] <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 因文字解析的Error導致安裝失敗,因此目前解決方式先在 <code>requirements.txt</code> 檔案中找到 <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 開頭用 # 註解掉,讓系統跳過安裝這套件,再重新執行 <code>pip3 install -r requirements.txt</code> 就可以順利安裝完成<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/5_RequirementError.jpg" alt="5_RequirementError"></li>
+<li>安裝完成後,先改去<a href="https://platform.openai.com/account/api-keys">OpenAI官網</a>登入OpenAI 取得API Key,登入後照以下截圖新增API-Key 後,將sk-開頭的字串複製起來<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/6_OpenAI_ApiKey.jpg" alt="6_OpenAI_ApiKey"></li>
+<li>在AutoGPT資料夾中打開 .env.template 檔案,在截圖所示的地方將複製的API-Key貼上以蓋掉[your-openai-api-key] 字串後存檔,讓AutoGPT藉由你的授權金鑰與ChatGPT互動交叉詢問。<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/7_templateFIle.jpg" alt="7_templateFIle"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/8_PasteKey.jpg" alt="8_PasteKey"></li>
+<li>回到CMD中輸入此語法 <code>move .env.template .env</code> 將剛剛的模板檔案轉換成系統的環境設定檔<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/9_MoveTemplate.jpg" alt="9_MoveTemplate"></li>
+<li>以上安裝步驟完成後,在CMD輸入 <code>python -m autogpt</code>  就可正常啟動AutoGPT了<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/10_LaunchAutoGpt.jpg" alt="10_LaunchAutoGpt"></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在安裝過程中發現大部分中文教學都沒提到當初下載的專案分支應為 <code>stable</code> 而非預設的 <code>master</code> ,導致依教學安裝的讀者應該都會在資料夾中找不到 <code>requirements.txt</code> 或是 <code>.env.template</code> 之類的問題,而在安裝 <code>requirements.txt</code> 中的套件時,也會遇到安裝 <a href="vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master">此專案</a> 發生解析文字的Bug,目前就是先跳過此套件來解決,如有相關解決的方式也歡迎提供分享。</p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>AI</category>
+        <category>AutoGPT</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GitHub Pages 教學</title>
     <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
@@ -106,39 +142,164 @@
       </tags>
   </entry>
   <entry>
-    <title>AutoGPT安裝教學</title>
-    <url>/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前使用ChatGPT的互動方式是與AI用一問一答的方式分解自己待解決的問題,近期使用的AutoGPT則是有能力去設想你的問題需要什麼，自主搜集資料生成訴求，幫你與ChatGPT在互動中提出一連串的問題,來解決你的問題。</p>
+    <title>IT踩坑日常- API格式(x-www-form-urlencoded)</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因前陣子在工作上遇到一些<code>特別</code>的廠商遇到了一些<code>特別</code>的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。</p>
 <span id="more"></span>
-<p>簡單說就是AI會幫你做自主連環詢問的方式取代需要人工與ChatGPT一問一答的解決方式。</p>
-<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ol>
-<li><a href="https://www.python.org/downloads/">Python</a><br>AutoGPT專案由Python運行因此需先下載相關環境</li>
-<li><a href="https://git-scm.com/downloads">Git</a><br>需將AutoGPT專案從GitHub上下載到本地端運行AutoGPT</li>
-<li><a href="https://platform.openai.com/account/api-keys">OpenAI</a> 帳號<br>需到OpenAI 官網註冊後取得API_Key才能讓AutoGPT使用你的金鑰詢問ChatGPT做相關互動</li>
-</ol>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li>安裝Python 3.8以上的版本<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/1_PythonInstall.png" alt="1_PythonInstall"></li>
-<li>安裝Git<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/2_GitInstall.png" alt="2_GitInstall"></li>
-<li>進入<a href="https://github.com/Significant-Gravitas/AutoGPT">AutoGPT</a>的GitHub專案中,注意下載版本為 <code>stable</code> 分支而不是 <code>master</code> 分支(在README.md上有特別提醒)<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/3_BranchNotice.png" alt="3_BranchNotice"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/4_Clone.png" alt="4_Clone"></li>
-<li>下載完後會看到一個AutoGPT的專案資料夾出現</li>
-<li>接著在本機端開啟CMD(命令提示字元)中,進入AutoGPT資料夾後,繼續輸入 <code>pip3 install -r requirements.txt</code> 安裝必要套件,程式會依照檔案中的套件名稱去安裝所有相關套件</li>
-<li>安裝過程中會安裝到 [此專案] <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 因文字解析的Error導致安裝失敗,因此目前解決方式先在 <code>requirements.txt</code> 檔案中找到 <code>vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master</code> 開頭用 # 註解掉,讓系統跳過安裝這套件,再重新執行 <code>pip3 install -r requirements.txt</code> 就可以順利安裝完成<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/5_RequirementError.jpg" alt="5_RequirementError"></li>
-<li>安裝完成後,先改去<a href="https://platform.openai.com/account/api-keys">OpenAI官網</a>登入OpenAI 取得API Key,登入後照以下截圖新增API-Key 後,將sk-開頭的字串複製起來<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/6_OpenAI_ApiKey.jpg" alt="6_OpenAI_ApiKey"></li>
-<li>在AutoGPT資料夾中打開 .env.template 檔案,在截圖所示的地方將複製的API-Key貼上以蓋掉[your-openai-api-key] 字串後存檔,讓AutoGPT藉由你的授權金鑰與ChatGPT互動交叉詢問。<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/7_templateFIle.jpg" alt="7_templateFIle"><br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/8_PasteKey.jpg" alt="8_PasteKey"></li>
-<li>回到CMD中輸入此語法 <code>move .env.template .env</code> 將剛剛的模板檔案轉換成系統的環境設定檔<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/9_MoveTemplate.jpg" alt="9_MoveTemplate"></li>
-<li>以上安裝步驟完成後,在CMD輸入 <code>python -m autogpt</code>  就可正常啟動AutoGPT了<br><img src="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/10_LaunchAutoGpt.jpg" alt="10_LaunchAutoGpt"></li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>在安裝過程中發現大部分中文教學都沒提到當初下載的專案分支應為 <code>stable</code> 而非預設的 <code>master</code> ,導致依教學安裝的讀者應該都會在資料夾中找不到 <code>requirements.txt</code> 或是 <code>.env.template</code> 之類的問題,而在安裝 <code>requirements.txt</code> 中的套件時,也會遇到安裝 <a href="vcrpy@git+https://github.com/Significant-Gravitas/vcrpy.git@master">此專案</a> 發生解析文字的Bug,目前就是先跳過此套件來解決,如有相關解決的方式也歡迎提供分享。</p>
+<p>此次主要業務是與廠商做API介接,但對方的<br>API(Post)-Request的Body是用 <strong>x-www-form-urlencoded</strong> 格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">單位代碼(dep_id)</span><br><span class="line">總筆數(all_count)</span><br><span class="line">list []：票號約定清單</span><br><span class="line">異動別(tran_code)(A=增加,D=刪除)</span><br><span class="line">票號(tkt_no)</span><br><span class="line">票種(tkt_tp)(01=成人,02=愛心,03=團體)</span><br></pre></td></tr></table></figure>
+
+<p>API(Post)-Response是用Json格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
+
+<h2 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h2><p>在x-www-form-urlencoded 格式中表現的方式是以Key-Value的方式來呈現，與Json把整個資料表達成一個字串的方式不同，在撰寫Request時在前面兩個屬性dep_id&#x2F;all_count都還沒甚麼問題,,但到了一個Array[Object]的結構時，可能我下的指令也沒有很精確，因為Copilot其實也是回我類似的結構寫法。</p>
+<ul>
+<li>我以為的Key-Value表示式<br>(C# 撰寫為例)</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;list&quot;</span>, JsonConvert.SerializeObject(request.List) &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我以為的Key-Value表示式是這樣(Postman 測試為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_1.jpg" alt="IT_Exp_ApiFormatTrap_1"></p>
+<ul>
+<li>實際上的array[object] Key-Value表示式<br>是這樣(C# 撰寫為例)<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;, </span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>]&quot;</span>, item.Tran_Code); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>]&quot;</span>, item.Tkt_No); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>]&quot;</span>, item.Tkt_Tp); </span><br><span class="line">    count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>實際上的array[object] Key-Value表示式是這樣(Postman 測試為例):<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_2.jpg" alt="IT_Exp_ApiFormatTrap_2"></p>
+<h2 id="疑點"><a href="#疑點" class="headerlink" title="疑點"></a>疑點</h2><p>在撰寫 array[object] 這塊表示式時,浪費了一部分時間，主要是因為在寫這個寫法之前，我還有嘗試另種寫法就是在讀取object的Member值的時候，照理說可以用 <code>item.Tran_Code</code> 或是 <code>item[Tran_Code]</code>的方法來取值，但我不知為何用.(dot)的方式來取值對方的回應是失敗的，這點我深深不解……<br>如下所示(C# 撰寫為例)</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>&quot;</span>, item.Tran_Code); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>&quot;</span>, item.Tkt_No); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>&quot;</span>, item.Tkt_Tp); </span><br><span class="line">	count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如下所示(Postman 為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_3.jpg" alt="IT_Exp_ApiFormatTrap_3"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期遇到浪費許多時間的坑,由於我是第一次遇到 x-www-form-urlencoded 的格式輸出，就當作是種學習解決後豁然開朗的感覺，但或許有人會覺得廠商沒提供範例嗎? 對，沒提供範例，請廠商提供也沒有要提供的意思，只是一直回再試試看……<br>共勉之</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.baeldung.com/java-postman-send-array">Send Array as Part of x-www-form-urlencoded Using Postman</a></p>
 ]]></content>
       <categories>
-        <category>教學</category>
-        <category>AI</category>
-        <category>AutoGPT</category>
+        <category>踩坑日常</category>
+        <category>IT</category>
       </categories>
       <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>AI</tag>
+        <tag>2024</tag>
+        <tag>API</tag>
+        <tag>Postman</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IT日常- C# .NET專案升版教學</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因目前公司舊專案有升版需求(.net core 2.2 &#x3D;&gt; .net 8)，在尋找跨越多版本這個鴻溝解方時，發現微軟有提供相關的升版套件 [.NET Upgrade Assistant] 讓我們升版的流程變得更無痛。</p>
+<span id="more"></span>
+
+<h2 id="升版流程"><a href="#升版流程" class="headerlink" title="升版流程"></a>升版流程</h2><p>下載 .NET Upgrade Assistant 方法</p>
+<ol>
+<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg" alt="Vs_Pic"></p>
+</li>
+<li><p>直接依據此連結 <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Assistant.jpg" alt="Assistant"></p>
+</li>
+</ol>
+<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic_2.jpg" alt="Vs_Pic_2"></p>
+<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_1.jpg" alt="upgrade_1"></p>
+<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_2.jpg" alt="upgrade_2"></p>
+<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_3.jpg" alt="upgrade_3"></p>
+<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_4.jpg" alt="upgrade_4"></p>
+<p>升版完成後也可在Git變更的差異檔裡看到原本的csproj的設定檔，已經把部分的套件版本一起升級了</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整個升版的過程算是十分流暢順利，當然升版過後還是要自己檢查在編譯的時候是否有部分已經不被採用的Method需要修改，這部分的細節還是免不了要手動修改。</p>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>C#</tag>
+        <tag>.Net</tag>
+        <tag>升版</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IT踩坑日常- bom頭標記導致json無法解析</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在專案中與廠商測試的過程中,發現對方API回傳的json字串出現無法解析的狀況,此篇記錄發現過程與解決的紀錄，希望之後有踩到坑的同仁可以少跌一些坑。</p>
+<span id="more"></span>
+
+<p>此次主要業務是與廠商做API介接<br>API(Post)-Response是用Json格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
+
+<h2 id="踩坑過程"><a href="#踩坑過程" class="headerlink" title="踩坑過程"></a>踩坑過程</h2><p>接收到回傳的json結果為以下值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程式在解析時丟出了無法解析的錯誤，乍看之下此字串是正常格式的json字串,但將此字串貼在記事本儲存時，會提醒你內文中含有<code>urldecode</code>的字元，儲存後的內容發生變化之類的提醒，再開啟文件之後發現原本的json字串變成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">?&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但實際上此字元也並非字面上看到的是藏著?的字元而是Bom表標頭的標記符號(不佔空間的空白，unicode編碼中表示:<code>\uFEFF</code>)導致，當json Response字串中藏著Bom標記符號時，預設使用UTF-8讀取json格式,就會遇到這個問題。</p>
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><ol>
+<li><p>程式面<br>讀取Response json或帶有Bom表的檔案內容時，先對此字串做過濾後，再做解析處理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//過濾掉Bom標頭字元​</span><br><span class="line">responseBody= responseString.Trim(new char[] &#123; &#x27;\uFEFF&#x27;&#125;);</span><br><span class="line"></span><br><span class="line">//再將json string 解析成物件​</span><br><span class="line">var result = JsonConvert.DeserializeObject&lt;DeserializeObj&gt;(responseBody);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>檔案面<br>如果是檔案的字串藏有Bom的標頭符號，可用NotePad++ 開啟文件後在上面的編碼選取轉換UTF-8後再另存新檔，之後程式如果要讀取檔案內容應該讀取新的存檔<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/IT_Exp_JsonWithBomTrap_1.PNG" alt="IT_Exp_JsonWithBomTrap_1"></p>
+</li>
+</ol>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://boywhy.blogspot.com/2014/11/c-bom.html">[C#] BOM 隱士</a></p>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>API</tag>
+        <tag>Postman</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL索引最佳化</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_SQL_Optimize_Index/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因近期工作內容偏向SQL查詢效能調校以此篇作為調整紀錄(以下SQL系統為MSSQL)</p>
+<span id="more"></span>
+<p>系統查詢功能隨著資料的增多(約9500萬筆資料)導致原本設計的資料表查詢效能日漸緩慢，近期針對目前常用的查詢語法做了梳理以下幾個調校方法做整理，以下是針對已經有設定Index的情況下進一步調整。</p>
+<h2 id="服用Index前注意事項"><a href="#服用Index前注意事項" class="headerlink" title="服用Index前注意事項"></a>服用Index前注意事項</h2><ul>
+<li><p>優點:加速查詢的效率從原本的全表搜尋(Table Scan)機制改善為索引查詢(Index Seek)</p>
+</li>
+<li><p>缺點:建立的Index越多，在對資料進行新增&#x2F;刪除&#x2F;修改時，就會花越多時間來完成。 盡量避免對設定索引的欄位經常性的改動操作，會導致原先排續好的索引順序越零碎而影響查詢效能，必要時需定期使用重組排序讓原本零碎的索引重新排序以改刪查詢效能。</p>
+</li>
+</ul>
+<h2 id="索引最佳化"><a href="#索引最佳化" class="headerlink" title="索引最佳化"></a>索引最佳化</h2><ul>
+<li><p>覆蓋索引搜尋(Covering Index)<br>意思是讓 Select 的欄位 &#x3D; Index的欄位 當查詢被執行的時候，若需要的欄位全都在索引當中，則會直接將索引查到的內容回傳，減少回主表查詢缺少欄位所需要的I&#x2F;O時間。</p>
+</li>
+<li><p>複合索引(Multiple Column Index)<br>若設定索引時是用多個欄位組成，建議把「頻繁被作為查詢條件的欄位越左方越好」 因為在下Where查詢條件時會有索引的順序性才能吃到此索引 例如: 當初建立的複合索引是用欄位 A&#x2F;B&#x2F;C組合，在下Where條件是只能是以下的查詢組合才能吃到複合索引的效能</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>以下順序無法吃到此索引功能</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> C <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>索引涵蓋查詢欄位(Include Columns)<br>在建立索引的語法中加入涵蓋的查詢欄位 例如以下查詢語法中，在LastName欄位新增Index  <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> LastName, FirstName, Email </span><br><span class="line"><span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> LastName <span class="operator">=</span> <span class="string">&#x27;Dave&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>改善前:</li>
+</ul>
+</li>
+</ul>
+<p>Index新增語法<br>    <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName)</span><br></pre></td></tr></table></figure><br>    因為新增的索引僅包含 LastName 欄位的資訊但查詢的欄位還有FirstName, Email， SQL     Server 必須通過查詢的回溯操作（或二次查詢）來檢索 FirstName 和 Email 的值。<br>    意思是因為索引中只有加入LastName 所以用索引找到LastName的RowId時，會再用RowId回去    取 FirstName 和 Email的值</p>
+<ul>
+<li>改善後:<br>原本的Index內容改為 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName) INCLUDE (FirstName, Email)</span><br></pre></td></tr></table></figure>
+這時的查詢語法執行的邏輯就會變成一樣用LastName的索引找到資料後會一起把FirstName, Email值取出來，不需再用RowId做二次查詢回去撈FirstName, Email的值。</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://sqlworker.blogspot.com/2016/11/keyinclude.html">SQL Worker</a></li>
+<li><a href="https://clarklin.gitlab.io/2020/12/13/sql-server-index-note/">SQL Server 索引筆記</a></li>
+<li><a href="https://medium.com/@henry-chou/5%E5%80%8B%E6%A6%82%E5%BF%B5%E6%8B%AF%E6%95%91%E9%BE%9C%E9%80%9F%E7%9A%84sql%E6%9F%A5%E8%A9%A2-query-d10e06b8bae3">5個概念拯救龜速的SQL查詢(Query)</a></li>
+<li><a href="https://medium.com/@winterer32/ms-sql-%E7%AD%86%E8%A8%98-%E4%BD%BF%E7%94%A8-sql-%E7%B4%A2%E5%BC%95%E4%B8%AD%E7%9A%84-include-%E9%97%9C%E9%8D%B5%E5%AD%97%E4%BB%A5%E6%8F%90%E9%AB%98%E6%9F%A5%E8%A9%A2%E6%95%88%E8%83%BD-e9bc9110ac1">INCLUDE 關鍵字以提高查詢效能</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>SQL</tag>
+        <tag>INDEX</tag>
+        <tag>MSSQL</tag>
       </tags>
   </entry>
   <entry>
@@ -160,6 +321,80 @@
         <tag>2024</tag>
         <tag>SQL</tag>
         <tag>Problems</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ASCII，Unicode 和UTF-8的演變</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因之前業務上的介接踩到json開頭有Bom表標記符號的坑，想到之前也有遇到檔案內ASCII&#x2F;Unicode&#x2F;UTF-8編碼間轉換的坑，因此決定要來搞清楚這些編碼的前世今生與編碼原理了。<br>畢竟字符編碼就是電腦技術中傳遞訊息的基石</p>
+<span id="more"></span>
+
+<h2 id="行前複習"><a href="#行前複習" class="headerlink" title="行前複習"></a>行前複習</h2><p>電腦能辨認的只有資訊就是2進位位元，<br>位元(bit): 0 &#x2F; 1兩種狀態<br>位元組(byte): 8bit</p>
+<h2 id="各編碼的誕生"><a href="#各編碼的誕生" class="headerlink" title="各編碼的誕生"></a>各編碼的誕生</h2><ul>
+<li>ASCII:<br>全名是 <code>American Standard Code for Information Interchange</code>，譯成中文為美國資訊交換標準程式碼。<br>當初的設計只用來滿足英語系國家因此只有用7位元(128種字元)來記錄每個字元的編碼，包含A-Z,a-z,0-9與一些保留字元與符號</li>
+</ul>
+<blockquote>
+<p>白話文:美國為英語系國家編出一本收錄128字元的編碼字典</p>
+</blockquote>
+<ul>
+<li>EASCII:<br>如上述因ASCII編碼範圍只考慮到英語系國家導致沒有辦法滿足歐洲或拉丁語系國家使用的字元，因此再把ASCII擴編成8位元(256種字元)來擴充許多符號與希臘或拉丁符號使用</li>
+</ul>
+<blockquote>
+<p>白話文:非英語系國家在ASCII的基礎上擴充屬於自己的語系字元(在128 &#x3D;&gt; 255這段範圍中新增，因0-127一樣是繼承ASCII中的字元)</p>
+</blockquote>
+<ul>
+<li><p>衍生問題:統一前的一Byte各表<br>如上所介紹在非英語系國家中都會在編碼字典中(128 &#x3D;&gt; 255這段範圍中新增自己語系字元)<br>就會發生在法文語系中第150字元的符號在法文是某個字，在同一個第150字元的符號卻是希伯來文是另一個字，造成一Byte各表的狀況。</p>
+</li>
+<li><p>生活中的案例:<br>email或是某個檔案的內容可能發送方跟接收方使用不同語系，因此在讀檔案時用錯誤的編碼方式轉換就會出現亂碼等等</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Unicode:<br>為了解決以上所述一Byte各表的問題，需要一部收錄全部語系字元的編碼表(16進位制紀錄的字典)，讓每個字元所代表的位元組都是獨一無二的。<br>於是Unicode就誕生了(簡稱萬國碼&#x2F;國際碼)，一部收錄全世界各字元符號的編碼對照表(字典)</p>
+</li>
+<li><p>衍生問題:統一後的一Byte各表:<br>由於Unicode只記錄每個字元所對照的16進位值，但因電腦只看得懂0和1，所以我們需要將Unicode轉換為0和1的二元碼才能在電腦上運行。<br>當時沒有建立一套標準來表達所對照出來的16進位值要用甚麼方式表達成2進位制，因此就出現了以下幾個問題</p>
+</li>
+</ul>
+<ol>
+<li><p>如何區別Unicode 和ASCII<br>如果一個字元的16進位值轉成2進位制時是3個Byte，電腦怎麼知道這3個Byte的值是表達成一個字元 還是 3個1 Byte的字元?</p>
+</li>
+<li><p>避免資料儲存的資源浪費<br>如果表達的Byte要用固定長度表示，例:要固定用4Byte長度表示所以字元，但字母A只需要用1個Byte表示即可卻要多印左補3個Byte都是0來符合4個Byte長度的表示式這會造成儲存上的資源浪費</p>
+</li>
+</ol>
+<ul>
+<li>Unicode各種轉換表演<br>而Unicode定義了幾種轉換方式，也就是我們常聽到的 <code>Unicode Transformation Format</code> （UTF）！<ul>
+<li>UTF-8:<br> UTF-8是一個可變長度的編碼，使用1到4個位元組(Byte)來表達一個字元，並能與ASCII相容。因為它可以判斷要以多少位元組來表示字元，所以UTF-8成為全世界最廣泛被使用的編碼方式。<br> 以下為UTF-8的表達規則<ol>
+<li><p>對於單字節(只需1Byte表達)的符號，位元組的第一位設為0，後面7位元為這個符號的Unicode碼。因此對於英文字母，UTF-8 編碼和ASCII 碼是相同的。<br> 例:下圖中序列一的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_1.jpg" alt="Unicode_Sample_1"></p>
+</li>
+<li><p>對於n位元組的符號（n &gt; 1），第一個位元組的前n位都設為1，第n + 1位元設為0，後面位元組的前兩位一律設為10。剩下x的位置，都是這個符號的Unicode碼可以填入的位置，填入的方向是從最後一個Byte位置開始由<code>右 =&gt; 左填入x</code>，若還有x則<code>左補0</code>填滿。</p>
+</li>
+</ol>
+</li>
+</ul>
+<p> 例:下圖中序列2-4的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_2.jpg" alt="Unicode_Sample_2"><br> 根據上面的範例來解讀就是:<br>      1. 若第1個Byte開頭是0的話代表這個字元是1個Byte就可以表達的。<br>      2. 若第1個Byte開頭是1的話就看有N個1就代表這個字元需要用N個Byte來表達</p>
+<ul>
+<li>其他實作方式還包括UTF-16（字元以兩個位元組或四個位元組表示）和UTF-32（字元用四個位元組表示），在此就不多做介紹。</li>
+</ul>
+</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期對轉碼相關歷史緣由的統整,如有遇到相同疑問的讀者希望這篇對你有幫助，共勉之</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://zi-hi.com/UTF-8">字嗨</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字元編碼筆記：ASCII，Unicode 和UTF-8</a></li>
+<li><a href="https://docs.f5ezcode.in/cs-basic/di-er-zhang-1111-+-1-1112/2.3-ren-de-tong-ascii-code-unicode">2.3 電腦與人的溝通 - ASCII code, Unicode</a></li>
+<li><a href="https://web.ntnu.edu.tw/~algo/Code.html">code</a></li>
+<li><a href="https://www.digikey.tw/zh/resources/conversion-calculators/conversion-calculator-number-conversion">數字系統換算器</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>Unicode</tag>
+        <tag>ASCII</tag>
+        <tag>UTF-8</tag>
       </tags>
   </entry>
   <entry>
@@ -521,35 +756,6 @@
       </tags>
   </entry>
   <entry>
-    <title>設定選單</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>建立部落格到現在好像才發現一般首頁都會有類似關於我(about)&#x2F;分類&#x2F;標籤的相關選單連結，引導讀者可以更認識作者與文章查詢更方便的功能。</p>
-<span id="more"></span>
-
-<h2 id="開啟首頁選單"><a href="#開啟首頁選單" class="headerlink" title="開啟首頁選單"></a>開啟首頁選單</h2><ol>
-<li><p>以主題next為例，在使用的主題(Themes)資料夾中開啟_config檔案(紅框1所示路徑)，拉到 menu 設定區塊(紅框2所示)，會看到選單項目預設下都用 # 被註解掉，如要開放選單連結就把 # 給刪掉，下圖所示我先把首頁&#x2F;關於我&#x2F;標籤&#x2F;類別選項開啟後存檔。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/ThemeHomePageConfig_1.jpg" alt="ThemeHomePageConfig_1">  </p>
-</li>
-<li><p>執行以下語法可以在本地端預覽開啟選單的首頁畫面</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> 預覽頁面，可看到首頁已開啟選單連結。<img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/HomePage_2.jpg" alt="HomePage_2"></p>
-</li>
-<li><p>確認無誤後再執行以下指令，將內容發佈到GitHub上，就會在blog中出現新的首頁選單。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>目前這些被開啟的選單項目除了首頁外，沒有對應的連結頁面呈現，有別於建立新文章的語法，下篇會介紹為每個選單項目建立獨立頁面。</p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用Hexo自訂主題(Theme)教學</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Theme/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>完成 <strong><a href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Post/">用Hexo套版GitHub Pages當部落格</a></strong> 教學後，若覺得預設的主題  landscape 不是你想要的風格，這篇教學針對如何更換其他主題來套版部落格的介面，簡單來說就是幫部落格換衣服</p>
@@ -650,238 +856,32 @@
       </tags>
   </entry>
   <entry>
-    <title>IT踩坑日常- API格式(x-www-form-urlencoded)</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因前陣子在工作上遇到一些<code>特別</code>的廠商遇到了一些<code>特別</code>的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。</p>
-<span id="more"></span>
-<p>此次主要業務是與廠商做API介接,但對方的<br>API(Post)-Request的Body是用 <strong>x-www-form-urlencoded</strong> 格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">單位代碼(dep_id)</span><br><span class="line">總筆數(all_count)</span><br><span class="line">list []：票號約定清單</span><br><span class="line">異動別(tran_code)(A=增加,D=刪除)</span><br><span class="line">票號(tkt_no)</span><br><span class="line">票種(tkt_tp)(01=成人,02=愛心,03=團體)</span><br></pre></td></tr></table></figure>
-
-<p>API(Post)-Response是用Json格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
-
-<h2 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h2><p>在x-www-form-urlencoded 格式中表現的方式是以Key-Value的方式來呈現，與Json把整個資料表達成一個字串的方式不同，在撰寫Request時在前面兩個屬性dep_id&#x2F;all_count都還沒甚麼問題,,但到了一個Array[Object]的結構時，可能我下的指令也沒有很精確，因為Copilot其實也是回我類似的結構寫法。</p>
-<ul>
-<li>我以為的Key-Value表示式<br>(C# 撰寫為例)</li>
-</ul>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;list&quot;</span>, JsonConvert.SerializeObject(request.List) &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>我以為的Key-Value表示式是這樣(Postman 測試為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_1.jpg" alt="IT_Exp_ApiFormatTrap_1"></p>
-<ul>
-<li>實際上的array[object] Key-Value表示式<br>是這樣(C# 撰寫為例)<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;, </span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>]&quot;</span>, item.Tran_Code); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>]&quot;</span>, item.Tkt_No); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>]&quot;</span>, item.Tkt_Tp); </span><br><span class="line">    count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>實際上的array[object] Key-Value表示式是這樣(Postman 測試為例):<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_2.jpg" alt="IT_Exp_ApiFormatTrap_2"></p>
-<h2 id="疑點"><a href="#疑點" class="headerlink" title="疑點"></a>疑點</h2><p>在撰寫 array[object] 這塊表示式時,浪費了一部分時間，主要是因為在寫這個寫法之前，我還有嘗試另種寫法就是在讀取object的Member值的時候，照理說可以用 <code>item.Tran_Code</code> 或是 <code>item[Tran_Code]</code>的方法來取值，但我不知為何用.(dot)的方式來取值對方的回應是失敗的，這點我深深不解……<br>如下所示(C# 撰寫為例)</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>&quot;</span>, item.Tran_Code); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>&quot;</span>, item.Tkt_No); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>&quot;</span>, item.Tkt_Tp); </span><br><span class="line">	count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>如下所示(Postman 為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_3.jpg" alt="IT_Exp_ApiFormatTrap_3"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期遇到浪費許多時間的坑,由於我是第一次遇到 x-www-form-urlencoded 的格式輸出，就當作是種學習解決後豁然開朗的感覺，但或許有人會覺得廠商沒提供範例嗎? 對，沒提供範例，請廠商提供也沒有要提供的意思，只是一直回再試試看……<br>共勉之</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.baeldung.com/java-postman-send-array">Send Array as Part of x-www-form-urlencoded Using Postman</a></p>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>API</tag>
-        <tag>Postman</tag>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IT日常- C# .NET專案升版教學</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因目前公司舊專案有升版需求(.net core 2.2 &#x3D;&gt; .net 8)，在尋找跨越多版本這個鴻溝解方時，發現微軟有提供相關的升版套件 [.NET Upgrade Assistant] 讓我們升版的流程變得更無痛。</p>
+    <title>設定選單</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>建立部落格到現在好像才發現一般首頁都會有類似關於我(about)&#x2F;分類&#x2F;標籤的相關選單連結，引導讀者可以更認識作者與文章查詢更方便的功能。</p>
 <span id="more"></span>
 
-<h2 id="升版流程"><a href="#升版流程" class="headerlink" title="升版流程"></a>升版流程</h2><p>下載 .NET Upgrade Assistant 方法</p>
-<ol>
-<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg" alt="Vs_Pic"></p>
+<h2 id="開啟首頁選單"><a href="#開啟首頁選單" class="headerlink" title="開啟首頁選單"></a>開啟首頁選單</h2><ol>
+<li><p>以主題next為例，在使用的主題(Themes)資料夾中開啟_config檔案(紅框1所示路徑)，拉到 menu 設定區塊(紅框2所示)，會看到選單項目預設下都用 # 被註解掉，如要開放選單連結就把 # 給刪掉，下圖所示我先把首頁&#x2F;關於我&#x2F;標籤&#x2F;類別選項開啟後存檔。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/ThemeHomePageConfig_1.jpg" alt="ThemeHomePageConfig_1">  </p>
 </li>
-<li><p>直接依據此連結 <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Assistant.jpg" alt="Assistant"></p>
+<li><p>執行以下語法可以在本地端預覽開啟選單的首頁畫面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a> 預覽頁面，可看到首頁已開啟選單連結。<img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/HomePage_2.jpg" alt="HomePage_2"></p>
+</li>
+<li><p>確認無誤後再執行以下指令，將內容發佈到GitHub上，就會在blog中出現新的首頁選單。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic_2.jpg" alt="Vs_Pic_2"></p>
-<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_1.jpg" alt="upgrade_1"></p>
-<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_2.jpg" alt="upgrade_2"></p>
-<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_3.jpg" alt="upgrade_3"></p>
-<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_4.jpg" alt="upgrade_4"></p>
-<p>升版完成後也可在Git變更的差異檔裡看到原本的csproj的設定檔，已經把部分的套件版本一起升級了</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整個升版的過程算是十分流暢順利，當然升版過後還是要自己檢查在編譯的時候是否有部分已經不被採用的Method需要修改，這部分的細節還是免不了要手動修改。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>目前這些被開啟的選單項目除了首頁外，沒有對應的連結頁面呈現，有別於建立新文章的語法，下篇會介紹為每個選單項目建立獨立頁面。</p>
 ]]></content>
       <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
+        <category>教學</category>
+        <category>Blog</category>
       </categories>
       <tags>
-        <tag>2024</tag>
-        <tag>C#</tag>
-        <tag>.Net</tag>
-        <tag>升版</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IT踩坑日常- bom頭標記導致json無法解析</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在專案中與廠商測試的過程中,發現對方API回傳的json字串出現無法解析的狀況,此篇記錄發現過程與解決的紀錄，希望之後有踩到坑的同仁可以少跌一些坑。</p>
-<span id="more"></span>
-
-<p>此次主要業務是與廠商做API介接<br>API(Post)-Response是用Json格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
-
-<h2 id="踩坑過程"><a href="#踩坑過程" class="headerlink" title="踩坑過程"></a>踩坑過程</h2><p>接收到回傳的json結果為以下值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
-
-<p>程式在解析時丟出了無法解析的錯誤，乍看之下此字串是正常格式的json字串,但將此字串貼在記事本儲存時，會提醒你內文中含有<code>urldecode</code>的字元，儲存後的內容發生變化之類的提醒，再開啟文件之後發現原本的json字串變成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">?&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但實際上此字元也並非字面上看到的是藏著?的字元而是Bom表標頭的標記符號(不佔空間的空白，unicode編碼中表示:<code>\uFEFF</code>)導致，當json Response字串中藏著Bom標記符號時，預設使用UTF-8讀取json格式,就會遇到這個問題。</p>
-<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><ol>
-<li><p>程式面<br>讀取Response json或帶有Bom表的檔案內容時，先對此字串做過濾後，再做解析處理</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//過濾掉Bom標頭字元​</span><br><span class="line">responseBody= responseString.Trim(new char[] &#123; &#x27;\uFEFF&#x27;&#125;);</span><br><span class="line"></span><br><span class="line">//再將json string 解析成物件​</span><br><span class="line">var result = JsonConvert.DeserializeObject&lt;DeserializeObj&gt;(responseBody);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>檔案面<br>如果是檔案的字串藏有Bom的標頭符號，可用NotePad++ 開啟文件後在上面的編碼選取轉換UTF-8後再另存新檔，之後程式如果要讀取檔案內容應該讀取新的存檔<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/IT_Exp_JsonWithBomTrap_1.PNG" alt="IT_Exp_JsonWithBomTrap_1"></p>
-</li>
-</ol>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://boywhy.blogspot.com/2014/11/c-bom.html">[C#] BOM 隱士</a></p>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>API</tag>
-        <tag>Postman</tag>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ASCII，Unicode 和UTF-8的演變</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因之前業務上的介接踩到json開頭有Bom表標記符號的坑，想到之前也有遇到檔案內ASCII&#x2F;Unicode&#x2F;UTF-8編碼間轉換的坑，因此決定要來搞清楚這些編碼的前世今生與編碼原理了。<br>畢竟字符編碼就是電腦技術中傳遞訊息的基石</p>
-<span id="more"></span>
-
-<h2 id="行前複習"><a href="#行前複習" class="headerlink" title="行前複習"></a>行前複習</h2><p>電腦能辨認的只有資訊就是2進位位元，<br>位元(bit): 0 &#x2F; 1兩種狀態<br>位元組(byte): 8bit</p>
-<h2 id="各編碼的誕生"><a href="#各編碼的誕生" class="headerlink" title="各編碼的誕生"></a>各編碼的誕生</h2><ul>
-<li>ASCII:<br>全名是 <code>American Standard Code for Information Interchange</code>，譯成中文為美國資訊交換標準程式碼。<br>當初的設計只用來滿足英語系國家因此只有用7位元(128種字元)來記錄每個字元的編碼，包含A-Z,a-z,0-9與一些保留字元與符號</li>
-</ul>
-<blockquote>
-<p>白話文:美國為英語系國家編出一本收錄128字元的編碼字典</p>
-</blockquote>
-<ul>
-<li>EASCII:<br>如上述因ASCII編碼範圍只考慮到英語系國家導致沒有辦法滿足歐洲或拉丁語系國家使用的字元，因此再把ASCII擴編成8位元(256種字元)來擴充許多符號與希臘或拉丁符號使用</li>
-</ul>
-<blockquote>
-<p>白話文:非英語系國家在ASCII的基礎上擴充屬於自己的語系字元(在128 &#x3D;&gt; 255這段範圍中新增，因0-127一樣是繼承ASCII中的字元)</p>
-</blockquote>
-<ul>
-<li><p>衍生問題:統一前的一Byte各表<br>如上所介紹在非英語系國家中都會在編碼字典中(128 &#x3D;&gt; 255這段範圍中新增自己語系字元)<br>就會發生在法文語系中第150字元的符號在法文是某個字，在同一個第150字元的符號卻是希伯來文是另一個字，造成一Byte各表的狀況。</p>
-</li>
-<li><p>生活中的案例:<br>email或是某個檔案的內容可能發送方跟接收方使用不同語系，因此在讀檔案時用錯誤的編碼方式轉換就會出現亂碼等等</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p>Unicode:<br>為了解決以上所述一Byte各表的問題，需要一部收錄全部語系字元的編碼表(16進位制紀錄的字典)，讓每個字元所代表的位元組都是獨一無二的。<br>於是Unicode就誕生了(簡稱萬國碼&#x2F;國際碼)，一部收錄全世界各字元符號的編碼對照表(字典)</p>
-</li>
-<li><p>衍生問題:統一後的一Byte各表:<br>由於Unicode只記錄每個字元所對照的16進位值，但因電腦只看得懂0和1，所以我們需要將Unicode轉換為0和1的二元碼才能在電腦上運行。<br>當時沒有建立一套標準來表達所對照出來的16進位值要用甚麼方式表達成2進位制，因此就出現了以下幾個問題</p>
-</li>
-</ul>
-<ol>
-<li><p>如何區別Unicode 和ASCII<br>如果一個字元的16進位值轉成2進位制時是3個Byte，電腦怎麼知道這3個Byte的值是表達成一個字元 還是 3個1 Byte的字元?</p>
-</li>
-<li><p>避免資料儲存的資源浪費<br>如果表達的Byte要用固定長度表示，例:要固定用4Byte長度表示所以字元，但字母A只需要用1個Byte表示即可卻要多印左補3個Byte都是0來符合4個Byte長度的表示式這會造成儲存上的資源浪費</p>
-</li>
-</ol>
-<ul>
-<li>Unicode各種轉換表演<br>而Unicode定義了幾種轉換方式，也就是我們常聽到的 <code>Unicode Transformation Format</code> （UTF）！<ul>
-<li>UTF-8:<br> UTF-8是一個可變長度的編碼，使用1到4個位元組(Byte)來表達一個字元，並能與ASCII相容。因為它可以判斷要以多少位元組來表示字元，所以UTF-8成為全世界最廣泛被使用的編碼方式。<br> 以下為UTF-8的表達規則<ol>
-<li><p>對於單字節(只需1Byte表達)的符號，位元組的第一位設為0，後面7位元為這個符號的Unicode碼。因此對於英文字母，UTF-8 編碼和ASCII 碼是相同的。<br> 例:下圖中序列一的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_1.jpg" alt="Unicode_Sample_1"></p>
-</li>
-<li><p>對於n位元組的符號（n &gt; 1），第一個位元組的前n位都設為1，第n + 1位元設為0，後面位元組的前兩位一律設為10。剩下x的位置，都是這個符號的Unicode碼可以填入的位置，填入的方向是從最後一個Byte位置開始由<code>右 =&gt; 左填入x</code>，若還有x則<code>左補0</code>填滿。</p>
-</li>
-</ol>
-</li>
-</ul>
-<p> 例:下圖中序列2-4的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_2.jpg" alt="Unicode_Sample_2"><br> 根據上面的範例來解讀就是:<br>      1. 若第1個Byte開頭是0的話代表這個字元是1個Byte就可以表達的。<br>      2. 若第1個Byte開頭是1的話就看有N個1就代表這個字元需要用N個Byte來表達</p>
-<ul>
-<li>其他實作方式還包括UTF-16（字元以兩個位元組或四個位元組表示）和UTF-32（字元用四個位元組表示），在此就不多做介紹。</li>
-</ul>
-</li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期對轉碼相關歷史緣由的統整,如有遇到相同疑問的讀者希望這篇對你有幫助，共勉之</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://zi-hi.com/UTF-8">字嗨</a></li>
-<li><a href="https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字元編碼筆記：ASCII，Unicode 和UTF-8</a></li>
-<li><a href="https://docs.f5ezcode.in/cs-basic/di-er-zhang-1111-+-1-1112/2.3-ren-de-tong-ascii-code-unicode">2.3 電腦與人的溝通 - ASCII code, Unicode</a></li>
-<li><a href="https://web.ntnu.edu.tw/~algo/Code.html">code</a></li>
-<li><a href="https://www.digikey.tw/zh/resources/conversion-calculators/conversion-calculator-number-conversion">數字系統換算器</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>Unicode</tag>
-        <tag>ASCII</tag>
-        <tag>UTF-8</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL索引最佳化</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_SQL_Optimize_Index/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因近期工作內容偏向SQL查詢效能調校以此篇作為調整紀錄(以下SQL系統為MSSQL)</p>
-<span id="more"></span>
-<p>系統查詢功能隨著資料的增多(約9500萬筆資料)導致原本設計的資料表查詢效能日漸緩慢，近期針對目前常用的查詢語法做了梳理以下幾個調校方法做整理，以下是針對已經有設定Index的情況下進一步調整。</p>
-<h2 id="服用Index前注意事項"><a href="#服用Index前注意事項" class="headerlink" title="服用Index前注意事項"></a>服用Index前注意事項</h2><ul>
-<li><p>優點:加速查詢的效率從原本的全表搜尋(Table Scan)機制改善為索引查詢(Index Seek)</p>
-</li>
-<li><p>缺點:建立的Index越多，在對資料進行新增&#x2F;刪除&#x2F;修改時，就會花越多時間來完成。 盡量避免對設定索引的欄位經常性的改動操作，會導致原先排續好的索引順序越零碎而影響查詢效能，必要時需定期使用重組排序讓原本零碎的索引重新排序以改刪查詢效能。</p>
-</li>
-</ul>
-<h2 id="索引最佳化"><a href="#索引最佳化" class="headerlink" title="索引最佳化"></a>索引最佳化</h2><ul>
-<li><p>覆蓋索引搜尋(Covering Index)<br>意思是讓 Select 的欄位 &#x3D; Index的欄位 當查詢被執行的時候，若需要的欄位全都在索引當中，則會直接將索引查到的內容回傳，減少回主表查詢缺少欄位所需要的I&#x2F;O時間。</p>
-</li>
-<li><p>複合索引(Multiple Column Index)<br>若設定索引時是用多個欄位組成，建議把「頻繁被作為查詢條件的欄位越左方越好」 因為在下Where查詢條件時會有索引的順序性才能吃到此索引 例如: 當初建立的複合索引是用欄位 A&#x2F;B&#x2F;C組合，在下Where條件是只能是以下的查詢組合才能吃到複合索引的效能</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>以下順序無法吃到此索引功能</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> C <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>索引涵蓋查詢欄位(Include Columns)<br>在建立索引的語法中加入涵蓋的查詢欄位 例如以下查詢語法中，在LastName欄位新增Index  <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> LastName, FirstName, Email </span><br><span class="line"><span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> LastName <span class="operator">=</span> <span class="string">&#x27;Dave&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>改善前:</li>
-</ul>
-</li>
-</ul>
-<p>Index新增語法<br>    <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName)</span><br></pre></td></tr></table></figure><br>    因為新增的索引僅包含 LastName 欄位的資訊但查詢的欄位還有FirstName, Email， SQL     Server 必須通過查詢的回溯操作（或二次查詢）來檢索 FirstName 和 Email 的值。<br>    意思是因為索引中只有加入LastName 所以用索引找到LastName的RowId時，會再用RowId回去    取 FirstName 和 Email的值</p>
-<ul>
-<li>改善後:<br>原本的Index內容改為 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName) INCLUDE (FirstName, Email)</span><br></pre></td></tr></table></figure>
-這時的查詢語法執行的邏輯就會變成一樣用LastName的索引找到資料後會一起把FirstName, Email值取出來，不需再用RowId做二次查詢回去撈FirstName, Email的值。</li>
-</ul>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://sqlworker.blogspot.com/2016/11/keyinclude.html">SQL Worker</a></li>
-<li><a href="https://clarklin.gitlab.io/2020/12/13/sql-server-index-note/">SQL Server 索引筆記</a></li>
-<li><a href="https://medium.com/@henry-chou/5%E5%80%8B%E6%A6%82%E5%BF%B5%E6%8B%AF%E6%95%91%E9%BE%9C%E9%80%9F%E7%9A%84sql%E6%9F%A5%E8%A9%A2-query-d10e06b8bae3">5個概念拯救龜速的SQL查詢(Query)</a></li>
-<li><a href="https://medium.com/@winterer32/ms-sql-%E7%AD%86%E8%A8%98-%E4%BD%BF%E7%94%A8-sql-%E7%B4%A2%E5%BC%95%E4%B8%AD%E7%9A%84-include-%E9%97%9C%E9%8D%B5%E5%AD%97%E4%BB%A5%E6%8F%90%E9%AB%98%E6%9F%A5%E8%A9%A2%E6%95%88%E8%83%BD-e9bc9110ac1">INCLUDE 關鍵字以提高查詢效能</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>SQL</tag>
-        <tag>INDEX</tag>
-        <tag>MSSQL</tag>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
