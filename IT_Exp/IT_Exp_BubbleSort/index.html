@@ -19,35 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mpssea00714.github.io","root":"/Whats-Up-Coding/","images":"/Whats-Up-Coding/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/Whats-Up-Coding/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/Whats-Up-Coding/js/config.js"></script>
 
-    <meta name="description" content="前言前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了">
+    <meta name="description" content="前言在演算法學習中，排序是最基本的一類演算法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo發佈文章教學">
-<meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/index.html">
+<meta property="og:title" content="IT日常-演算法排序(泡沫排序)">
+<meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_BubbleSort/index.html">
 <meta property="og:site_name" content="What&#39;s up Coding">
-<meta property="og:description" content="前言前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了">
+<meta property="og:description" content="前言在演算法學習中，排序是最基本的一類演算法。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg">
-<meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg">
-<meta property="article:published_time" content="2023-11-07T03:57:49.000Z">
-<meta property="article:modified_time" content="2024-01-30T13:52:08.000Z">
+<meta property="article:published_time" content="2024-10-01T13:54:28.000Z">
+<meta property="article:modified_time" content="2024-10-01T14:02:34.465Z">
 <meta property="article:author" content="David">
-<meta property="article:tag" content="2023">
-<meta property="article:tag" content="Tutorial">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="2024">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Sort">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg">
 
 
-<link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/">
+<link rel="canonical" href="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_BubbleSort/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/","path":"Hexo_Tutorial/Hexo_Tutorial_First_Post/","title":"Hexo發佈文章教學"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_BubbleSort/","path":"IT_Exp/IT_Exp_BubbleSort/","title":"IT日常-演算法排序(泡沫排序)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo發佈文章教學 | What's up Coding</title>
+<title>IT日常-演算法排序(泡沫排序) | What's up Coding</title>
   
 
 
@@ -146,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BC%E6%96%87%E6%AD%A5%E9%A9%9F"><span class="nav-number">2.</span> <span class="nav-text">發文步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E6%BC%94%E7%AE%97%E6%B3%95-%E6%B3%A1%E6%B2%AB%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">排序演算法-泡沫排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +196,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/">
+    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_BubbleSort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
@@ -214,12 +209,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hexo發佈文章教學 | What's up Coding">
+      <meta itemprop="name" content="IT日常-演算法排序(泡沫排序) | What's up Coding">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo發佈文章教學
+          IT日常-演算法排序(泡沫排序)
         </h1>
 
         <div class="post-meta-container">
@@ -229,15 +224,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
+      
 
-      <time title="創建時間：2023-11-07 11:57:49" itemprop="dateCreated datePublished" datetime="2023-11-07T11:57:49+08:00">2023-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2024-01-30 21:52:08" itemprop="dateModified" datetime="2024-01-30T21:52:08+08:00">2024-01-30</time>
+      <time title="創建時間：2024-10-01 21:54:28 / 修改時間：22:02:34" itemprop="dateCreated datePublished" datetime="2024-10-01T21:54:28+08:00">2024-10-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,11 +234,15 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">教學</span></a>
+          <a href="/Whats-Up-Coding/categories/%E8%B8%A9%E5%9D%91%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index"><span itemprop="name">踩坑日常</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+          <a href="/Whats-Up-Coding/categories/%E8%B8%A9%E5%9D%91%E6%97%A5%E5%B8%B8/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Whats-Up-Coding/categories/%E8%B8%A9%E5%9D%91%E6%97%A5%E5%B8%B8/IT/%E6%BC%94%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">演算法</span></a>
         </span>
     </span>
 
@@ -269,38 +262,19 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
-<span id="more"></span>
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在演算法學習中，排序是最基本的一類演算法。<span id="more"></span><br>但工作以後排序這種東西除非有特殊需求，不然通常都是用 built-in function，例:List裡面的一堆內建用法(Sort(),Reverse()方法用爆) ，然而演算法常常一陣子沒用到很快就會忘記，偏偏面試白版題或是刷題時，就是愛考這些題目，但不得不說這是一門內功，在考量到效能或是時間&#x2F;空間複雜度時卻是派上用場的地方。 網路上關於排序的文章與教學，但沒有自己寫出來，常常都只是似懂非懂而已，這篇就當作筆記記錄自己的理解，複習一下基礎的演算法。</p>
+<h2 id="排序演算法-泡沫排序"><a href="#排序演算法-泡沫排序" class="headerlink" title="排序演算法-泡沫排序"></a>排序演算法-泡沫排序</h2><ul>
+<li>邏輯說明:<br>如泡沫的變化般越往上越大顆，數字越大越往後排序，每一輪的迴圈中透過兩兩交換，會把<br>[未完成排序]中最大的數字往右邊靠<br>例如:<br>範例陣列為:524613<br>第一層迴圈:每一次迴圈會完成某個數字的排序，因此需要排序的次數應該是陣列的長度-1次。<br>第二層迴圈:<br>透過每個數字比較後交換，把較大的數字一直往右移把[未完成排序]中最大的數字往右移的實作過程，可看以下範例了解實際交換的過程(以C#為範例)</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;<span class="built_in">int</span>&gt; <span class="title">Sort</span>(<span class="params">List&lt;<span class="built_in">int</span>&gt; list</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; list.Count - <span class="number">1</span>; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> y = <span class="number">0</span>; y &lt; list.Count - <span class="number">1</span> - x; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> transBox = list[y];</span><br><span class="line">            <span class="keyword">if</span> (list[y] &gt; list[y + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                list[y] = list[y + <span class="number">1</span>];</span><br><span class="line">                list[y + <span class="number">1</span>] = transBox;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
-<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
-</li>
-<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
-<blockquote>
-<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
-</blockquote>
-<ol start="3">
-<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a target="_blank" rel="noopener" href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a target="_blank" rel="noopener" href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
-</blockquote>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
-<ol start="4">
-<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a target="_blank" rel="noopener" href="https://markdown.tw/">Markdown官網</a></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>開始為每個排序法做紀錄與恢復記憶的過程中也會用[時間複雜度] &#x2F; [空間複雜度]來比較出每個排序法的效能。</p>
+<p>時間複雜度: O(n2)</p>
+<p>空間複雜度: θ(1) (不需要額外的陣列去存資料)</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E5%9F%BA%E7%A4%8E%E6%BC%94%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97-%E4%BD%A0%E5%8F%AA%E6%9C%83%E7%94%A8-built-in-function-%E4%BE%86%E6%8E%92%E5%BA%8F%E5%97%8E-4a196d37f9f5">基礎演算法系列 — 你只會用 built-in function 來排序嗎</a></li>
+<li><a target="_blank" rel="noopener" href="https://hackmd.io/@coherent17/Sy79MIyju#%E6%B0%A3%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95Bubble-Sort">Algorithm 演算法排序筆記</a></li>
+</ul>
 
     </div>
 
@@ -310,24 +284,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/Whats-Up-Coding/tags/2023/" rel="tag"># 2023</a>
-              <a href="/Whats-Up-Coding/tags/Tutorial/" rel="tag"># Tutorial</a>
-              <a href="/Whats-Up-Coding/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/Whats-Up-Coding/tags/Markdown/" rel="tag"># Markdown</a>
+              <a href="/Whats-Up-Coding/tags/2024/" rel="tag"># 2024</a>
+              <a href="/Whats-Up-Coding/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/Whats-Up-Coding/tags/Sort/" rel="tag"># Sort</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/" rel="prev" title="Hexo留言板功能">
-                  <i class="fa fa-angle-left"></i> Hexo留言板功能
+                <a href="/Whats-Up-Coding/IT_Exp/IT_Exp_SQL_Optimize_Index/" rel="prev" title="SQL索引最佳化">
+                  <i class="fa fa-angle-left"></i> SQL索引最佳化
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/" rel="next" title="設定選單">
-                  設定選單 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
