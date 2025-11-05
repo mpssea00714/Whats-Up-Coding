@@ -27,7 +27,7 @@
 <meta property="og:description" content="前言另一種基本演算法為:插入排序">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-11-02T05:51:40.000Z">
-<meta property="article:modified_time" content="2024-11-02T05:56:36.187Z">
+<meta property="article:modified_time" content="2024-11-02T06:00:30.841Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="2024">
 <meta property="article:tag" content="Algorithm">
@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/Whats-Up-Coding/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/Whats-Up-Coding/tags/">
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -226,7 +226,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2024-11-02 13:51:40 / 修改時間：13:56:36" itemprop="dateCreated datePublished" datetime="2024-11-02T13:51:40+08:00">2024-11-02</time>
+      <time title="創建時間：2024-11-02 13:51:40 / 修改時間：14:00:30" itemprop="dateCreated datePublished" datetime="2024-11-02T13:51:40+08:00">2024-11-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
 </ul>
 <p>範例陣列為:524613<br>第一層迴圈:<br>從陣列的索引變數: x 為基準，用comparedBox 儲存陣列[x]代表的值後，開始用第二層迴圈的值做對比移動</p>
 <p>第二層迴圈:<br>透過小於comparedBox 的每個數字比較後把較大的數字一直往右移，把comparedBox 插入適合的索引位置的實作過程，可看以下範例了解實際交換的過程(以C#為範例)</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;<span class="built_in">int</span>&gt; <span class="title">Sort</span>(<span class="params">List&lt;<span class="built_in">int</span>&gt; list</span>)</span> </span><br><span class="line">&#123; </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">1</span>; x &lt; list.Count ; x++) </span><br><span class="line">	&#123; </span><br><span class="line">		<span class="keyword">var</span> y = x; </span><br><span class="line">		<span class="keyword">var</span> comparedBox = list[x]; </span><br><span class="line">		<span class="keyword">while</span> (y &gt;= <span class="number">1</span> &amp;&amp; comparedBox &lt; list[y<span class="number">-1</span>]) </span><br><span class="line">		&#123; </span><br><span class="line">			list[y] = list[y<span class="number">-1</span>]; y--; </span><br><span class="line">		&#125; </span><br><span class="line">		list[y] = comparedBox; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> list; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;<span class="built_in">int</span>&gt; <span class="title">Sort</span>(<span class="params">List&lt;<span class="built_in">int</span>&gt; list</span>)</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">1</span>; x &lt; list.Count ; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> y = x;</span><br><span class="line">        <span class="keyword">var</span> comparedBox = list[x];</span><br><span class="line">        <span class="keyword">while</span> (y &gt;= <span class="number">1</span> &amp;&amp; comparedBox &lt; list[y<span class="number">-1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            list[y] = list[y<span class="number">-1</span>];</span><br><span class="line">            y--; </span><br><span class="line">		&#125;</span><br><span class="line">        list[y] = comparedBox;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>時間複雜度: O(n2)</p>
 <p>空間複雜度: θ(1) (不需要額外的陣列去存資料)</p>
@@ -299,6 +299,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/" rel="next" title="【Teams 通知】舊版 Webhook 淘汰！Power Automate / Workflow 轉換教學 (簡化版)">
+                  【Teams 通知】舊版 Webhook 淘汰！Power Automate / Workflow 轉換教學 (簡化版) <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -325,7 +328,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>

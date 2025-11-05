@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/Whats-Up-Coding/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/Whats-Up-Coding/tags/">
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -178,6 +178,188 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
+      <meta itemprop="name" content="David">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/" class="post-title-link" itemprop="url">【Teams 通知】舊版 Webhook 淘汰！Power Automate / Workflow 轉換教學 (簡化版)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2025-11-05 11:31:58 / 修改時間：11:51:14" itemprop="dateCreated datePublished" datetime="2025-11-05T11:31:58+08:00">2025-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Whats-Up-Coding/categories/%E8%B8%A9%E5%9D%91%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index"><span itemprop="name">踩坑日常</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Whats-Up-Coding/categories/%E8%B8%A9%E5%9D%91%E6%97%A5%E5%B8%B8/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_0.png" alt="ChatGPT Image 2025年10月30日 下午04_26_46.png"></p>
+<h2 id="🪄-前言：為什麼要改？"><a href="#🪄-前言：為什麼要改？" class="headerlink" title="🪄 前言：為什麼要改？"></a>🪄 前言：為什麼要改？</h2><p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_1.png" alt="螢幕擷取畫面 2025-10-30 11.png"></p>
+<p>微軟在 2025 年底確定淘汰舊的 **Microsoft Teams Incoming Webhook (O365 Connector)**，</p>
+<p>並將通知機制整合進 <strong>Power Automate &#x2F; Teams Workflow</strong>。</p>
+<p>這代表以前那條</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://company.webhook.office.com/webhookb2/...</span><br></pre></td></tr></table></figure>
+
+<p>的 URL 將不再維護，你需要改成新的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://environment.api.powerplatform.com/powerautomate/automations/direct/workflows/...</span><br></pre></td></tr></table></figure>
+
+<p>幸好，轉換並不難。</p>
+<p>目前通知機制的流程為:  GCP Pub&#x2F;Sub ⇒ Cloud Function(Python ) ⇒ Webhook(URL) ⇒ Teams</p>
+<p>需要修改的部分為:<br>✔️ Cloud Function(Python ):調整腳本程式碼</p>
+<p>✔️ Webhook(URL) : 改為 從 <strong>Teams 中的 Power Automate &#x2F; Workflow產生的URL</strong></p>
+<h2 id="✅-總結比較"><a href="#✅-總結比較" class="headerlink" title="✅ 總結比較"></a>✅ 總結比較</h2><table>
+<thead>
+<tr>
+<th>類型</th>
+<th>舊 Webhook</th>
+<th>新 Workflow</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>URL 網域</td>
+<td><code>webhook.office.com</code></td>
+<td><code>environment.api.powerplatform.com</code></td>
+</tr>
+<tr>
+<td>傳輸格式</td>
+<td>HTML 文字</td>
+<td>Adaptive Card JSON</td>
+</tr>
+<tr>
+<td>顏色&#x2F;樣式</td>
+<td>HTML tag</td>
+<td>RichTextBlock &#x2F; TextRun</td>
+</tr>
+<tr>
+<td>成功回應</td>
+<td>200</td>
+<td>202</td>
+</tr>
+<tr>
+<td>顯示效果</td>
+<td>純文字</td>
+<td>支援紅字、粗體、連結、動作</td>
+</tr>
+</tbody></table>
+<h2 id="⚙️-教學步驟：簡化版-Payload-實作"><a href="#⚙️-教學步驟：簡化版-Payload-實作" class="headerlink" title="⚙️ 教學步驟：簡化版 Payload 實作"></a>⚙️ 教學步驟：簡化版 Payload 實作</h2><h3 id="Step-1-在-Python-端修改程式碼"><a href="#Step-1-在-Python-端修改程式碼" class="headerlink" title="Step 1. 在 Python 端修改程式碼"></a>Step 1. 在 Python 端修改程式碼</h3><p>這裡的核心是把舊 webhook 換成 Workflow URL，</p>
+<aside>
+💡
+
+<p>Workflow URL 要先到Teams Workflow設定才能取得，<br>詳見[Step 2. 建立 Teams Workflow]</p>
+</aside>
+
+<p>並將原本 <code>&quot;text&quot;: &quot;...&quot;</code> 的結構改為 <code>&quot;text&quot;: [ &#123;...&#125;, &#123;...&#125; ]</code> 陣列格式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 🆕 新 Workflow Webhook URL</span></span><br><span class="line">webhook_url = <span class="string">&quot;https://environment.api.powerplatform.com/powerautomate/automations/direct/workflows/...&quot;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">payload =&#123;</span><br><span class="line">  <span class="string">&quot;text&quot;</span>: [</span><br><span class="line">    &#123;<span class="string">&quot;title&quot;</span>: <span class="string">&quot;🚀 GCP Pub/Sub 通知&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;測試訊息&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;title&quot;</span>: <span class="string">&quot;🔥 第二則訊息&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;Hello Power Automate!&quot;</span>&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">response = requests.post(webhook_url, headers=headers, json=payload)</span><br><span class="line"><span class="built_in">print</span>(response.status_code, response.text)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 🆕 新 Workflow Webhook URL</span></span><br><span class="line">webhook_url = <span class="string">&quot;https://environment.api.powerplatform.com/powerautomate/automations/direct/workflows/...&quot;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">payload = &#123;</span><br><span class="line">		<span class="comment">#原本的text格式為以下內容</span></span><br><span class="line">		<span class="comment">#&quot;text&quot;: f&quot;&lt;b style=&#x27;color:red;&#x27;&gt;【&#123;log_level&#125;】&lt;/b&gt; &lt;b&gt;[&#123;project_id&#125;]&lt;/b&gt; - &#123;service_name&#125; &lt;br&gt;&lt;br&gt; &lt;b&gt;錯誤訊息&lt;/b&gt; : &#123;error_msg&#125;&lt;br&gt; &lt;b&gt;詳細資訊&lt;/b&gt;:&lt;a href=&#x27;&#123;url&#125;&#x27; style=&#x27;color:red;&#x27;&gt;&#123;url&#125;&lt;/a&gt;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#修改text為以下的資料結構</span></span><br><span class="line">    <span class="string">&quot;text&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;title&quot;</span>: <span class="string">f&quot;🚨 【<span class="subst">&#123;log_level&#125;</span>】 [<span class="subst">&#123;project_id&#125;</span>] - <span class="subst">&#123;service_name&#125;</span>&quot;</span>,</span><br><span class="line">            <span class="string">&quot;content&quot;</span>: <span class="string">f&quot;**錯誤訊息**：<span class="subst">&#123;error_msg&#125;</span>\n**詳細資訊**：<span class="subst">&#123;url&#125;</span>&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(webhook_url, headers=headers, json=payload)</span><br><span class="line"><span class="built_in">print</span>(response.status_code, response.text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>💡 為什麼用陣列？</p>
+<p>因為 Workflow 可以使用「Apply to each」自動對每筆資料重複貼出一張卡片。</p>
+<p>這對 Pub&#x2F;Sub 一次推多筆事件特別實用。</p>
+<hr>
+<h3 id="Step-2-建立-Teams-Workflow"><a href="#Step-2-建立-Teams-Workflow" class="headerlink" title="Step 2. 建立 Teams Workflow"></a>Step 2. 建立 Teams Workflow</h3><p>下圖是Workflow的工作流程示意圖</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────────────────────────────┐</span><br><span class="line">│ When a Teams webhook request received│</span><br><span class="line">│ (接收 Python 發送的 JSON)            │</span><br><span class="line">└──────────────┬───────────────────────┘</span><br><span class="line">               │</span><br><span class="line">┌──────────────▼──────────────┐</span><br><span class="line">│ Apply to each               │</span><br><span class="line">│ Items = @triggerBody()?[<span class="string">&#x27;text&#x27;</span>] │</span><br><span class="line">└──────────────┬──────────────┘</span><br><span class="line">               │</span><br><span class="line">┌──────────────▼──────────────┐</span><br><span class="line">│ Post adaptive card <span class="keyword">in</span> Teams │</span><br><span class="line">│ (使用 Flow bot 發送)        │</span><br><span class="line">└─────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>1️⃣ 打開 Microsoft Teams → Workflows</p>
+<p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_3.png" alt="螢幕擷取畫面 2025-10-30 1.png"></p>
+<p>2️⃣ 點選上方[建立]欄位後，點選[收到webhook要求時發布在頻道中(Post to a channel when a webhook request is received)]的範本</p>
+<p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_4.png" alt="螢幕擷取畫面 2025-10-30 2.png"></p>
+<p>3️⃣填入該通知設定的流程名稱</p>
+<p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_5.png" alt="螢幕擷取畫面 2025-10-30 3.png"></p>
+<p>4️⃣設定要通知的團隊(Teams)與頻道(Channel)，這是階層的關係(團隊內的某個頻道)</p>
+<p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_6.png" alt="螢幕擷取畫面 2025-10-30 4.png"></p>
+<p>5️⃣儲存後複製 HTTP POST URL → 貼回 Python 的 webhook_url</p>
+<p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_7.png" alt="螢幕擷取畫面 2025-10-30 5.png"></p>
+<hr>
+<h3 id="Step-3-Workflow-動作設定"><a href="#Step-3-Workflow-動作設定" class="headerlink" title="Step 3. Workflow 動作設定"></a>Step 3. Workflow 動作設定</h3><p>1️⃣回到Microsoft Teams → Workflows → 首頁，選取剛建立的工作流程並編輯<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_8.png" alt="螢幕擷取畫面 2025-10-30 6.png"><br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_9.png" alt="螢幕擷取畫面 2025-10-30 6.png"><br>2️⃣執行以下步驟</p>
+<ol>
+<li>[選取先前步驟的輸出] (標記1)中輸入：<code>@triggerBody()?[&#39;text&#39;]</code></li>
+<li>在 Adaptive Card 欄位中(標記2)貼上</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AdaptiveCard&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;$schema&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://adaptivecards.io/schemas/adaptive-card.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TextBlock&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@&#123;items(&#x27;Send_each_adaptive_card&#x27;)?[&#x27;title&#x27;]&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;weight&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Bolder&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;size&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Large&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TextBlock&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@&#123;items(&#x27;Send_each_adaptive_card&#x27;)?[&#x27;content&#x27;]&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;wrap&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AdaptiveCard&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;$schema&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://adaptivecards.io/schemas/adaptive-card.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span><span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TextBlock&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@&#123;items(&#x27;Send_each_adaptive_card&#x27;)?[&#x27;title&#x27;]&#125;&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;weight&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Bolder&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span><span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TextBlock&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@&#123;items(&#x27;Send_each_adaptive_card&#x27;)?[&#x27;content&#x27;]&#125;&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;wrap&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>📎 小技巧：</p>
+<p>若拿到的程式碼中拿到預設的內容是<code>items(&#39;Apply_to_each&#39;)</code><br>在存檔時應該會出現Flow 報錯 Apply_to_each 不存在，</p>
+<p>這時請將<code>items(&#39;Apply_to_each&#39;)</code>把上面 JSON 改成<code>items(&#39;Send_each_adaptive_card&#39;)</code>。</p>
+<p>3️⃣正確填完應該為以下結果，就可以按存檔完成流程建立</p>
+<p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_10.png" alt="螢幕擷取畫面 2025-10-30 9.png"></p>
+<p>4️⃣測試後會在Teams指定的接收通知頻道收到以下結果</p>
+<p><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Teams_Webhook_Upgrade/IT_Exp_Teams_Webhook_Upgrade_11.png" alt="螢幕擷取畫面 2025-10-30 10.png"></p>
+<hr>
+<h2 id="💬-結語：適合誰用？"><a href="#💬-結語：適合誰用？" class="headerlink" title="💬 結語：適合誰用？"></a>💬 結語：適合誰用？</h2><p>這個簡化版本最適合：</p>
+<ul>
+<li>想快速替換舊 webhook 的告警機制與通知流程的系統</li>
+<li>不需要自訂卡片樣式，只想要文字通知</li>
+<li>使用 Pub&#x2F;Sub、CI&#x2F;CD job、排程系統做提醒</li>
+</ul>
+<p>只要兩步就能搞定新 Workflow 的轉換，未來如果想升級樣式(html的顏色&#x2F;字樣…等)，只要把 JSON 改成 RichTextBlock 即可，會另寫一篇提供[完整版Payload 實作]</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -217,7 +399,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2024-11-02 13:51:40 / 修改時間：13:56:36" itemprop="dateCreated datePublished" datetime="2024-11-02T13:51:40+08:00">2024-11-02</time>
+      <time title="創建時間：2024-11-02 13:51:40 / 修改時間：14:00:30" itemprop="dateCreated datePublished" datetime="2024-11-02T13:51:40+08:00">2024-11-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1033,104 +1215,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
-      <meta itemprop="name" content="David">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="What's up Coding">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | What's up Coding">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/" class="post-title-link" itemprop="url">Hexo_主題[next]功能小補帖</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2023-12-29 12:06:35" itemprop="dateCreated datePublished" datetime="2023-12-29T12:06:35+08:00">2023-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2024-01-11 16:41:54" itemprop="dateModified" datetime="2024-01-11T16:41:54+08:00">2024-01-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">教學</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/Whats-Up-Coding/page/2/">2</a><a class="extend next" rel="next" title="下一頁" aria-label="下一頁" href="/Whats-Up-Coding/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/Whats-Up-Coding/page/2/">2</a><a class="page-number" href="/Whats-Up-Coding/page/3/">3</a><a class="extend next" rel="next" title="下一頁" aria-label="下一頁" href="/Whats-Up-Coding/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1141,7 +1227,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
