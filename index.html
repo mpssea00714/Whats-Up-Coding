@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/Whats-Up-Coding/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/Whats-Up-Coding/tags/">
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -178,6 +178,121 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
+      <meta itemprop="name" content="David">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | What's up Coding">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/" class="post-title-link" itemprop="url">AI Agent Architecture with OpenClaw</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2026-03-22 15:43:06 / 修改時間：16:02:25" itemprop="dateCreated datePublished" datetime="2026-03-22T15:43:06+08:00">2026-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">教學</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近期研讀了李宏毅教授關於 <strong>AI Agent 運作原理</strong> 的系列影片，內容將複雜的技術轉化為易懂的邏輯。</p>
+<p>若想建立 AI 相關知識的堅實基礎，教授的教學影片是非常理想的參考資源。</p>
+<p>以下以 <strong>OpenClaw</strong>（社群常稱為「龍蝦」）這類開源專案為基準，將 AI Agent 的核心機制與組成架構整理如下：</p>
+<hr>
+<h2 id="一、AI-Agent-的定義與運作邏輯"><a href="#一、AI-Agent-的定義與運作邏輯" class="headerlink" title="一、AI Agent 的定義與運作邏輯"></a>一、AI Agent 的定義與運作邏輯</h2><p>AI Agent 扮演著「<strong>人類指令</strong>」與「<strong>語言模型</strong>」之間的關鍵溝通介面。其本質是一套由預設程式碼與規則組成的自動化程序，主要負責協調兩者的互動。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/1.png" alt="OpenClaw角色定位"></p>
+<h3 id="基本運作流程"><a href="#基本運作流程" class="headerlink" title="基本運作流程"></a>基本運作流程</h3><p>AI Agent 的運作包含以下三個階段：<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/2.png" alt="OpenClaw角色定義"></p>
+<h4 id="1-系統提示詞加工-System-Prompt-Construction"><a href="#1-系統提示詞加工-System-Prompt-Construction" class="headerlink" title="1. 系統提示詞加工 (System Prompt Construction)"></a>1. 系統提示詞加工 (System Prompt Construction)</h4><p>當人類下達指令時，Agent 會同步調用地端電腦的設定檔（包含 Agent 身份、任務目標）以及過去的對話歷史，將這些資訊整合為一段完整的長文字，置於人類指令之前作為背景脈絡。</p>
+<h4 id="2-驅動語言模型進行預測"><a href="#2-驅動語言模型進行預測" class="headerlink" title="2. 驅動語言模型進行預測"></a>2. 驅動語言模型進行預測</h4><p>Agent 將加工後的長文字傳送至後端模型（如 GPT-4 或 Claude）。模型接收資訊後，會根據已有的文字內容進行「文字接龍」，預測並產出後續的字元 (Token)。</p>
+<h4 id="3-執行功能與循環回饋"><a href="#3-執行功能與循環回饋" class="headerlink" title="3. 執行功能與循環回饋"></a>3. 執行功能與循環回饋</h4><p>當模型產出一般敘述時，Agent 直接將結果呈現給人類；若模型產出的內容包含特定的「工具調用符號」（如讀取檔案指令），Agent 則會在電腦系統中執行該指令，並將執行後的數據反饋給模型。此循環會持續進行，直到模型判定任務達成並給出最終回覆。</p>
+<hr>
+<h2 id="二、AI-Agent-的核心組件"><a href="#二、AI-Agent-的核心組件" class="headerlink" title="二、AI Agent 的核心組件"></a>二、AI Agent 的核心組件</h2><p>為了彌補語言模型的原生限制，AI Agent 透過以下架構讓模型能發揮如全天候助理般的功能：</p>
+<h3 id="1-核心大腦-The-LLM-Core"><a href="#1-核心大腦-The-LLM-Core" class="headerlink" title="1. 核心大腦 (The LLM Core)"></a>1. 核心大腦 (The LLM Core)</h3><p>AI Agent 的決策品質完全仰賴後端連接的語言模型。模型如同位於密閉空間內的運算核心，不具備自主記憶或感官，僅透過 Agent 提供的文字訊息進行邏輯預測。</p>
+<h3 id="2-角色設定與身份定義-Persona-Design"><a href="#2-角色設定與身份定義-Persona-Design" class="headerlink" title="2. 角色設定與身份定義 (Persona Design)"></a>2. 角色設定與身份定義 (Persona Design)</h3><p>Agent 具備特定的人格特質，主要源於本地端儲存的 <code>.md</code> 文字檔案。每次互動時，Agent 會將這些行為準則與偏好強制寫入提示詞，引導模型產出符合特定角色背景的內容。</p>
+<h3 id="3-記憶維護系統-Memory-Management"><a href="#3-記憶維護系統-Memory-Management" class="headerlink" title="3. 記憶維護系統 (Memory Management)"></a>3. 記憶維護系統 (Memory Management)</h3><p>由於模型本身不具備跨對話的記憶能力，Agent 建立了兩層記憶機制：</p>
+<h4 id="長期記憶-RAG-檢索"><a href="#長期記憶-RAG-檢索" class="headerlink" title="長期記憶 (RAG 檢索)"></a>長期記憶 (RAG 檢索)</h4><p>Agent 能將重要資訊寫入記憶庫。當需要回溯過往資訊時，系統會比對「 <strong>關鍵字出現頻率(S1)</strong> 」與「 <strong>語意相似度(S2)</strong> 」進行綜合評分，精準提取相關片段供模型參考。</p>
+<h4 id="短期記憶壓縮-Context-Compression"><a href="#短期記憶壓縮-Context-Compression" class="headerlink" title="短期記憶壓縮 (Context Compression)"></a>短期記憶壓縮 (Context Compression)</h4><p>考量到模型的上下文容量限制，當對話過長時，Agent 會要求模型對舊對話進行「摘要總結」，以簡練的摘要取代原始細節，確保系統能長時間運作而不超出限制。</p>
+<p><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/9.png" alt="Memory定義"></p>
+<blockquote>
+<p>💡 <strong>補充說明</strong>：每一輪對話 AI Agent 會把對話內容的摘要或是覺得重要的資訊自己修改補充到對應的 md 檔中。有可能是長期記憶&#x2F;靈魂設定&#x2F;文字獄…等等 md 中。</p>
+</blockquote>
+<h3 id="4-工具調用與技能架構-Tools-Skills"><a href="#4-工具調用與技能架構-Tools-Skills" class="headerlink" title="4. 工具調用與技能架構 (Tools &amp; Skills)"></a>4. 工具調用與技能架構 (Tools &amp; Skills)</h3><p>這是讓模型具備實際執行能力的關鍵：</p>
+<h4 id="基礎工具"><a href="#基礎工具" class="headerlink" title="基礎工具"></a>基礎工具</h4><p>涵蓋檔案讀寫與最強大的 <strong>Execute</strong>（程式碼執行）功能。</p>
+<h4 id="子代理機制-Subagent"><a href="#子代理機制-Subagent" class="headerlink" title="子代理機制 (Subagent)"></a>子代理機制 (Subagent)</h4><p>面對如閱讀多篇論文的大型任務，大 Agent 會指派工具產生子代 Agent 協助分工，僅接收子代處理後的精簡資訊，落實 <strong>Context Engineering（上下文工程）</strong> 的優化。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/7.png" alt="子代理定義"></p>
+<h4 id="技能模組化-Skills"><a href="#技能模組化-Skills" class="headerlink" title="技能模組化 (Skills)"></a>技能模組化 (Skills)</h4><p>複雜任務會被標準化為 SOP 文字檔。Agent 採取「按需讀取」策略，僅在執行特定任務時才將對應技能載入系統提示詞。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/8.png" alt="Skills定義"></p>
+<h3 id="5-自主運行與排程機制"><a href="#5-自主運行與排程機制" class="headerlink" title="5. 自主運行與排程機制"></a>5. 自主運行與排程機制</h3><p>AI Agent 實現 24 小時運作的核心技術在於：</p>
+<h4 id="心跳觸發-Heartbeat"><a href="#心跳觸發-Heartbeat" class="headerlink" title="心跳觸發 (Heartbeat)"></a>心跳觸發 (Heartbeat)</h4><p>Agent 透過設定好的週期（如 15 分鐘）發送主動指令「戳」一下模型，促使模型檢查進度或主動尋找待辦事項。</p>
+<p><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/3.png" alt="心跳觸發定義"></p>
+<h4 id="排程系統-Cronjob"><a href="#排程系統-Cronjob" class="headerlink" title="排程系統 (Cronjob)"></a>排程系統 (Cronjob)</h4><p>結合排程工具，Agent 可以預約在未來特定時間啟動任務，讓 AI 具備「等待」與「跨時段管理」的能力。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/5.png" alt="排程定義"></p>
+<blockquote>
+<p>💡 <strong>實例說明</strong>：如果沒有排程機制，AI Agent 只會停在回覆你 <code>[影片生成中]</code> 之後就不會有任何回應了，因為他沒有等待的功能。<code>[3分鐘後檢查網頁]</code> 的排程功能會觸發 AI Agent 再去看剛剛等待的影片生成是否完成。</p>
+</blockquote>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>理解 AI Agent 的技術層次後，可以發現其效能源自於精密的程式架構與高效的上下文管理。掌握這套「文字接龍協調工具」的邏輯，將有助於更專業地應用 AI 科技。</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://vocus.cc/article/69bf8c5cfd89780001262f18">解剖小龍蝦 — 以 OpenClaw 為例介紹 AI Agent 的運作原理</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1115,106 +1230,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mpssea00714.github.io/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Whats-Up-Coding/images/avatar.gif">
-      <meta itemprop="name" content="David">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="What's up Coding">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | What's up Coding">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/" class="post-title-link" itemprop="url">AutoGPT安裝教學</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2024-01-14 16:44:19" itemprop="dateCreated datePublished" datetime="2024-01-14T16:44:19+08:00">2024-01-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2024-01-15 22:17:36" itemprop="dateModified" datetime="2024-01-15T22:17:36+08:00">2024-01-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">教學</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Whats-Up-Coding/categories/%E6%95%99%E5%AD%B8/AI/AutoGPT/" itemprop="url" rel="index"><span itemprop="name">AutoGPT</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前使用ChatGPT的互動方式是與AI用一問一答的方式分解自己待解決的問題,近期使用的AutoGPT則是有能力去設想你的問題需要什麼，自主搜集資料生成訴求，幫你與ChatGPT在互動中提出一連串的問題,來解決你的問題。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Whats-Up-Coding/AutoGPT_Tutorial/AutoGPT_Install/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/Whats-Up-Coding/page/2/">2</a><a class="page-number" href="/Whats-Up-Coding/page/3/">3</a><a class="extend next" rel="next" title="下一頁" aria-label="下一頁" href="/Whats-Up-Coding/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1227,7 +1242,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2025</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
