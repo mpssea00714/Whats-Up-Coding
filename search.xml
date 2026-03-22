@@ -25,7 +25,7 @@
       </tags>
   </entry>
   <entry>
-    <title>AI Agent Architecture with OpenClaw</title>
+    <title>AI Agent 運作原理與核心架構解析：以 OpenClaw 為例</title>
     <url>/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近期研讀了李宏毅教授關於 <strong>AI Agent 運作原理</strong> 的系列影片，內容將複雜的技術轉化為易懂的邏輯。</p>
 <p>若想建立 AI 相關知識的堅實基礎，教授的教學影片是非常理想的參考資源。</p>
@@ -101,87 +101,6 @@
         <tag>2024</tag>
         <tag>SQL</tag>
         <tag>Problems</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub Pages 教學</title>
-    <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
-<span id="more"></span>
-<blockquote>
-<p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
-</blockquote>
-<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
-<li><strong><a href="https://git-scm.com/">Git</a></strong><br>因為在本地端的Blog做更新時需要上傳同步到GitHub Pages所以需要在本地端電腦安裝<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg" alt="1_Git"></li>
-</ul>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li><h3 id="建立Repository-儲存庫"><a href="#建立Repository-儲存庫" class="headerlink" title="建立Repository(儲存庫)"></a>建立Repository(儲存庫)</h3></li>
-</ol>
-<ul>
-<li>在GitHub 首頁點選右邊+號列表的 New Repository新增一個要建立Blog用的儲存庫<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg" alt="2_CreateNewRepository">  <br /></li>
-<li>進入新增Repository畫面後，基本上都照預設設定就好，主要是為Repository name欄位命名，依建立的Repository name，之後Blog的URL就以這個階層邏輯建立: <strong>https:&#x2F;&#x2F;[Owner].github.io&#x2F;[<strong>Repository name</strong>]&#x2F;</strong><br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg" alt="2_CreateNewRepository_2"><br>  <code>Owner: GitHub帳號名稱</code><br>  <code>Description: 欄位可以為這個Repository的說明目的或相關的內容</code><br>  <code>Add a README file 建議勾選</code>  <br /></li>
-<li>建立好Repository後就會出現以下畫面，儲存庫預設的分支現在已經改為main了不是master<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg" alt="3_FinishRepository"></li>
-</ul>
-<ol start="2">
-<li><h3 id="GitHub-Pages設定"><a href="#GitHub-Pages設定" class="headerlink" title="GitHub Pages設定"></a>GitHub Pages設定</h3></li>
-</ol>
-<ul>
-<li>接著上方橫向選單看到Settings後再進入左邊列表的Pages，在Pages頁面將Branch設定成main儲存後，會看到上方有Visit site的連結，可以點選進入GitHub Pages的首頁。<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg" alt="4_GitPage"></li>
-</ul>
-<blockquote>
-<p>如果沒有可能需要等個30秒後重新整理就有看到了，我當初進入Pages時也沒出現Visit site也很緊張，結果等了一陣子才出現</p>
-</blockquote>
-<ul>
-<li>從Visit site 進入GitHub Pages首頁<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg" alt="5_SetPage"></li>
-</ul>
-<ol start="3">
-<li><h3 id="新增GitHub-Pages首頁"><a href="#新增GitHub-Pages首頁" class="headerlink" title="新增GitHub Pages首頁"></a>新增GitHub Pages首頁</h3></li>
-</ol>
-<ul>
-<li>GitHub Pages首頁的內容是當初建立Repository時README.md的內容，如果要顯示自己想要的首頁畫面，需要新增一個index的html檔，系統預設會去吃檔名index的檔案。<br>  新增index的方式有兩種:<br>  1.直接在網頁上透過Repository上新增index的html檔案<br>  2.是從GitHub上下載到本地端(自己電腦)新增index檔案後再上傳同步到GitHub<br>  以下分別介紹兩種新增index方法<ul>
-<li>3.1 線上新增index :<ul>
-<li>上方橫向選單看到Code ⇒ Create New File在新增的檔案內容<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg" alt="6_AddIndex"><br /></li>
-<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>新增內容後點選右邊Commit Changes<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg" alt="7_EditIndex"><br /></li>
-<li>可在Commit Changes的介面補充這次修改內容或目的<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg" alt="8_EditIndex"><br /></li>
-</ul>
-</li>
-<li>3.2 從本地端新增 :<br><code>必須先在本機安裝Git，才能執行以下指令</code><ul>
-<li>在本機資料夾中從路徑呼叫CMD(命令提示字元)<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg" alt="11_LocalFolder"><br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg" alt="12_Cmd"><br /></li>
-<li>複製GitHub上指定repository的Git網址<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg" alt="13_GetGitUrl"><br /></li>
-<li>回到CMD中輸入git clone [repository的網址]，系統就會從GitHub上把指定的repository整份下載到我們指定的資料夾中<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg" alt="14_GitClone"><br /></li>
-<li>在資料夾中新增html空白檔案，貼上下個步驟準備好的內容後儲存<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg" alt="15_GitCloneRepo"><br /></li>
-<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>在CMD中輸入以下Git相關指令<ol>
-<li><code>git add index.html</code></li>
-<li><code>git commit -m &quot;add index&quot;</code></li>
-<li><code>git remote add origin [repository的網址]</code></li>
-<li><code>git push -u origin main</code><br /></li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>從以上兩個建議的方法2擇1執行完成後，回GitHub頁面確認是否已經將剛剛新增的檔案同步到線上的儲存庫中<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg" alt="9_EditIndex">  <br /></li>
-<li>確認完後再重新從Settings裡面的Page連結到首頁，畫面就會變成index檔案中的內容<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg" alt="10_IndexHomepage">  <br /></li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><ul>
-<li>以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
-</ul>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://gitbook.tw/chapters/github/using-github-pages/">使用 GitHub 免費製作個人網站</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10301923">設定 GitHub Page，建立文件網站</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -261,6 +180,34 @@
       </tags>
   </entry>
   <entry>
+    <title>IT日常-演算法排序(泡沫排序)</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_BubbleSort/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在演算法學習中，排序是最基本的一類演算法。<span id="more"></span><br>但工作以後排序這種東西除非有特殊需求，不然通常都是用 built-in function，例:List裡面的一堆內建用法(Sort(),Reverse()方法用爆) ，然而演算法常常一陣子沒用到很快就會忘記，偏偏面試白版題或是刷題時，就是愛考這些題目，但不得不說這是一門內功，在考量到效能或是時間&#x2F;空間複雜度時卻是派上用場的地方。 網路上關於排序的文章與教學，但沒有自己寫出來，常常都只是似懂非懂而已，這篇就當作筆記記錄自己的理解，複習一下基礎的演算法。</p>
+<h2 id="排序演算法-泡沫排序"><a href="#排序演算法-泡沫排序" class="headerlink" title="排序演算法-泡沫排序"></a>排序演算法-泡沫排序</h2><ul>
+<li>邏輯說明:<br>如泡沫的變化般越往上越大顆，數字越大越往後排序，每一輪的迴圈中透過兩兩交換，會把<br>[未完成排序]中最大的數字往右邊靠<br>例如:<br>範例陣列為:524613<br>第一層迴圈:每一次迴圈會完成某個數字的排序，因此需要排序的次數應該是陣列的長度-1次。<br>第二層迴圈:<br>透過每個數字比較後交換，把較大的數字一直往右移把[未完成排序]中最大的數字往右移的實作過程，可看以下範例了解實際交換的過程(以C#為範例)</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;<span class="built_in">int</span>&gt; <span class="title">Sort</span>(<span class="params">List&lt;<span class="built_in">int</span>&gt; list</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; list.Count - <span class="number">1</span>; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> y = <span class="number">0</span>; y &lt; list.Count - <span class="number">1</span> - x; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> transBox = list[y];</span><br><span class="line">            <span class="keyword">if</span> (list[y] &gt; list[y + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                list[y] = list[y + <span class="number">1</span>];</span><br><span class="line">                list[y + <span class="number">1</span>] = transBox;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>開始為每個排序法做紀錄與恢復記憶的過程中也會用[時間複雜度] &#x2F; [空間複雜度]來比較出每個排序法的效能。</p>
+<p>時間複雜度: O(n2)</p>
+<p>空間複雜度: θ(1) (不需要額外的陣列去存資料)</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E5%9F%BA%E7%A4%8E%E6%BC%94%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97-%E4%BD%A0%E5%8F%AA%E6%9C%83%E7%94%A8-built-in-function-%E4%BE%86%E6%8E%92%E5%BA%8F%E5%97%8E-4a196d37f9f5">基礎演算法系列 — 你只會用 built-in function 來排序嗎</a></li>
+<li><a href="https://hackmd.io/@coherent17/Sy79MIyju#%E6%B0%A3%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95Bubble-Sort">Algorithm 演算法排序筆記</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+        <category>演算法</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>Algorithm</tag>
+        <tag>Sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IT_Exp_InsertionSort</title>
     <url>/Whats-Up-Coding/IT_Exp/IT_Exp_InsertionSort/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>另一種基本演算法為:插入排序<span id="more"></span><br>就像玩撲克牌時在整理牌面一樣，依序把每張牌插入對應的順序中，來完成整個牌面的大小排序</p>
@@ -290,99 +237,56 @@
       </tags>
   </entry>
   <entry>
-    <title>IT日常- C# .NET專案升版教學</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因目前公司舊專案有升版需求(.net core 2.2 &#x3D;&gt; .net 8)，在尋找跨越多版本這個鴻溝解方時，發現微軟有提供相關的升版套件 [.NET Upgrade Assistant] 讓我們升版的流程變得更無痛。</p>
+    <title>SQL索引最佳化</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_SQL_Optimize_Index/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因近期工作內容偏向SQL查詢效能調校以此篇作為調整紀錄(以下SQL系統為MSSQL)</p>
 <span id="more"></span>
-
-<h2 id="升版流程"><a href="#升版流程" class="headerlink" title="升版流程"></a>升版流程</h2><p>下載 .NET Upgrade Assistant 方法</p>
-<ol>
-<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg" alt="Vs_Pic"></p>
+<p>系統查詢功能隨著資料的增多(約9500萬筆資料)導致原本設計的資料表查詢效能日漸緩慢，近期針對目前常用的查詢語法做了梳理以下幾個調校方法做整理，以下是針對已經有設定Index的情況下進一步調整。</p>
+<h2 id="服用Index前注意事項"><a href="#服用Index前注意事項" class="headerlink" title="服用Index前注意事項"></a>服用Index前注意事項</h2><ul>
+<li><p>優點:加速查詢的效率從原本的全表搜尋(Table Scan)機制改善為索引查詢(Index Seek)</p>
 </li>
-<li><p>直接依據此連結 <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Assistant.jpg" alt="Assistant"></p>
+<li><p>缺點:建立的Index越多，在對資料進行新增&#x2F;刪除&#x2F;修改時，就會花越多時間來完成。 盡量避免對設定索引的欄位經常性的改動操作，會導致原先排續好的索引順序越零碎而影響查詢效能，必要時需定期使用重組排序讓原本零碎的索引重新排序以改刪查詢效能。</p>
 </li>
-</ol>
-<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic_2.jpg" alt="Vs_Pic_2"></p>
-<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_1.jpg" alt="upgrade_1"></p>
-<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_2.jpg" alt="upgrade_2"></p>
-<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_3.jpg" alt="upgrade_3"></p>
-<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_4.jpg" alt="upgrade_4"></p>
-<p>升版完成後也可在Git變更的差異檔裡看到原本的csproj的設定檔，已經把部分的套件版本一起升級了</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整個升版的過程算是十分流暢順利，當然升版過後還是要自己檢查在編譯的時候是否有部分已經不被採用的Method需要修改，這部分的細節還是免不了要手動修改。</p>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>C#</tag>
-        <tag>.Net</tag>
-        <tag>升版</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IT日常-演算法排序(泡沫排序)</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_BubbleSort/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在演算法學習中，排序是最基本的一類演算法。<span id="more"></span><br>但工作以後排序這種東西除非有特殊需求，不然通常都是用 built-in function，例:List裡面的一堆內建用法(Sort(),Reverse()方法用爆) ，然而演算法常常一陣子沒用到很快就會忘記，偏偏面試白版題或是刷題時，就是愛考這些題目，但不得不說這是一門內功，在考量到效能或是時間&#x2F;空間複雜度時卻是派上用場的地方。 網路上關於排序的文章與教學，但沒有自己寫出來，常常都只是似懂非懂而已，這篇就當作筆記記錄自己的理解，複習一下基礎的演算法。</p>
-<h2 id="排序演算法-泡沫排序"><a href="#排序演算法-泡沫排序" class="headerlink" title="排序演算法-泡沫排序"></a>排序演算法-泡沫排序</h2><ul>
-<li>邏輯說明:<br>如泡沫的變化般越往上越大顆，數字越大越往後排序，每一輪的迴圈中透過兩兩交換，會把<br>[未完成排序]中最大的數字往右邊靠<br>例如:<br>範例陣列為:524613<br>第一層迴圈:每一次迴圈會完成某個數字的排序，因此需要排序的次數應該是陣列的長度-1次。<br>第二層迴圈:<br>透過每個數字比較後交換，把較大的數字一直往右移把[未完成排序]中最大的數字往右移的實作過程，可看以下範例了解實際交換的過程(以C#為範例)</li>
 </ul>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;<span class="built_in">int</span>&gt; <span class="title">Sort</span>(<span class="params">List&lt;<span class="built_in">int</span>&gt; list</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; list.Count - <span class="number">1</span>; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> y = <span class="number">0</span>; y &lt; list.Count - <span class="number">1</span> - x; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> transBox = list[y];</span><br><span class="line">            <span class="keyword">if</span> (list[y] &gt; list[y + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                list[y] = list[y + <span class="number">1</span>];</span><br><span class="line">                list[y + <span class="number">1</span>] = transBox;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="索引最佳化"><a href="#索引最佳化" class="headerlink" title="索引最佳化"></a>索引最佳化</h2><ul>
+<li><p>覆蓋索引搜尋(Covering Index)<br>意思是讓 Select 的欄位 &#x3D; Index的欄位 當查詢被執行的時候，若需要的欄位全都在索引當中，則會直接將索引查到的內容回傳，減少回主表查詢缺少欄位所需要的I&#x2F;O時間。</p>
+</li>
+<li><p>複合索引(Multiple Column Index)<br>若設定索引時是用多個欄位組成，建議把「頻繁被作為查詢條件的欄位越左方越好」 因為在下Where查詢條件時會有索引的順序性才能吃到此索引 例如: 當初建立的複合索引是用欄位 A&#x2F;B&#x2F;C組合，在下Where條件是只能是以下的查詢組合才能吃到複合索引的效能</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>以下順序無法吃到此索引功能</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> C <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>開始為每個排序法做紀錄與恢復記憶的過程中也會用[時間複雜度] &#x2F; [空間複雜度]來比較出每個排序法的效能。</p>
-<p>時間複雜度: O(n2)</p>
-<p>空間複雜度: θ(1) (不需要額外的陣列去存資料)</p>
+<ul>
+<li>索引涵蓋查詢欄位(Include Columns)<br>在建立索引的語法中加入涵蓋的查詢欄位 例如以下查詢語法中，在LastName欄位新增Index  <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> LastName, FirstName, Email </span><br><span class="line"><span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> LastName <span class="operator">=</span> <span class="string">&#x27;Dave&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>改善前:</li>
+</ul>
+</li>
+</ul>
+<p>Index新增語法<br>    <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName)</span><br></pre></td></tr></table></figure><br>    因為新增的索引僅包含 LastName 欄位的資訊但查詢的欄位還有FirstName, Email， SQL     Server 必須通過查詢的回溯操作（或二次查詢）來檢索 FirstName 和 Email 的值。<br>    意思是因為索引中只有加入LastName 所以用索引找到LastName的RowId時，會再用RowId回去    取 FirstName 和 Email的值</p>
+<ul>
+<li>改善後:<br>原本的Index內容改為 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName) INCLUDE (FirstName, Email)</span><br></pre></td></tr></table></figure>
+這時的查詢語法執行的邏輯就會變成一樣用LastName的索引找到資料後會一起把FirstName, Email值取出來，不需再用RowId做二次查詢回去撈FirstName, Email的值。</li>
+</ul>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E5%9F%BA%E7%A4%8E%E6%BC%94%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97-%E4%BD%A0%E5%8F%AA%E6%9C%83%E7%94%A8-built-in-function-%E4%BE%86%E6%8E%92%E5%BA%8F%E5%97%8E-4a196d37f9f5">基礎演算法系列 — 你只會用 built-in function 來排序嗎</a></li>
-<li><a href="https://hackmd.io/@coherent17/Sy79MIyju#%E6%B0%A3%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95Bubble-Sort">Algorithm 演算法排序筆記</a></li>
+<li><a href="https://sqlworker.blogspot.com/2016/11/keyinclude.html">SQL Worker</a></li>
+<li><a href="https://clarklin.gitlab.io/2020/12/13/sql-server-index-note/">SQL Server 索引筆記</a></li>
+<li><a href="https://medium.com/@henry-chou/5%E5%80%8B%E6%A6%82%E5%BF%B5%E6%8B%AF%E6%95%91%E9%BE%9C%E9%80%9F%E7%9A%84sql%E6%9F%A5%E8%A9%A2-query-d10e06b8bae3">5個概念拯救龜速的SQL查詢(Query)</a></li>
+<li><a href="https://medium.com/@winterer32/ms-sql-%E7%AD%86%E8%A8%98-%E4%BD%BF%E7%94%A8-sql-%E7%B4%A2%E5%BC%95%E4%B8%AD%E7%9A%84-include-%E9%97%9C%E9%8D%B5%E5%AD%97%E4%BB%A5%E6%8F%90%E9%AB%98%E6%9F%A5%E8%A9%A2%E6%95%88%E8%83%BD-e9bc9110ac1">INCLUDE 關鍵字以提高查詢效能</a></li>
 </ul>
 ]]></content>
       <categories>
         <category>踩坑日常</category>
         <category>IT</category>
-        <category>演算法</category>
       </categories>
       <tags>
         <tag>2024</tag>
-        <tag>Algorithm</tag>
-        <tag>Sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IT踩坑日常- bom頭標記導致json無法解析</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在專案中與廠商測試的過程中,發現對方API回傳的json字串出現無法解析的狀況,此篇記錄發現過程與解決的紀錄，希望之後有踩到坑的同仁可以少跌一些坑。</p>
-<span id="more"></span>
-
-<p>此次主要業務是與廠商做API介接<br>API(Post)-Response是用Json格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
-
-<h2 id="踩坑過程"><a href="#踩坑過程" class="headerlink" title="踩坑過程"></a>踩坑過程</h2><p>接收到回傳的json結果為以下值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
-
-<p>程式在解析時丟出了無法解析的錯誤，乍看之下此字串是正常格式的json字串,但將此字串貼在記事本儲存時，會提醒你內文中含有<code>urldecode</code>的字元，儲存後的內容發生變化之類的提醒，再開啟文件之後發現原本的json字串變成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">?&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但實際上此字元也並非字面上看到的是藏著?的字元而是Bom表標頭的標記符號(不佔空間的空白，unicode編碼中表示:<code>\uFEFF</code>)導致，當json Response字串中藏著Bom標記符號時，預設使用UTF-8讀取json格式,就會遇到這個問題。</p>
-<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><ol>
-<li><p>程式面<br>讀取Response json或帶有Bom表的檔案內容時，先對此字串做過濾後，再做解析處理</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//過濾掉Bom標頭字元​</span><br><span class="line">responseBody= responseString.Trim(new char[] &#123; &#x27;\uFEFF&#x27;&#125;);</span><br><span class="line"></span><br><span class="line">//再將json string 解析成物件​</span><br><span class="line">var result = JsonConvert.DeserializeObject&lt;DeserializeObj&gt;(responseBody);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>檔案面<br>如果是檔案的字串藏有Bom的標頭符號，可用NotePad++ 開啟文件後在上面的編碼選取轉換UTF-8後再另存新檔，之後程式如果要讀取檔案內容應該讀取新的存檔<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/IT_Exp_JsonWithBomTrap_1.PNG" alt="IT_Exp_JsonWithBomTrap_1"></p>
-</li>
-</ol>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://boywhy.blogspot.com/2014/11/c-bom.html">[C#] BOM 隱士</a></p>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>API</tag>
-        <tag>Postman</tag>
-        <tag>C#</tag>
+        <tag>SQL</tag>
+        <tag>INDEX</tag>
+        <tag>MSSQL</tag>
       </tags>
   </entry>
   <entry>
@@ -501,6 +405,42 @@
       </tags>
   </entry>
   <entry>
+    <title>IT踩坑日常- bom頭標記導致json無法解析</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在專案中與廠商測試的過程中,發現對方API回傳的json字串出現無法解析的狀況,此篇記錄發現過程與解決的紀錄，希望之後有踩到坑的同仁可以少跌一些坑。</p>
+<span id="more"></span>
+
+<p>此次主要業務是與廠商做API介接<br>API(Post)-Response是用Json格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
+
+<h2 id="踩坑過程"><a href="#踩坑過程" class="headerlink" title="踩坑過程"></a>踩坑過程</h2><p>接收到回傳的json結果為以下值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程式在解析時丟出了無法解析的錯誤，乍看之下此字串是正常格式的json字串,但將此字串貼在記事本儲存時，會提醒你內文中含有<code>urldecode</code>的字元，儲存後的內容發生變化之類的提醒，再開啟文件之後發現原本的json字串變成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">?&#123;&quot;result&quot;:&quot;true&quot;, &quot;all_count&quot;:1, &quot;list&quot;:[&#123;&quot;tran_code&quot;:&quot;A&quot;, &quot;tkt_no&quot;:&quot;AKY0727&quot;,&quot;tkt_tp&quot;:&quot;01&quot;,&quot;dep_id&quot;:&quot;00R&quot;,&quot;date&quot;:&quot;20240401&quot;,&quot;status&quot;:&quot;00&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但實際上此字元也並非字面上看到的是藏著?的字元而是Bom表標頭的標記符號(不佔空間的空白，unicode編碼中表示:<code>\uFEFF</code>)導致，當json Response字串中藏著Bom標記符號時，預設使用UTF-8讀取json格式,就會遇到這個問題。</p>
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><ol>
+<li><p>程式面<br>讀取Response json或帶有Bom表的檔案內容時，先對此字串做過濾後，再做解析處理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//過濾掉Bom標頭字元​</span><br><span class="line">responseBody= responseString.Trim(new char[] &#123; &#x27;\uFEFF&#x27;&#125;);</span><br><span class="line"></span><br><span class="line">//再將json string 解析成物件​</span><br><span class="line">var result = JsonConvert.DeserializeObject&lt;DeserializeObj&gt;(responseBody);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>檔案面<br>如果是檔案的字串藏有Bom的標頭符號，可用NotePad++ 開啟文件後在上面的編碼選取轉換UTF-8後再另存新檔，之後程式如果要讀取檔案內容應該讀取新的存檔<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_JsonWithBomTrap/IT_Exp_JsonWithBomTrap_1.PNG" alt="IT_Exp_JsonWithBomTrap_1"></p>
+</li>
+</ol>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://boywhy.blogspot.com/2014/11/c-bom.html">[C#] BOM 隱士</a></p>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>API</tag>
+        <tag>Postman</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ASCII，Unicode 和UTF-8的演變</title>
     <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因之前業務上的介接踩到json開頭有Bom表標記符號的坑，想到之前也有遇到檔案內ASCII&#x2F;Unicode&#x2F;UTF-8編碼間轉換的坑，因此決定要來搞清楚這些編碼的前世今生與編碼原理了。<br>畢竟字符編碼就是電腦技術中傳遞訊息的基石</p>
@@ -572,6 +512,166 @@
         <tag>Unicode</tag>
         <tag>ASCII</tag>
         <tag>UTF-8</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IT日常- C# .NET專案升版教學</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因目前公司舊專案有升版需求(.net core 2.2 &#x3D;&gt; .net 8)，在尋找跨越多版本這個鴻溝解方時，發現微軟有提供相關的升版套件 [.NET Upgrade Assistant] 讓我們升版的流程變得更無痛。</p>
+<span id="more"></span>
+
+<h2 id="升版流程"><a href="#升版流程" class="headerlink" title="升版流程"></a>升版流程</h2><p>下載 .NET Upgrade Assistant 方法</p>
+<ol>
+<li><p>在升版之前我們可以先在VisualStudio IDE的[延伸模組]欄位中選擇[管理延伸模組]<br>搜尋 .NET Upgrade Assistant 即可下載<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic.jpg" alt="Vs_Pic"></p>
+</li>
+<li><p>直接依據此連結 <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant">.NET Upgrade Assistant</a> 下載安裝也可<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Assistant.jpg" alt="Assistant"></p>
+</li>
+</ol>
+<p>下載安裝完後，打開我們的專案後，在需要升版的專案右鍵 &#x3D;&gt; Upgrade即可進入升版介面<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/Vs_Pic_2.jpg" alt="Vs_Pic_2"></p>
+<p>進入升版介面後可選擇 In-Place Project Upgrade後<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_1.jpg" alt="upgrade_1"></p>
+<p>選擇要升版的版本別，目前我是選擇長期支援的 .Net 8<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_2.jpg" alt="upgrade_2"></p>
+<p>確認要升版的範圍後即可進行升版<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_3.jpg" alt="upgrade_3"></p>
+<p>升版過程中此套件會幫你把使用過的NuGet套件更新成與新版本相容的版本，這樣整個在升版過程中大大減少了要自己逐一檢查原本的NuGet套件要升到哪個版本才能相容新版本的問題<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Dotnet_Version_Upgrade/upgrade_4.jpg" alt="upgrade_4"></p>
+<p>升版完成後也可在Git變更的差異檔裡看到原本的csproj的設定檔，已經把部分的套件版本一起升級了</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整個升版的過程算是十分流暢順利，當然升版過後還是要自己檢查在編譯的時候是否有部分已經不被採用的Method需要修改，這部分的細節還是免不了要手動修改。</p>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>C#</tag>
+        <tag>.Net</tag>
+        <tag>升版</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub Pages 教學</title>
+    <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
+<span id="more"></span>
+<blockquote>
+<p>建立GitHub Pages需要先在GitHub註冊後才能使用，這邊教學前提就先當作各位已經有個GitHub帳號了</p>
+</blockquote>
+<h2 id="安裝所需工具"><a href="#安裝所需工具" class="headerlink" title="安裝所需工具"></a>安裝所需工具</h2><ul>
+<li><strong><a href="https://git-scm.com/">Git</a></strong><br>因為在本地端的Blog做更新時需要上傳同步到GitHub Pages所以需要在本地端電腦安裝<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/1_Git.jpg" alt="1_Git"></li>
+</ul>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><h3 id="建立Repository-儲存庫"><a href="#建立Repository-儲存庫" class="headerlink" title="建立Repository(儲存庫)"></a>建立Repository(儲存庫)</h3></li>
+</ol>
+<ul>
+<li>在GitHub 首頁點選右邊+號列表的 New Repository新增一個要建立Blog用的儲存庫<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository.jpg" alt="2_CreateNewRepository">  <br /></li>
+<li>進入新增Repository畫面後，基本上都照預設設定就好，主要是為Repository name欄位命名，依建立的Repository name，之後Blog的URL就以這個階層邏輯建立: <strong>https:&#x2F;&#x2F;[Owner].github.io&#x2F;[<strong>Repository name</strong>]&#x2F;</strong><br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/2_CreateNewRepository_2.jpg" alt="2_CreateNewRepository_2"><br>  <code>Owner: GitHub帳號名稱</code><br>  <code>Description: 欄位可以為這個Repository的說明目的或相關的內容</code><br>  <code>Add a README file 建議勾選</code>  <br /></li>
+<li>建立好Repository後就會出現以下畫面，儲存庫預設的分支現在已經改為main了不是master<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/3_FinishRepository.jpg" alt="3_FinishRepository"></li>
+</ul>
+<ol start="2">
+<li><h3 id="GitHub-Pages設定"><a href="#GitHub-Pages設定" class="headerlink" title="GitHub Pages設定"></a>GitHub Pages設定</h3></li>
+</ol>
+<ul>
+<li>接著上方橫向選單看到Settings後再進入左邊列表的Pages，在Pages頁面將Branch設定成main儲存後，會看到上方有Visit site的連結，可以點選進入GitHub Pages的首頁。<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/4_GitPage.jpg" alt="4_GitPage"></li>
+</ul>
+<blockquote>
+<p>如果沒有可能需要等個30秒後重新整理就有看到了，我當初進入Pages時也沒出現Visit site也很緊張，結果等了一陣子才出現</p>
+</blockquote>
+<ul>
+<li>從Visit site 進入GitHub Pages首頁<br>  <img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/5_SetPage.jpg" alt="5_SetPage"></li>
+</ul>
+<ol start="3">
+<li><h3 id="新增GitHub-Pages首頁"><a href="#新增GitHub-Pages首頁" class="headerlink" title="新增GitHub Pages首頁"></a>新增GitHub Pages首頁</h3></li>
+</ol>
+<ul>
+<li>GitHub Pages首頁的內容是當初建立Repository時README.md的內容，如果要顯示自己想要的首頁畫面，需要新增一個index的html檔，系統預設會去吃檔名index的檔案。<br>  新增index的方式有兩種:<br>  1.直接在網頁上透過Repository上新增index的html檔案<br>  2.是從GitHub上下載到本地端(自己電腦)新增index檔案後再上傳同步到GitHub<br>  以下分別介紹兩種新增index方法<ul>
+<li>3.1 線上新增index :<ul>
+<li>上方橫向選單看到Code ⇒ Create New File在新增的檔案內容<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/6_AddIndex.jpg" alt="6_AddIndex"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>新增內容後點選右邊Commit Changes<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/7_EditIndex.jpg" alt="7_EditIndex"><br /></li>
+<li>可在Commit Changes的介面補充這次修改內容或目的<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/8_EditIndex.jpg" alt="8_EditIndex"><br /></li>
+</ul>
+</li>
+<li>3.2 從本地端新增 :<br><code>必須先在本機安裝Git，才能執行以下指令</code><ul>
+<li>在本機資料夾中從路徑呼叫CMD(命令提示字元)<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/11_LocalFolder.jpg" alt="11_LocalFolder"><br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/12_Cmd.jpg" alt="12_Cmd"><br /></li>
+<li>複製GitHub上指定repository的Git網址<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/13_GetGitUrl.jpg" alt="13_GetGitUrl"><br /></li>
+<li>回到CMD中輸入git clone [repository的網址]，系統就會從GitHub上把指定的repository整份下載到我們指定的資料夾中<br><img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/14_GitClone.jpg" alt="14_GitClone"><br /></li>
+<li>在資料夾中新增html空白檔案，貼上下個步驟準備好的內容後儲存<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/15_GitCloneRepo.jpg" alt="15_GitCloneRepo"><br /></li>
+<li>將以下的html程式碼貼上並把檔名編輯為index.html<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好，GitHub<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!!! GitHub Pages Test<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>在CMD中輸入以下Git相關指令<ol>
+<li><code>git add index.html</code></li>
+<li><code>git commit -m &quot;add index&quot;</code></li>
+<li><code>git remote add origin [repository的網址]</code></li>
+<li><code>git push -u origin main</code><br /></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>從以上兩個建議的方法2擇1執行完成後，回GitHub頁面確認是否已經將剛剛新增的檔案同步到線上的儲存庫中<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/9_EditIndex.jpg" alt="9_EditIndex">  <br /></li>
+<li>確認完後再重新從Settings裡面的Page連結到首頁，畫面就會變成index檔案中的內容<img src="/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/10_IndexHomepage.jpg" alt="10_IndexHomepage">  <br /></li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><ul>
+<li>以上是GitHub Pages初步架設，如要變成一般Blog的框架與排版相關內容，需再配合其他套件與模板匯入才會漸漸有Blog的樣子，之後再繼續介紹相關Blog套版的教學</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://gitbook.tw/chapters/github/using-github-pages/">使用 GitHub 免費製作個人網站</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10301923">設定 GitHub Page，建立文件網站</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo發佈文章教學</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
+<span id="more"></span>
+
+<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
+<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
+</li>
+<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
+<blockquote>
+<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
+</blockquote>
+<ol start="3">
+<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
+</blockquote>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
+<ol start="4">
+<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a href="https://markdown.tw/">Markdown官網</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -652,40 +752,53 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo發佈文章教學</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
+    <title>Hexo留言板功能</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
 <span id="more"></span>
 
-<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
-<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
+<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
+<ul>
+<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
 </li>
-<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
+<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
 </li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
-<blockquote>
-<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
-</blockquote>
-<ol start="3">
-<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
+</li>
+</ul>
+<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><p>進入 <a href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
+</li>
+<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
+</li>
+<li><p>進入 <a href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
+</li>
+<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
+</li>
+<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
+</li>
+<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
+</li>
+<li><p>點開comments.njk檔後，找到程式碼片段</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
-</blockquote>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
-<ol start="4">
-<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
+</li>
 </ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a href="https://markdown.tw/">Markdown官網</a></p>
+<h2 id="關閉指定頁面留言區"><a href="#關閉指定頁面留言區" class="headerlink" title="關閉指定頁面留言區"></a>關閉指定頁面留言區</h2><p>依上述步驟設定就會在每個頁面都保有留言版功能，但像標籤&#x2F;分類&#x2F;關於的頁面一般不會開啟留言版功能，根據以下步驟我們可以指定不需開啟留言版的頁面做設定。<br>我們只要在指定文章開頭加上 comments: false，就可將指定的文章關閉留言版功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/SetSwitchUtterances.jpg" alt="SetSwitchUtterances"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
+<li><a href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
+<li><a href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
+<li><a href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>教學</category>
@@ -695,7 +808,33 @@
         <tag>2023</tag>
         <tag>Tutorial</tag>
         <tag>Hexo</tag>
-        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo_主題[next]功能小補帖</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
+<span id="more"></span>
+
+<h2 id="內容Search功能"><a href="#內容Search功能" class="headerlink" title="內容Search功能"></a>內容Search功能</h2><p>開啟搜尋功能前須先安裝以下套件,在Hexo資料夾開啟CMD後,輸入以下指令安裝<br><code>npm install hexo-generator-searchdb --save</code><br>進入Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml中,修改local_search項目中<code>enable : true</code> 即可,就會在首頁看到多了搜尋的選項與介面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg" alt="search_1"><br>點擊搜尋後即可在功能中查詢相關內容<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/searchOperate_2.jpg" alt="searchOperate_2"></p>
+<h2 id="顯示滾動百分比"><a href="#顯示滾動百分比" class="headerlink" title="顯示滾動百分比"></a>顯示滾動百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>reading_progress: false</code> 修改成 <code>reading_progress: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_4.jpg" alt="reading_progress_4"><br>即可呈現滾動百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_demo_5.jpg" alt="reading_progress_demo_5"></p>
+<h2 id="顯示閱讀百分比"><a href="#顯示閱讀百分比" class="headerlink" title="顯示閱讀百分比"></a>顯示閱讀百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>scrollpercent: false</code> 修改成 <code>scrollpercent: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6.jpg" alt="reading_Percent_6"><br>即可呈現閱讀百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6_2.jpg" alt="reading_Percent_6_2"></p>
+<h2 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h2><p>使用next主題後會在頁尾的地方出現 [由 Hexo 強力驅動] 的提示字,若想關閉的話在Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml查詢powered關鍵字，將其中屬性 <code>enable: false</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/power_7.jpg" alt="power_7"><br>另外在上面的 copyright 欄位也可以加入引用提示字給讀者參考,例: [XXX - 轉載文章請附上作者及原文連結]<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/copyright_8.jpg" alt="copyright_8"></p>
+<h2 id="自動新增繼續閱讀"><a href="#自動新增繼續閱讀" class="headerlink" title="自動新增繼續閱讀"></a>自動新增繼續閱讀</h2><p>只顯示部分內容,若要閱讀全文則需點擊[閱讀全文]的按鈕,<br>在文章中加上<code>&lt;!-- more --&gt;</code>，就會在該處斷開，以下文章則需點擊閱讀全文才會展開<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/readMore_9.jpg" alt="readMore_9"></p>
+<h2 id="關閉歸檔的勉勵句"><a href="#關閉歸檔的勉勵句" class="headerlink" title="關閉歸檔的勉勵句"></a>關閉歸檔的勉勵句</h2><p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10.jpg" alt="cheers_enabled_10"><br>我們在歸檔的畫面常會看到預設的語句: <code>嗯..! 目前共有 x 篇文章。 繼續努力。</code><br>覺得很煩完全沒有被勉勵的感覺的話,需要在以下到 themes &#x3D;&gt; next &#x3D;&gt; layout &#x3D;&gt; archive.njk檔案中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_3.jpg" alt="cheers_enabled_10_3"><br>將以下程式碼註解。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_2.jpg" alt="cheers_enabled_10_2"></p>
+<h2 id="網站瀏覽數量"><a href="#網站瀏覽數量" class="headerlink" title="網站瀏覽數量"></a>網站瀏覽數量</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到 <code>busuanzi_count</code> 屬性後,修改成下方範例即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_11.jpg" alt="busuanzi_count_11"><br>在頁尾看到瀏覽數量<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_demo_12.jpg" alt="busuanzi_count_demo_12"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上為此系列教學的最後一篇,若之後有相關更新也會繼續補充。<br>架設部落格過程中,也是以初學者角度將每一步操作的過程記錄下來,以便整理後可以分享提供給同樣需求的讀者參考,希望我們在學習與分享的道路上一起努力前進。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://israynotarray.com/hexo/20201003/38607376/">試著學 Hexo - NexT 主題篇 - 可以安裝的套件</a><br><a href="https://garyissogood.github.io/hexo/20200210/1699950564/">hexo Blog頁面與Next主題</a><br><a href="https://ithelp.ithome.com.tw/articles/10269050">設定你的 Hexo 佈景主題</a><br><a href="https://blog.typeart.cc/HEXO%E6%90%AD%E9%85%8D%E4%B8%BB%E9%A1%8Cnext%E5%9F%BA%E7%A4%8E%E9%85%8D%E7%BD%AE%E6%95%99%E5%AD%B8/#%E6%96%B0%E5%A2%9Etags%E3%80%81categories%E3%80%81archives-%E9%A0%81%E9%9D%A2">HEXO搭配主題next基礎配置教學</a><br><a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">Hexo教學 Next主題設定與頁面功能</a><br><a href="https://heidiliu2020.github.io/hexo-theme/">學習筆記 如何更換 Hexo 主題 &amp; 自訂樣式</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -793,118 +932,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL索引最佳化</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_SQL_Optimize_Index/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因近期工作內容偏向SQL查詢效能調校以此篇作為調整紀錄(以下SQL系統為MSSQL)</p>
-<span id="more"></span>
-<p>系統查詢功能隨著資料的增多(約9500萬筆資料)導致原本設計的資料表查詢效能日漸緩慢，近期針對目前常用的查詢語法做了梳理以下幾個調校方法做整理，以下是針對已經有設定Index的情況下進一步調整。</p>
-<h2 id="服用Index前注意事項"><a href="#服用Index前注意事項" class="headerlink" title="服用Index前注意事項"></a>服用Index前注意事項</h2><ul>
-<li><p>優點:加速查詢的效率從原本的全表搜尋(Table Scan)機制改善為索引查詢(Index Seek)</p>
-</li>
-<li><p>缺點:建立的Index越多，在對資料進行新增&#x2F;刪除&#x2F;修改時，就會花越多時間來完成。 盡量避免對設定索引的欄位經常性的改動操作，會導致原先排續好的索引順序越零碎而影響查詢效能，必要時需定期使用重組排序讓原本零碎的索引重新排序以改刪查詢效能。</p>
-</li>
-</ul>
-<h2 id="索引最佳化"><a href="#索引最佳化" class="headerlink" title="索引最佳化"></a>索引最佳化</h2><ul>
-<li><p>覆蓋索引搜尋(Covering Index)<br>意思是讓 Select 的欄位 &#x3D; Index的欄位 當查詢被執行的時候，若需要的欄位全都在索引當中，則會直接將索引查到的內容回傳，減少回主表查詢缺少欄位所需要的I&#x2F;O時間。</p>
-</li>
-<li><p>複合索引(Multiple Column Index)<br>若設定索引時是用多個欄位組成，建議把「頻繁被作為查詢條件的欄位越左方越好」 因為在下Where查詢條件時會有索引的順序性才能吃到此索引 例如: 當初建立的複合索引是用欄位 A&#x2F;B&#x2F;C組合，在下Where條件是只能是以下的查詢組合才能吃到複合索引的效能</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> B <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>以下順序無法吃到此索引功能</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> B <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span> </span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> A <span class="operator">=</span> <span class="number">0</span> <span class="keyword">and</span> C <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">Table</span> <span class="keyword">where</span> C <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>索引涵蓋查詢欄位(Include Columns)<br>在建立索引的語法中加入涵蓋的查詢欄位 例如以下查詢語法中，在LastName欄位新增Index  <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> LastName, FirstName, Email </span><br><span class="line"><span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> LastName <span class="operator">=</span> <span class="string">&#x27;Dave&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>改善前:</li>
-</ul>
-</li>
-</ul>
-<p>Index新增語法<br>    <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName)</span><br></pre></td></tr></table></figure><br>    因為新增的索引僅包含 LastName 欄位的資訊但查詢的欄位還有FirstName, Email， SQL     Server 必須通過查詢的回溯操作（或二次查詢）來檢索 FirstName 和 Email 的值。<br>    意思是因為索引中只有加入LastName 所以用索引找到LastName的RowId時，會再用RowId回去    取 FirstName 和 Email的值</p>
-<ul>
-<li>改善後:<br>原本的Index內容改為 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED INDEX idx_nonclustered <span class="keyword">ON</span> Student(LastName) INCLUDE (FirstName, Email)</span><br></pre></td></tr></table></figure>
-這時的查詢語法執行的邏輯就會變成一樣用LastName的索引找到資料後會一起把FirstName, Email值取出來，不需再用RowId做二次查詢回去撈FirstName, Email的值。</li>
-</ul>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://sqlworker.blogspot.com/2016/11/keyinclude.html">SQL Worker</a></li>
-<li><a href="https://clarklin.gitlab.io/2020/12/13/sql-server-index-note/">SQL Server 索引筆記</a></li>
-<li><a href="https://medium.com/@henry-chou/5%E5%80%8B%E6%A6%82%E5%BF%B5%E6%8B%AF%E6%95%91%E9%BE%9C%E9%80%9F%E7%9A%84sql%E6%9F%A5%E8%A9%A2-query-d10e06b8bae3">5個概念拯救龜速的SQL查詢(Query)</a></li>
-<li><a href="https://medium.com/@winterer32/ms-sql-%E7%AD%86%E8%A8%98-%E4%BD%BF%E7%94%A8-sql-%E7%B4%A2%E5%BC%95%E4%B8%AD%E7%9A%84-include-%E9%97%9C%E9%8D%B5%E5%AD%97%E4%BB%A5%E6%8F%90%E9%AB%98%E6%9F%A5%E8%A9%A2%E6%95%88%E8%83%BD-e9bc9110ac1">INCLUDE 關鍵字以提高查詢效能</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>SQL</tag>
-        <tag>INDEX</tag>
-        <tag>MSSQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo留言板功能</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
-<span id="more"></span>
-
-<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
-<ul>
-<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
-</li>
-<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
-</li>
-<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
-</li>
-</ul>
-<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li><p>進入 <a href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
-</li>
-<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
-</li>
-<li><p>進入 <a href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
-</li>
-<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
-</li>
-<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
-</li>
-<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
-</li>
-<li><p>點開comments.njk檔後，找到程式碼片段</p>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
-<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
-  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
- <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
-</li>
-</ol>
-<h2 id="關閉指定頁面留言區"><a href="#關閉指定頁面留言區" class="headerlink" title="關閉指定頁面留言區"></a>關閉指定頁面留言區</h2><p>依上述步驟設定就會在每個頁面都保有留言版功能，但像標籤&#x2F;分類&#x2F;關於的頁面一般不會開啟留言版功能，根據以下步驟我們可以指定不需開啟留言版的頁面做設定。<br>我們只要在指定文章開頭加上 comments: false，就可將指定的文章關閉留言版功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/SetSwitchUtterances.jpg" alt="SetSwitchUtterances"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
-<li><a href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
-<li><a href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
-<li><a href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo_SEO設定</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這篇就來聊聊SEO的相關基本設定,讓自己在Google的搜尋中容易被搜尋到吧</p>
@@ -985,33 +1012,6 @@
         <tag>2023</tag>
         <tag>Tutorial</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo_主題[next]功能小補帖</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
-<span id="more"></span>
-
-<h2 id="內容Search功能"><a href="#內容Search功能" class="headerlink" title="內容Search功能"></a>內容Search功能</h2><p>開啟搜尋功能前須先安裝以下套件,在Hexo資料夾開啟CMD後,輸入以下指令安裝<br><code>npm install hexo-generator-searchdb --save</code><br>進入Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml中,修改local_search項目中<code>enable : true</code> 即可,就會在首頁看到多了搜尋的選項與介面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/search_1.jpg" alt="search_1"><br>點擊搜尋後即可在功能中查詢相關內容<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/searchOperate_2.jpg" alt="searchOperate_2"></p>
-<h2 id="顯示滾動百分比"><a href="#顯示滾動百分比" class="headerlink" title="顯示滾動百分比"></a>顯示滾動百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>reading_progress: false</code> 修改成 <code>reading_progress: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_4.jpg" alt="reading_progress_4"><br>即可呈現滾動百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_progress_demo_5.jpg" alt="reading_progress_demo_5"></p>
-<h2 id="顯示閱讀百分比"><a href="#顯示閱讀百分比" class="headerlink" title="顯示閱讀百分比"></a>顯示閱讀百分比</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到<code>scrollpercent: false</code> 修改成 <code>scrollpercent: true</code> <br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6.jpg" alt="reading_Percent_6"><br>即可呈現閱讀百分比<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/reading_Percent_6_2.jpg" alt="reading_Percent_6_2"></p>
-<h2 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h2><p>使用next主題後會在頁尾的地方出現 [由 Hexo 強力驅動] 的提示字,若想關閉的話在Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml查詢powered關鍵字，將其中屬性 <code>enable: false</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/power_7.jpg" alt="power_7"><br>另外在上面的 copyright 欄位也可以加入引用提示字給讀者參考,例: [XXX - 轉載文章請附上作者及原文連結]<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/copyright_8.jpg" alt="copyright_8"></p>
-<h2 id="自動新增繼續閱讀"><a href="#自動新增繼續閱讀" class="headerlink" title="自動新增繼續閱讀"></a>自動新增繼續閱讀</h2><p>只顯示部分內容,若要閱讀全文則需點擊[閱讀全文]的按鈕,<br>在文章中加上<code>&lt;!-- more --&gt;</code>，就會在該處斷開，以下文章則需點擊閱讀全文才會展開<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/readMore_9.jpg" alt="readMore_9"></p>
-<h2 id="關閉歸檔的勉勵句"><a href="#關閉歸檔的勉勵句" class="headerlink" title="關閉歸檔的勉勵句"></a>關閉歸檔的勉勵句</h2><p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10.jpg" alt="cheers_enabled_10"><br>我們在歸檔的畫面常會看到預設的語句: <code>嗯..! 目前共有 x 篇文章。 繼續努力。</code><br>覺得很煩完全沒有被勉勵的感覺的話,需要在以下到 themes &#x3D;&gt; next &#x3D;&gt; layout &#x3D;&gt; archive.njk檔案中<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_3.jpg" alt="cheers_enabled_10_3"><br>將以下程式碼註解。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/cheers_enabled_10_2.jpg" alt="cheers_enabled_10_2"></p>
-<h2 id="網站瀏覽數量"><a href="#網站瀏覽數量" class="headerlink" title="網站瀏覽數量"></a>網站瀏覽數量</h2><p>Hexo資料夾中目前使用的主題(Theme)設定檔_config.yml，找到 <code>busuanzi_count</code> 屬性後,修改成下方範例即可<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_11.jpg" alt="busuanzi_count_11"><br>在頁尾看到瀏覽數量<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/busuanzi_count_demo_12.jpg" alt="busuanzi_count_demo_12"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上為此系列教學的最後一篇,若之後有相關更新也會繼續補充。<br>架設部落格過程中,也是以初學者角度將每一步操作的過程記錄下來,以便整理後可以分享提供給同樣需求的讀者參考,希望我們在學習與分享的道路上一起努力前進。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://israynotarray.com/hexo/20201003/38607376/">試著學 Hexo - NexT 主題篇 - 可以安裝的套件</a><br><a href="https://garyissogood.github.io/hexo/20200210/1699950564/">hexo Blog頁面與Next主題</a><br><a href="https://ithelp.ithome.com.tw/articles/10269050">設定你的 Hexo 佈景主題</a><br><a href="https://blog.typeart.cc/HEXO%E6%90%AD%E9%85%8D%E4%B8%BB%E9%A1%8Cnext%E5%9F%BA%E7%A4%8E%E9%85%8D%E7%BD%AE%E6%95%99%E5%AD%B8/#%E6%96%B0%E5%A2%9Etags%E3%80%81categories%E3%80%81archives-%E9%A0%81%E9%9D%A2">HEXO搭配主題next基礎配置教學</a><br><a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">Hexo教學 Next主題設定與頁面功能</a><br><a href="https://heidiliu2020.github.io/hexo-theme/">學習筆記 如何更換 Hexo 主題 &amp; 自訂樣式</a></p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
       </tags>
   </entry>
   <entry>

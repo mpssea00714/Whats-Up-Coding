@@ -21,7 +21,7 @@
 
     <meta name="description" content="前言近期研讀了李宏毅教授關於 AI Agent 運作原理 的系列影片，內容將複雜的技術轉化為易懂的邏輯。 若想建立 AI 相關知識的堅實基礎，教授的教學影片是非常理想的參考資源。 以下以 OpenClaw（社群常稱為「龍蝦」）這類開源專案為基準，將 AI Agent 的核心機制與組成架構整理如下：  一、AI Agent 的定義與運作邏輯AI Agent 扮演著「人類指令」與「語言模型」之間的關鍵">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI Agent Architecture with OpenClaw">
+<meta property="og:title" content="AI Agent 運作原理與核心架構解析：以 OpenClaw 為例">
 <meta property="og:url" content="https://mpssea00714.github.io/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/index.html">
 <meta property="og:site_name" content="What&#39;s up Coding">
 <meta property="og:description" content="前言近期研讀了李宏毅教授關於 AI Agent 運作原理 的系列影片，內容將複雜的技術轉化為易懂的邏輯。 若想建立 AI 相關知識的堅實基礎，教授的教學影片是非常理想的參考資源。 以下以 OpenClaw（社群常稱為「龍蝦」）這類開源專案為基準，將 AI Agent 的核心機制與組成架構整理如下：  一、AI Agent 的定義與運作邏輯AI Agent 扮演著「人類指令」與「語言模型」之間的關鍵">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/3.png">
 <meta property="og:image" content="https://mpssea00714.github.io/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/5.png">
 <meta property="article:published_time" content="2026-03-22T07:43:06.000Z">
-<meta property="article:modified_time" content="2026-03-22T08:02:25.384Z">
+<meta property="article:modified_time" content="2026-03-22T08:05:17.063Z">
 <meta property="article:author" content="David">
 <meta property="article:tag" content="Tutorial">
 <meta property="article:tag" content="AI">
@@ -55,10 +55,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/","path":"AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/","title":"AI Agent Architecture with OpenClaw"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://mpssea00714.github.io/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/","path":"AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/","title":"AI Agent 運作原理與核心架構解析：以 OpenClaw 為例"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AI Agent Architecture with OpenClaw | What's up Coding</title>
+<title>AI Agent 運作原理與核心架構解析：以 OpenClaw 為例 | What's up Coding</title>
   
 
 
@@ -225,12 +225,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="AI Agent Architecture with OpenClaw | What's up Coding">
+      <meta itemprop="name" content="AI Agent 運作原理與核心架構解析：以 OpenClaw 為例 | What's up Coding">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AI Agent Architecture with OpenClaw
+          AI Agent 運作原理與核心架構解析：以 OpenClaw 為例
         </h1>
 
         <div class="post-meta-container">
@@ -242,7 +242,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2026-03-22 15:43:06 / 修改時間：16:02:25" itemprop="dateCreated datePublished" datetime="2026-03-22T15:43:06+08:00">2026-03-22</time>
+      <time title="創建時間：2026-03-22 15:43:06 / 修改時間：16:05:17" itemprop="dateCreated datePublished" datetime="2026-03-22T15:43:06+08:00">2026-03-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
