@@ -61,6 +61,179 @@
       </tags>
   </entry>
   <entry>
+    <title>AI Agent 運作原理與核心架構解析：以 OpenClaw 為例</title>
+    <url>/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近期研讀了李宏毅教授關於 <strong>AI Agent 運作原理</strong> 的系列影片，內容將複雜的技術轉化為易懂的邏輯。</p>
+<p>若想建立 AI 相關知識的堅實基礎，教授的教學影片是非常理想的參考資源。</p>
+<p>以下以 <strong>OpenClaw</strong>（社群常稱為「龍蝦」）這類開源專案為基準，將 AI Agent 的核心機制與組成架構整理如下：</p>
+<hr>
+<h2 id="一、AI-Agent-的定義與運作邏輯"><a href="#一、AI-Agent-的定義與運作邏輯" class="headerlink" title="一、AI Agent 的定義與運作邏輯"></a>一、AI Agent 的定義與運作邏輯</h2><p>AI Agent 扮演著「<strong>人類指令</strong>」與「<strong>語言模型</strong>」之間的關鍵溝通介面。其本質是一套由預設程式碼與規則組成的自動化程序，主要負責協調兩者的互動。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/1.png" alt="OpenClaw角色定位"></p>
+<h3 id="基本運作流程"><a href="#基本運作流程" class="headerlink" title="基本運作流程"></a>基本運作流程</h3><p>AI Agent 的運作包含以下三個階段：<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/2.png" alt="OpenClaw角色定義"></p>
+<h4 id="1-系統提示詞加工-System-Prompt-Construction"><a href="#1-系統提示詞加工-System-Prompt-Construction" class="headerlink" title="1. 系統提示詞加工 (System Prompt Construction)"></a>1. 系統提示詞加工 (System Prompt Construction)</h4><p>當人類下達指令時，Agent 會同步調用地端電腦的設定檔（包含 Agent 身份、任務目標）以及過去的對話歷史，將這些資訊整合為一段完整的長文字，置於人類指令之前作為背景脈絡。</p>
+<h4 id="2-驅動語言模型進行預測"><a href="#2-驅動語言模型進行預測" class="headerlink" title="2. 驅動語言模型進行預測"></a>2. 驅動語言模型進行預測</h4><p>Agent 將加工後的長文字傳送至後端模型（如 GPT-4 或 Claude）。模型接收資訊後，會根據已有的文字內容進行「文字接龍」，預測並產出後續的字元 (Token)。</p>
+<h4 id="3-執行功能與循環回饋"><a href="#3-執行功能與循環回饋" class="headerlink" title="3. 執行功能與循環回饋"></a>3. 執行功能與循環回饋</h4><p>當模型產出一般敘述時，Agent 直接將結果呈現給人類；若模型產出的內容包含特定的「工具調用符號」（如讀取檔案指令），Agent 則會在電腦系統中執行該指令，並將執行後的數據反饋給模型。此循環會持續進行，直到模型判定任務達成並給出最終回覆。</p>
+<hr>
+<h2 id="二、AI-Agent-的核心組件"><a href="#二、AI-Agent-的核心組件" class="headerlink" title="二、AI Agent 的核心組件"></a>二、AI Agent 的核心組件</h2><p>為了彌補語言模型的原生限制，AI Agent 透過以下架構讓模型能發揮如全天候助理般的功能：</p>
+<h3 id="1-核心大腦-The-LLM-Core"><a href="#1-核心大腦-The-LLM-Core" class="headerlink" title="1. 核心大腦 (The LLM Core)"></a>1. 核心大腦 (The LLM Core)</h3><p>AI Agent 的決策品質完全仰賴後端連接的語言模型。模型如同位於密閉空間內的運算核心，不具備自主記憶或感官，僅透過 Agent 提供的文字訊息進行邏輯預測。</p>
+<h3 id="2-角色設定與身份定義-Persona-Design"><a href="#2-角色設定與身份定義-Persona-Design" class="headerlink" title="2. 角色設定與身份定義 (Persona Design)"></a>2. 角色設定與身份定義 (Persona Design)</h3><p>Agent 具備特定的人格特質，主要源於本地端儲存的 <code>.md</code> 文字檔案。每次互動時，Agent 會將這些行為準則與偏好強制寫入提示詞，引導模型產出符合特定角色背景的內容。</p>
+<h3 id="3-記憶維護系統-Memory-Management"><a href="#3-記憶維護系統-Memory-Management" class="headerlink" title="3. 記憶維護系統 (Memory Management)"></a>3. 記憶維護系統 (Memory Management)</h3><p>由於模型本身不具備跨對話的記憶能力，Agent 建立了兩層記憶機制：</p>
+<h4 id="長期記憶-RAG-檢索"><a href="#長期記憶-RAG-檢索" class="headerlink" title="長期記憶 (RAG 檢索)"></a>長期記憶 (RAG 檢索)</h4><p>Agent 能將重要資訊寫入記憶庫。當需要回溯過往資訊時，系統會比對「 <strong>關鍵字出現頻率(S1)</strong> 」與「 <strong>語意相似度(S2)</strong> 」進行綜合評分，精準提取相關片段供模型參考。</p>
+<h4 id="短期記憶壓縮-Context-Compression"><a href="#短期記憶壓縮-Context-Compression" class="headerlink" title="短期記憶壓縮 (Context Compression)"></a>短期記憶壓縮 (Context Compression)</h4><p>考量到模型的上下文容量限制，當對話過長時，Agent 會要求模型對舊對話進行「摘要總結」，以簡練的摘要取代原始細節，確保系統能長時間運作而不超出限制。</p>
+<p><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/9.png" alt="Memory定義"></p>
+<blockquote>
+<p>💡 <strong>補充說明</strong>：每一輪對話 AI Agent 會把對話內容的摘要或是覺得重要的資訊自己修改補充到對應的 md 檔中。有可能是長期記憶&#x2F;靈魂設定&#x2F;文字獄…等等 md 中。</p>
+</blockquote>
+<h3 id="4-工具調用與技能架構-Tools-Skills"><a href="#4-工具調用與技能架構-Tools-Skills" class="headerlink" title="4. 工具調用與技能架構 (Tools &amp; Skills)"></a>4. 工具調用與技能架構 (Tools &amp; Skills)</h3><p>這是讓模型具備實際執行能力的關鍵：</p>
+<h4 id="基礎工具"><a href="#基礎工具" class="headerlink" title="基礎工具"></a>基礎工具</h4><p>涵蓋檔案讀寫與最強大的 <strong>Execute</strong>（程式碼執行）功能。</p>
+<h4 id="子代理機制-Subagent"><a href="#子代理機制-Subagent" class="headerlink" title="子代理機制 (Subagent)"></a>子代理機制 (Subagent)</h4><p>面對如閱讀多篇論文的大型任務，大 Agent 會指派工具產生子代 Agent 協助分工，僅接收子代處理後的精簡資訊，落實 <strong>Context Engineering（上下文工程）</strong> 的優化。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/7.png" alt="子代理定義"></p>
+<h4 id="技能模組化-Skills"><a href="#技能模組化-Skills" class="headerlink" title="技能模組化 (Skills)"></a>技能模組化 (Skills)</h4><p>複雜任務會被標準化為 SOP 文字檔。Agent 採取「按需讀取」策略，僅在執行特定任務時才將對應技能載入系統提示詞。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/8.png" alt="Skills定義"></p>
+<h3 id="5-自主運行與排程機制"><a href="#5-自主運行與排程機制" class="headerlink" title="5. 自主運行與排程機制"></a>5. 自主運行與排程機制</h3><p>AI Agent 實現 24 小時運作的核心技術在於：</p>
+<h4 id="心跳觸發-Heartbeat"><a href="#心跳觸發-Heartbeat" class="headerlink" title="心跳觸發 (Heartbeat)"></a>心跳觸發 (Heartbeat)</h4><p>Agent 透過設定好的週期（如 15 分鐘）發送主動指令「戳」一下模型，促使模型檢查進度或主動尋找待辦事項。</p>
+<p><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/3.png" alt="心跳觸發定義"></p>
+<h4 id="排程系統-Cronjob"><a href="#排程系統-Cronjob" class="headerlink" title="排程系統 (Cronjob)"></a>排程系統 (Cronjob)</h4><p>結合排程工具，Agent 可以預約在未來特定時間啟動任務，讓 AI 具備「等待」與「跨時段管理」的能力。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/5.png" alt="排程定義"></p>
+<blockquote>
+<p>💡 <strong>實例說明</strong>：如果沒有排程機制，AI Agent 只會停在回覆你 <code>[影片生成中]</code> 之後就不會有任何回應了，因為他沒有等待的功能。<code>[3分鐘後檢查網頁]</code> 的排程功能會觸發 AI Agent 再去看剛剛等待的影片生成是否完成。</p>
+</blockquote>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>理解 AI Agent 的技術層次後，可以發現其效能源自於精密的程式架構與高效的上下文管理。掌握這套「文字接龍協調工具」的邏輯，將有助於更專業地應用 AI 科技。</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=2rcJdFuNbZQ&t=30s">解剖小龍蝦 — 以 OpenClaw 為例介紹 AI Agent 的運作原理</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI 技術筆記</category>
+      </categories>
+      <tags>
+        <tag>Tutorial</tag>
+        <tag>AI</tag>
+        <tag>AI Agent</tag>
+        <tag>OpenClaw</tag>
+        <tag>LLM</tag>
+        <tag>教學</tag>
+        <tag>Machine Learning</tag>
+        <tag>RAG</tag>
+        <tag>Prompt Engineering</tag>
+        <tag>Context Engineering</tag>
+        <tag>架構解析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI Agent 核心大腦：Context Engineering</title>
+    <url>/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/</url>
+    <content><![CDATA[<h2 id="一、核心概念：AI-Agent-的內容管理職責"><a href="#一、核心概念：AI-Agent-的內容管理職責" class="headerlink" title="一、核心概念：AI Agent 的內容管理職責"></a>一、核心概念：AI Agent 的內容管理職責</h2><p>Context Engineering 的存在，主要為了解決語言模型（LLM）「輸入長度有限」以及「缺乏原生長期記憶」的挑戰。在此架構中，AI Agent 擔任語言模型的「內容經紀人」，負責精確篩選並控管餵給模型的資訊，確保輸入長度適中。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/1.png" alt="Context Engineering"></p>
+<blockquote>
+<p>語言模型沒有記憶，只能根據當下的輸入給予回覆。例如：不能只給工具 3 的輸出，需要從 <code>[人類: ...]</code> + <code>[使用工具 1]</code> + … 每一次互動內容累加到 <code>[工具 3 輸出]</code>，語言模型才知道整個事件的來龍去脈。</p>
+</blockquote>
+<h2 id="二、Context-Engineering-的四大運作機制"><a href="#二、Context-Engineering-的四大運作機制" class="headerlink" title="二、Context Engineering 的四大運作機制"></a>二、Context Engineering 的四大運作機制</h2><h3 id="1-區分上下文-Context-與提示詞-Prompt"><a href="#1-區分上下文-Context-與提示詞-Prompt" class="headerlink" title="1. 區分上下文 (Context) 與提示詞 (Prompt)"></a>1. 區分上下文 (Context) 與提示詞 (Prompt)</h3><p>在技術層面上，我們必須區分 Context 與 Prompt 的定義：</p>
+<ul>
+<li><strong>Context</strong>：涵蓋了 Agent 經歷過的所有事情，包含存在外部硬碟裡的原始數據。</li>
+<li><strong>Prompt</strong>：僅是 Context 的精選子集，是真正輸入給模型閱讀並處理的文字。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/2.png" alt="AI-Agent"><blockquote>
+<p>AI Agent 的任務就是將人類的指令透過 Context Engineering 的方式，轉換成適當長度的 Prompt 給語言模型。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-資訊壓縮：極簡與深度的平衡-Compression"><a href="#2-資訊壓縮：極簡與深度的平衡-Compression" class="headerlink" title="2. 資訊壓縮：極簡與深度的平衡 (Compression)"></a>2. 資訊壓縮：極簡與深度的平衡 (Compression)</h3><p>當紀錄過長時，Agent 會調用另一個模型撰寫摘要，或採用「觀察遮蔽 (Observation Masking)」技術——將冗長的工具輸出替換為「此處省略」的標籤。最優策略是結合遮蔽術與深度摘要，達成混合式的資訊壓縮，避免模型因為資訊過多而「噎死」。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/3.png" alt="Observation Masking"></p>
+<blockquote>
+<p><strong>觀察遮蔽</strong>：不需要將某個輸出內容全部加載到 Context 中，而是把輸出內容先產出成一份文件，再用 <code>[指定讀一份文件]</code> 的語句取代，避免把整個文件內容加載進 Context 而佔用大量長度。</p>
+</blockquote>
+<p><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/4.png" alt="Context Engineering Summary"></p>
+<blockquote>
+<p><strong>深度摘要</strong>：將原本已經一大串的 Context 請語言模型做重點摘要後，收斂成更短的語句，再輸入給另一個語言模型。</p>
+</blockquote>
+<h3 id="3-源頭過濾與按需加載：裝備你的技能包-Filtering-Loading"><a href="#3-源頭過濾與按需加載：裝備你的技能包-Filtering-Loading" class="headerlink" title="3. 源頭過濾與按需加載：裝備你的技能包 (Filtering &amp; Loading)"></a>3. 源頭過濾與按需加載：裝備你的技能包 (Filtering &amp; Loading)</h3><p>這部分是 Context Engineering 最靈活的展現。我們可以將資訊獲取的過程類比為遊戲玩家的資源管理：</p>
+<ul>
+<li><strong>Prompt（裝備中的技能包）</strong>：這是此時此刻餵進模型的關鍵資訊，如同玩家為了應付眼前的 Boss，剛從商店買來並「立刻裝備」的特殊技能。</li>
+<li><strong>Non-prompt（儲存進度的記憶卡）</strong>：這是存放在硬碟中的原始數據，就像已經通關的「遊戲存檔」，隨時等待被呼叫。AI Agent 會像老練玩家一樣，根據任務需求自主執行 Save（存檔）與 Load（讀取）指令，只從龐大數據中萃取相關內容，實現按需加載，避免一開始就擠爆記憶空間。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/10.png" alt="Filtering &amp; Loading"></li>
+</ul>
+<h3 id="4-子代理：外科手術式的自主修剪-Subagent"><a href="#4-子代理：外科手術式的自主修剪-Subagent" class="headerlink" title="4. 子代理：外科手術式的自主修剪 (Subagent)"></a>4. 子代理：外科手術式的自主修剪 (Subagent)</h3><p>解決記憶爆炸的另一個策略是「分身術」。當主代理遇到繁瑣任務時，會分裂出 Subagent 去執行。這會形成迷人的「鋸齒狀」空間變化：子代理在獨立空間進行大規模運算（生長），任務完成後僅回傳最終結果（Return）並抹除中間過程（修剪）。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/8.png" alt="Subagent"></p>
+<blockquote>
+<p>讓 Subagent 完成指定部分任務後，將結果回傳給主要 Agent 再砍掉 Subagent，這個行為和上面的 Context 壓縮摘要的方式非常類似——都是只保留最終精華，拋棄中間過程。</p>
+</blockquote>
+<p><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/7.png" alt="Subagent2"></p>
+<blockquote>
+<p>藍色線條的 Context 原本越來越長，在每個 Subagent 完成任務回傳給主 Agent 後砍掉 Subagent，就會又縮短原本 Context 所需長度。</p>
+</blockquote>
+<h2 id="三、未來趨勢：讓-AI-擔任自己的圖書館管理員"><a href="#三、未來趨勢：讓-AI-擔任自己的圖書館管理員" class="headerlink" title="三、未來趨勢：讓 AI 擔任自己的圖書館管理員"></a>三、未來趨勢：讓 AI 擔任自己的圖書館管理員</h2><p>最前沿的技術正朝向 Agentic Context Engineering 進化。當 AI 懂得像人類一樣在繁忙中萃取精華、在漫長任務中捨棄冗餘，它便具備了從單純的「文字接龍」進化到「全能助理」的跨越式能力。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/11.png" alt="Agentic Context Engineering"></p>
+<h2 id="四、總結：從「對話」到「執行」的權變"><a href="#四、總結：從「對話」到「執行」的權變" class="headerlink" title="四、總結：從「對話」到「執行」的權變"></a>四、總結：從「對話」到「執行」的權變</h2><p>Context Engineering 不僅僅是一項節省運算成本的技術，它更是 AI 從單純的「文字接龍機器」進化為「具備長跑能力之行動代理」的關鍵橋樑。透過精密的記憶調度、智慧化的資訊過濾，以及如同遊戲存檔般的按需加載機制，AI Agent 克服了硬體上的視窗限制，展現出更貼近人類直覺的運算邏輯。</p>
+<p>當我們理解了這套「內容經紀人」的運作模式後，便能更有效地優化我們的指令與任務架構。未來，AI 的強大將不再只取決於大腦（LLM）的多寡，更取決於它如何智慧地「遺忘」瑣事、精準地「記住」核心。掌握了 Context 管理的邏輯，你也就掌握了通往未來自動化生產力的金鑰。</p>
+<h2 id="五、資料來源"><a href="#五、資料來源" class="headerlink" title="五、資料來源"></a>五、資料來源</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=urwDLyNa9FU">AI Agent：核心技術 Context Engineering 基本概念解說</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI 技術筆記</category>
+      </categories>
+      <tags>
+        <tag>AI Agent</tag>
+        <tag>LLM</tag>
+        <tag>Prompt Engineering</tag>
+        <tag>Context Engineering</tag>
+        <tag>人工智慧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL_中文字變問號</title>
+    <url>/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有時在工作情境中需要手動執行SQL語法更新含有中文字時,難免會遇到明明程式執行的時候一樣的中文字有正常顯示,但手動執行SQL語法時,一樣的中文字卻變成了問號(?)。</p>
+<span id="more"></span>
+
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>手動執行SQL語法時造成有些中文顯示問號(?)是因為中文是用Unicode編碼組成,若確定輸入的中文內容會顯示問號(?)的話,可在輸入的字串前置[N]字,即可解決中文變成問號(?)的狀況。<br>例如:要更新的中文字中含有[俥]字</p>
+<h6 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> <span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_Before.jpg" alt="Modified_Before"></p>
+<h6 id="修改後"><a href="#修改後" class="headerlink" title="修改後"></a>修改後</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> N<span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_After.jpg" alt="Modified_After"></p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>SQL</tag>
+        <tag>Problems</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IT踩坑日常- API格式(x-www-form-urlencoded)</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因前陣子在工作上遇到一些<code>特別</code>的廠商遇到了一些<code>特別</code>的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。</p>
+<span id="more"></span>
+<p>此次主要業務是與廠商做API介接,但對方的<br>API(Post)-Request的Body是用 <strong>x-www-form-urlencoded</strong> 格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">單位代碼(dep_id)</span><br><span class="line">總筆數(all_count)</span><br><span class="line">list []：票號約定清單</span><br><span class="line">異動別(tran_code)(A=增加,D=刪除)</span><br><span class="line">票號(tkt_no)</span><br><span class="line">票種(tkt_tp)(01=成人,02=愛心,03=團體)</span><br></pre></td></tr></table></figure>
+
+<p>API(Post)-Response是用Json格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
+
+<h2 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h2><p>在x-www-form-urlencoded 格式中表現的方式是以Key-Value的方式來呈現，與Json把整個資料表達成一個字串的方式不同，在撰寫Request時在前面兩個屬性dep_id&#x2F;all_count都還沒甚麼問題,,但到了一個Array[Object]的結構時，可能我下的指令也沒有很精確，因為Copilot其實也是回我類似的結構寫法。</p>
+<ul>
+<li>我以為的Key-Value表示式<br>(C# 撰寫為例)</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;list&quot;</span>, JsonConvert.SerializeObject(request.List) &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我以為的Key-Value表示式是這樣(Postman 測試為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_1.jpg" alt="IT_Exp_ApiFormatTrap_1"></p>
+<ul>
+<li>實際上的array[object] Key-Value表示式<br>是這樣(C# 撰寫為例)<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;, </span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>]&quot;</span>, item.Tran_Code); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>]&quot;</span>, item.Tkt_No); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>]&quot;</span>, item.Tkt_Tp); </span><br><span class="line">    count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>實際上的array[object] Key-Value表示式是這樣(Postman 測試為例):<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_2.jpg" alt="IT_Exp_ApiFormatTrap_2"></p>
+<h2 id="疑點"><a href="#疑點" class="headerlink" title="疑點"></a>疑點</h2><p>在撰寫 array[object] 這塊表示式時,浪費了一部分時間，主要是因為在寫這個寫法之前，我還有嘗試另種寫法就是在讀取object的Member值的時候，照理說可以用 <code>item.Tran_Code</code> 或是 <code>item[Tran_Code]</code>的方法來取值，但我不知為何用.(dot)的方式來取值對方的回應是失敗的，這點我深深不解……<br>如下所示(C# 撰寫為例)</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>&quot;</span>, item.Tran_Code); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>&quot;</span>, item.Tkt_No); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>&quot;</span>, item.Tkt_Tp); </span><br><span class="line">	count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如下所示(Postman 為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_3.jpg" alt="IT_Exp_ApiFormatTrap_3"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期遇到浪費許多時間的坑,由於我是第一次遇到 x-www-form-urlencoded 的格式輸出，就當作是種學習解決後豁然開朗的感覺，但或許有人會覺得廠商沒提供範例嗎? 對，沒提供範例，請廠商提供也沒有要提供的意思，只是一直回再試試看……<br>共勉之</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.baeldung.com/java-postman-send-array">Send Array as Part of x-www-form-urlencoded Using Postman</a></p>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>API</tag>
+        <tag>Postman</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GitHub Pages 教學</title>
     <url>/Whats-Up-Coding/GitHubPages_Tutorial/GitHubPages_Tutorial_Post/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鑑於參考一些GitHub Pages的教學文都是比較久的文章，中間也踩過一些不少的坑，因此我也來貢獻一篇較新的架設教學吧!<br>順便當作Blog記錄自己的足跡，當然免費跟靜態網頁呈現的優點也是我目前的需求。</p>
@@ -139,104 +312,6 @@
         <tag>2023</tag>
         <tag>Tutorial</tag>
         <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AI Agent 運作原理與核心架構解析：以 OpenClaw 為例</title>
-    <url>/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近期研讀了李宏毅教授關於 <strong>AI Agent 運作原理</strong> 的系列影片，內容將複雜的技術轉化為易懂的邏輯。</p>
-<p>若想建立 AI 相關知識的堅實基礎，教授的教學影片是非常理想的參考資源。</p>
-<p>以下以 <strong>OpenClaw</strong>（社群常稱為「龍蝦」）這類開源專案為基準，將 AI Agent 的核心機制與組成架構整理如下：</p>
-<hr>
-<h2 id="一、AI-Agent-的定義與運作邏輯"><a href="#一、AI-Agent-的定義與運作邏輯" class="headerlink" title="一、AI Agent 的定義與運作邏輯"></a>一、AI Agent 的定義與運作邏輯</h2><p>AI Agent 扮演著「<strong>人類指令</strong>」與「<strong>語言模型</strong>」之間的關鍵溝通介面。其本質是一套由預設程式碼與規則組成的自動化程序，主要負責協調兩者的互動。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/1.png" alt="OpenClaw角色定位"></p>
-<h3 id="基本運作流程"><a href="#基本運作流程" class="headerlink" title="基本運作流程"></a>基本運作流程</h3><p>AI Agent 的運作包含以下三個階段：<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/2.png" alt="OpenClaw角色定義"></p>
-<h4 id="1-系統提示詞加工-System-Prompt-Construction"><a href="#1-系統提示詞加工-System-Prompt-Construction" class="headerlink" title="1. 系統提示詞加工 (System Prompt Construction)"></a>1. 系統提示詞加工 (System Prompt Construction)</h4><p>當人類下達指令時，Agent 會同步調用地端電腦的設定檔（包含 Agent 身份、任務目標）以及過去的對話歷史，將這些資訊整合為一段完整的長文字，置於人類指令之前作為背景脈絡。</p>
-<h4 id="2-驅動語言模型進行預測"><a href="#2-驅動語言模型進行預測" class="headerlink" title="2. 驅動語言模型進行預測"></a>2. 驅動語言模型進行預測</h4><p>Agent 將加工後的長文字傳送至後端模型（如 GPT-4 或 Claude）。模型接收資訊後，會根據已有的文字內容進行「文字接龍」，預測並產出後續的字元 (Token)。</p>
-<h4 id="3-執行功能與循環回饋"><a href="#3-執行功能與循環回饋" class="headerlink" title="3. 執行功能與循環回饋"></a>3. 執行功能與循環回饋</h4><p>當模型產出一般敘述時，Agent 直接將結果呈現給人類；若模型產出的內容包含特定的「工具調用符號」（如讀取檔案指令），Agent 則會在電腦系統中執行該指令，並將執行後的數據反饋給模型。此循環會持續進行，直到模型判定任務達成並給出最終回覆。</p>
-<hr>
-<h2 id="二、AI-Agent-的核心組件"><a href="#二、AI-Agent-的核心組件" class="headerlink" title="二、AI Agent 的核心組件"></a>二、AI Agent 的核心組件</h2><p>為了彌補語言模型的原生限制，AI Agent 透過以下架構讓模型能發揮如全天候助理般的功能：</p>
-<h3 id="1-核心大腦-The-LLM-Core"><a href="#1-核心大腦-The-LLM-Core" class="headerlink" title="1. 核心大腦 (The LLM Core)"></a>1. 核心大腦 (The LLM Core)</h3><p>AI Agent 的決策品質完全仰賴後端連接的語言模型。模型如同位於密閉空間內的運算核心，不具備自主記憶或感官，僅透過 Agent 提供的文字訊息進行邏輯預測。</p>
-<h3 id="2-角色設定與身份定義-Persona-Design"><a href="#2-角色設定與身份定義-Persona-Design" class="headerlink" title="2. 角色設定與身份定義 (Persona Design)"></a>2. 角色設定與身份定義 (Persona Design)</h3><p>Agent 具備特定的人格特質，主要源於本地端儲存的 <code>.md</code> 文字檔案。每次互動時，Agent 會將這些行為準則與偏好強制寫入提示詞，引導模型產出符合特定角色背景的內容。</p>
-<h3 id="3-記憶維護系統-Memory-Management"><a href="#3-記憶維護系統-Memory-Management" class="headerlink" title="3. 記憶維護系統 (Memory Management)"></a>3. 記憶維護系統 (Memory Management)</h3><p>由於模型本身不具備跨對話的記憶能力，Agent 建立了兩層記憶機制：</p>
-<h4 id="長期記憶-RAG-檢索"><a href="#長期記憶-RAG-檢索" class="headerlink" title="長期記憶 (RAG 檢索)"></a>長期記憶 (RAG 檢索)</h4><p>Agent 能將重要資訊寫入記憶庫。當需要回溯過往資訊時，系統會比對「 <strong>關鍵字出現頻率(S1)</strong> 」與「 <strong>語意相似度(S2)</strong> 」進行綜合評分，精準提取相關片段供模型參考。</p>
-<h4 id="短期記憶壓縮-Context-Compression"><a href="#短期記憶壓縮-Context-Compression" class="headerlink" title="短期記憶壓縮 (Context Compression)"></a>短期記憶壓縮 (Context Compression)</h4><p>考量到模型的上下文容量限制，當對話過長時，Agent 會要求模型對舊對話進行「摘要總結」，以簡練的摘要取代原始細節，確保系統能長時間運作而不超出限制。</p>
-<p><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/9.png" alt="Memory定義"></p>
-<blockquote>
-<p>💡 <strong>補充說明</strong>：每一輪對話 AI Agent 會把對話內容的摘要或是覺得重要的資訊自己修改補充到對應的 md 檔中。有可能是長期記憶&#x2F;靈魂設定&#x2F;文字獄…等等 md 中。</p>
-</blockquote>
-<h3 id="4-工具調用與技能架構-Tools-Skills"><a href="#4-工具調用與技能架構-Tools-Skills" class="headerlink" title="4. 工具調用與技能架構 (Tools &amp; Skills)"></a>4. 工具調用與技能架構 (Tools &amp; Skills)</h3><p>這是讓模型具備實際執行能力的關鍵：</p>
-<h4 id="基礎工具"><a href="#基礎工具" class="headerlink" title="基礎工具"></a>基礎工具</h4><p>涵蓋檔案讀寫與最強大的 <strong>Execute</strong>（程式碼執行）功能。</p>
-<h4 id="子代理機制-Subagent"><a href="#子代理機制-Subagent" class="headerlink" title="子代理機制 (Subagent)"></a>子代理機制 (Subagent)</h4><p>面對如閱讀多篇論文的大型任務，大 Agent 會指派工具產生子代 Agent 協助分工，僅接收子代處理後的精簡資訊，落實 <strong>Context Engineering（上下文工程）</strong> 的優化。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/7.png" alt="子代理定義"></p>
-<h4 id="技能模組化-Skills"><a href="#技能模組化-Skills" class="headerlink" title="技能模組化 (Skills)"></a>技能模組化 (Skills)</h4><p>複雜任務會被標準化為 SOP 文字檔。Agent 採取「按需讀取」策略，僅在執行特定任務時才將對應技能載入系統提示詞。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/8.png" alt="Skills定義"></p>
-<h3 id="5-自主運行與排程機制"><a href="#5-自主運行與排程機制" class="headerlink" title="5. 自主運行與排程機制"></a>5. 自主運行與排程機制</h3><p>AI Agent 實現 24 小時運作的核心技術在於：</p>
-<h4 id="心跳觸發-Heartbeat"><a href="#心跳觸發-Heartbeat" class="headerlink" title="心跳觸發 (Heartbeat)"></a>心跳觸發 (Heartbeat)</h4><p>Agent 透過設定好的週期（如 15 分鐘）發送主動指令「戳」一下模型，促使模型檢查進度或主動尋找待辦事項。</p>
-<p><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/3.png" alt="心跳觸發定義"></p>
-<h4 id="排程系統-Cronjob"><a href="#排程系統-Cronjob" class="headerlink" title="排程系統 (Cronjob)"></a>排程系統 (Cronjob)</h4><p>結合排程工具，Agent 可以預約在未來特定時間啟動任務，讓 AI 具備「等待」與「跨時段管理」的能力。<br><img src="/Whats-Up-Coding/AI-Agent-Architecture-with-OpenClaw/AI-Agent-Architecture-with-OpenClaw/5.png" alt="排程定義"></p>
-<blockquote>
-<p>💡 <strong>實例說明</strong>：如果沒有排程機制，AI Agent 只會停在回覆你 <code>[影片生成中]</code> 之後就不會有任何回應了，因為他沒有等待的功能。<code>[3分鐘後檢查網頁]</code> 的排程功能會觸發 AI Agent 再去看剛剛等待的影片生成是否完成。</p>
-</blockquote>
-<hr>
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>理解 AI Agent 的技術層次後，可以發現其效能源自於精密的程式架構與高效的上下文管理。掌握這套「文字接龍協調工具」的邏輯，將有助於更專業地應用 AI 科技。</p>
-<hr>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://vocus.cc/article/69bf8c5cfd89780001262f18">解剖小龍蝦 — 以 OpenClaw 為例介紹 AI Agent 的運作原理</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教學</category>
-      </categories>
-      <tags>
-        <tag>Tutorial</tag>
-        <tag>AI</tag>
-        <tag>AI Agent</tag>
-        <tag>OpenClaw</tag>
-        <tag>LLM</tag>
-        <tag>教學</tag>
-        <tag>Machine Learning</tag>
-        <tag>RAG</tag>
-        <tag>Prompt Engineering</tag>
-        <tag>Context Engineering</tag>
-        <tag>架構解析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IT踩坑日常- API格式(x-www-form-urlencoded)</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因前陣子在工作上遇到一些<code>特別</code>的廠商遇到了一些<code>特別</code>的例子,讓我心有餘悸希望之後有踩到坑的同仁可以少跌一些坑。</p>
-<span id="more"></span>
-<p>此次主要業務是與廠商做API介接,但對方的<br>API(Post)-Request的Body是用 <strong>x-www-form-urlencoded</strong> 格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">單位代碼(dep_id)</span><br><span class="line">總筆數(all_count)</span><br><span class="line">list []：票號約定清單</span><br><span class="line">異動別(tran_code)(A=增加,D=刪除)</span><br><span class="line">票號(tkt_no)</span><br><span class="line">票種(tkt_tp)(01=成人,02=愛心,03=團體)</span><br></pre></td></tr></table></figure>
-
-<p>API(Post)-Response是用Json格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">result： 成功與否(true/false)</span><br><span class="line">all_count：總筆數</span><br><span class="line">list []：票號約定回傳清單</span><br><span class="line">tran_code：異動別(A=增加,D=刪除)</span><br><span class="line">tkt_no：票號</span><br><span class="line">tkt_tp：票種(01=成人,02=愛心,03=團體)</span><br><span class="line">dep_id：單位代碼</span><br><span class="line">date：約定日期/傳輸日期</span><br><span class="line">status：狀態（00=異動成功,01=異動失敗)</span><br></pre></td></tr></table></figure>
-
-<h2 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h2><p>在x-www-form-urlencoded 格式中表現的方式是以Key-Value的方式來呈現，與Json把整個資料表達成一個字串的方式不同，在撰寫Request時在前面兩個屬性dep_id&#x2F;all_count都還沒甚麼問題,,但到了一個Array[Object]的結構時，可能我下的指令也沒有很精確，因為Copilot其實也是回我類似的結構寫法。</p>
-<ul>
-<li>我以為的Key-Value表示式<br>(C# 撰寫為例)</li>
-</ul>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;list&quot;</span>, JsonConvert.SerializeObject(request.List) &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>我以為的Key-Value表示式是這樣(Postman 測試為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_1.jpg" alt="IT_Exp_ApiFormatTrap_1"></p>
-<ul>
-<li>實際上的array[object] Key-Value表示式<br>是這樣(C# 撰寫為例)<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> req = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &#123; <span class="string">&quot;dep_id&quot;</span>, request.Bank_Id &#125;, </span><br><span class="line">    &#123; <span class="string">&quot;all_count&quot;</span>, <span class="string">$&quot;<span class="subst">&#123;request.All_Count&#125;</span>&quot;</span> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>]&quot;</span>, item.Tran_Code); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>]&quot;</span>, item.Tkt_No); </span><br><span class="line">    req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>][<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>]&quot;</span>, item.Tkt_Tp); </span><br><span class="line">    count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>實際上的array[object] Key-Value表示式是這樣(Postman 測試為例):<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_2.jpg" alt="IT_Exp_ApiFormatTrap_2"></p>
-<h2 id="疑點"><a href="#疑點" class="headerlink" title="疑點"></a>疑點</h2><p>在撰寫 array[object] 這塊表示式時,浪費了一部分時間，主要是因為在寫這個寫法之前，我還有嘗試另種寫法就是在讀取object的Member值的時候，照理說可以用 <code>item.Tran_Code</code> 或是 <code>item[Tran_Code]</code>的方法來取值，但我不知為何用.(dot)的方式來取值對方的回應是失敗的，這點我深深不解……<br>如下所示(C# 撰寫為例)</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> request.List) </span><br><span class="line">&#123; </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tran_Code).ToLower()&#125;</span>&quot;</span>, item.Tran_Code); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_No).ToLower()&#125;</span>&quot;</span>, item.Tkt_No); </span><br><span class="line">	req.Add(<span class="string">$&quot;list[<span class="subst">&#123;count&#125;</span>].<span class="subst">&#123;<span class="keyword">nameof</span>(item.Tkt_Tp).ToLower()&#125;</span>&quot;</span>, item.Tkt_Tp); </span><br><span class="line">	count++; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>如下所示(Postman 為例)<br><img src="/Whats-Up-Coding/IT_Exp/IT_Exp_ApiFormatTrap/IT_Exp_ApiFormatTrap_3.jpg" alt="IT_Exp_ApiFormatTrap_3"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期遇到浪費許多時間的坑,由於我是第一次遇到 x-www-form-urlencoded 的格式輸出，就當作是種學習解決後豁然開朗的感覺，但或許有人會覺得廠商沒提供範例嗎? 對，沒提供範例，請廠商提供也沒有要提供的意思，只是一直回再試試看……<br>共勉之</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://www.baeldung.com/java-postman-send-array">Send Array as Part of x-www-form-urlencoded Using Postman</a></p>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>API</tag>
-        <tag>Postman</tag>
-        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -533,6 +608,186 @@
       </tags>
   </entry>
   <entry>
+    <title>ASCII，Unicode 和UTF-8的演變</title>
+    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因之前業務上的介接踩到json開頭有Bom表標記符號的坑，想到之前也有遇到檔案內ASCII&#x2F;Unicode&#x2F;UTF-8編碼間轉換的坑，因此決定要來搞清楚這些編碼的前世今生與編碼原理了。<br>畢竟字符編碼就是電腦技術中傳遞訊息的基石</p>
+<span id="more"></span>
+
+<h2 id="行前複習"><a href="#行前複習" class="headerlink" title="行前複習"></a>行前複習</h2><p>電腦能辨認的只有資訊就是2進位位元，<br>位元(bit): 0 &#x2F; 1兩種狀態<br>位元組(byte): 8bit</p>
+<h2 id="各編碼的誕生"><a href="#各編碼的誕生" class="headerlink" title="各編碼的誕生"></a>各編碼的誕生</h2><ul>
+<li>ASCII:<br>全名是 <code>American Standard Code for Information Interchange</code>，譯成中文為美國資訊交換標準程式碼。<br>當初的設計只用來滿足英語系國家因此只有用7位元(128種字元)來記錄每個字元的編碼，包含A-Z,a-z,0-9與一些保留字元與符號</li>
+</ul>
+<blockquote>
+<p>白話文:美國為英語系國家編出一本收錄128字元的編碼字典</p>
+</blockquote>
+<ul>
+<li>EASCII:<br>如上述因ASCII編碼範圍只考慮到英語系國家導致沒有辦法滿足歐洲或拉丁語系國家使用的字元，因此再把ASCII擴編成8位元(256種字元)來擴充許多符號與希臘或拉丁符號使用</li>
+</ul>
+<blockquote>
+<p>白話文:非英語系國家在ASCII的基礎上擴充屬於自己的語系字元(在128 &#x3D;&gt; 255這段範圍中新增，因0-127一樣是繼承ASCII中的字元)</p>
+</blockquote>
+<ul>
+<li><p>衍生問題:統一前的一Byte各表<br>如上所介紹在非英語系國家中都會在編碼字典中(128 &#x3D;&gt; 255這段範圍中新增自己語系字元)<br>就會發生在法文語系中第150字元的符號在法文是某個字，在同一個第150字元的符號卻是希伯來文是另一個字，造成一Byte各表的狀況。</p>
+</li>
+<li><p>生活中的案例:<br>email或是某個檔案的內容可能發送方跟接收方使用不同語系，因此在讀檔案時用錯誤的編碼方式轉換就會出現亂碼等等</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Unicode:<br>為了解決以上所述一Byte各表的問題，需要一部收錄全部語系字元的編碼表(16進位制紀錄的字典)，讓每個字元所代表的位元組都是獨一無二的。<br>於是Unicode就誕生了(簡稱萬國碼&#x2F;國際碼)，一部收錄全世界各字元符號的編碼對照表(字典)</p>
+</li>
+<li><p>衍生問題:統一後的一Byte各表:<br>由於Unicode只記錄每個字元所對照的16進位值，但因電腦只看得懂0和1，所以我們需要將Unicode轉換為0和1的二元碼才能在電腦上運行。<br>當時沒有建立一套標準來表達所對照出來的16進位值要用甚麼方式表達成2進位制，因此就出現了以下幾個問題</p>
+</li>
+</ul>
+<ol>
+<li><p>如何區別Unicode 和ASCII<br>如果一個字元的16進位值轉成2進位制時是3個Byte，電腦怎麼知道這3個Byte的值是表達成一個字元 還是 3個1 Byte的字元?</p>
+</li>
+<li><p>避免資料儲存的資源浪費<br>如果表達的Byte要用固定長度表示，例:要固定用4Byte長度表示所以字元，但字母A只需要用1個Byte表示即可卻要多印左補3個Byte都是0來符合4個Byte長度的表示式這會造成儲存上的資源浪費</p>
+</li>
+</ol>
+<ul>
+<li>Unicode各種轉換表演<br>而Unicode定義了幾種轉換方式，也就是我們常聽到的 <code>Unicode Transformation Format</code> （UTF）！<ul>
+<li>UTF-8:<br> UTF-8是一個可變長度的編碼，使用1到4個位元組(Byte)來表達一個字元，並能與ASCII相容。因為它可以判斷要以多少位元組來表示字元，所以UTF-8成為全世界最廣泛被使用的編碼方式。<br> 以下為UTF-8的表達規則<ol>
+<li><p>對於單字節(只需1Byte表達)的符號，位元組的第一位設為0，後面7位元為這個符號的Unicode碼。因此對於英文字母，UTF-8 編碼和ASCII 碼是相同的。<br> 例:下圖中序列一的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_1.jpg" alt="Unicode_Sample_1"></p>
+</li>
+<li><p>對於n位元組的符號（n &gt; 1），第一個位元組的前n位都設為1，第n + 1位元設為0，後面位元組的前兩位一律設為10。剩下x的位置，都是這個符號的Unicode碼可以填入的位置，填入的方向是從最後一個Byte位置開始由<code>右 =&gt; 左填入x</code>，若還有x則<code>左補0</code>填滿。</p>
+</li>
+</ol>
+</li>
+</ul>
+<p> 例:下圖中序列2-4的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_2.jpg" alt="Unicode_Sample_2"><br> 根據上面的範例來解讀就是:<br>      1. 若第1個Byte開頭是0的話代表這個字元是1個Byte就可以表達的。<br>      2. 若第1個Byte開頭是1的話就看有N個1就代表這個字元需要用N個Byte來表達</p>
+<ul>
+<li>其他實作方式還包括UTF-16（字元以兩個位元組或四個位元組表示）和UTF-32（字元用四個位元組表示），在此就不多做介紹。</li>
+</ul>
+</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期對轉碼相關歷史緣由的統整,如有遇到相同疑問的讀者希望這篇對你有幫助，共勉之</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://zi-hi.com/UTF-8">字嗨</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字元編碼筆記：ASCII，Unicode 和UTF-8</a></li>
+<li><a href="https://docs.f5ezcode.in/cs-basic/di-er-zhang-1111-+-1-1112/2.3-ren-de-tong-ascii-code-unicode">2.3 電腦與人的溝通 - ASCII code, Unicode</a></li>
+<li><a href="https://web.ntnu.edu.tw/~algo/Code.html">code</a></li>
+<li><a href="https://www.digikey.tw/zh/resources/conversion-calculators/conversion-calculator-number-conversion">數字系統換算器</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>踩坑日常</category>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>2024</tag>
+        <tag>Unicode</tag>
+        <tag>ASCII</tag>
+        <tag>UTF-8</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo發佈文章教學</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
+<span id="more"></span>
+
+<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
+<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
+</li>
+<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
+<blockquote>
+<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
+</blockquote>
+<ol start="3">
+<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
+</blockquote>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
+<ol start="4">
+<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a href="https://markdown.tw/">Markdown官網</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo留言板功能</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
+<span id="more"></span>
+
+<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
+<ul>
+<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
+</li>
+<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
+</li>
+<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
+</li>
+</ul>
+<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
+<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
+<li><p>進入 <a href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
+</li>
+<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
+</li>
+<li><p>進入 <a href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
+</li>
+<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
+</li>
+<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
+</li>
+<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
+</li>
+<li><p>點開comments.njk檔後，找到程式碼片段</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
+</li>
+</ol>
+<h2 id="關閉指定頁面留言區"><a href="#關閉指定頁面留言區" class="headerlink" title="關閉指定頁面留言區"></a>關閉指定頁面留言區</h2><p>依上述步驟設定就會在每個頁面都保有留言版功能，但像標籤&#x2F;分類&#x2F;關於的頁面一般不會開啟留言版功能，根據以下步驟我們可以指定不需開啟留言版的頁面做設定。<br>我們只要在指定文章開頭加上 comments: false，就可將指定的文章關閉留言版功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/SetSwitchUtterances.jpg" alt="SetSwitchUtterances"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
+<li><a href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
+<li><a href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
+<li><a href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo建立選單頁面</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_CreatePageDemo/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學會如何發布文章並開啟首頁選單後，設定about與categories、tags頁面，讓自己的文章利於整理。</p>
@@ -610,186 +865,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo發佈文章教學</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面教學已將Hexo的Blog框架做初步設定，是時候該來嘗試發表我們的第一發文章了</p>
-<span id="more"></span>
-
-<h2 id="發文步驟"><a href="#發文步驟" class="headerlink" title="發文步驟"></a>發文步驟</h2><ol>
-<li><p>在Hexo資料夾中呼叫CMD出來。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/CMD_1.jpg" alt="CMD_1"></p>
-</li>
-<li><p>接著輸入以下語法(2擇1輸入都可以)，系統會讀取位在資料夾scaffolds中的 <code>post.md</code> 當預設模板在路徑source ⇒ _posts 下，建立標題名為my-first-hexo-post的md檔案。</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;my first hexo post&quot;</span><br><span class="line">hexo new &quot;my first hexo post&quot;      -- 預設是抓post.md模板所以不寫post也可以</span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/firstPost_2.jpg" alt="firstPost_2"></p>
-<blockquote>
-<p>在雙引號中命名的標題，若用空白區隔單字，系統會用-把空白補上</p>
-</blockquote>
-<ol start="3">
-<li>在建立的空白檔案中可看到已經建立好的文章屬性包括標題、建立時間、標籤，接下來我們就可以開始撰寫我們想發佈的內容。<br>特別提醒:撰寫語法如建立的檔案副檔名為md的意思，是用 <a href="https://markdown.tw/"><code>Markdown</code></a> 語法撰寫喔!!!<br>關於Markdown語法介紹可參考此篇教學(<a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/"><code>MarkDown語法大全</code></a>)或可先複製以下範例</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Markdown的目標是實現「易讀易寫」**</span></span><br><span class="line">因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。</span><br><span class="line"></span><br><span class="line">Markdown 一般字體</span><br><span class="line"><span class="strong">**Markdown**</span> 粗體字體</span><br><span class="line"><span class="emphasis">*Markdown*</span> 斜體字體</span><br><span class="line">~~Markdown~~ 刪除線</span><br><span class="line"><span class="code">`Markdown`</span> 文字凸顯(背景)</span><br><span class="line"><span class="quote">&gt; 這是引言</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 序號清單(1)</span><br><span class="line"><span class="bullet">2.</span> 序號清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">+</span> 無序清單(1)</span><br><span class="line"><span class="bullet">+</span> 無序清單(2)</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [ ] 待辦事項1</span><br><span class="line"><span class="bullet">-</span> [x] ~~離職~~</span><br><span class="line"><span class="bullet">-</span> [X] ~~歐印~~</span><br><span class="line"></span><br><span class="line">[<span class="string">Google</span>](<span class="link">https://www.google.com</span>)</span><br><span class="line">![<span class="string">圖片 Alt</span>](<span class="link">圖片網址</span>)</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>依自己喜好的編輯器應該都有相關的Markdown預覽套件，撰寫時就可邊撰寫即時確認語法顯示的結果是否如預期</p>
-</blockquote>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_First_Post/EditContent_3.jpg" alt="EditContent_3"></p>
-<ol start="4">
-<li><p>撰寫好第一篇內容後，我們需回到Hexo資料夾呼叫的CMD，告訴系統把撰寫好的檔案紀錄在本地的Git中並且呼叫本地端的網頁，可讓我們先預覽佈署到GitHub上的樣子。執行以下指令</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean     或  $ hexo cl    -- 清除之前建立的靜態檔案</span><br><span class="line">$ hexo generate  或  $ hexo g     -- 產生修改後靜態頁面</span><br><span class="line">$ hexo server    或  $ hexo s     -- 在本機可預覽網站</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>執行以上3個指令後應該可在瀏覽器開啟 <a href="http://localhost:4000/">http://localhost:4000/</a>看到剛剛範例撰寫的文章內容。<br>確認無誤後再執行以下指令將內容發佈到GitHub上就會在blog中看到剛剛發表的文章。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo deploy    或  $ hexo d     -- 部署到 GitHub</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>介紹完如何發文步驟後，就可以慢慢開始創作自己的內容了，關於文章的相關標籤、分類等相關功能會在之後做相關的說明</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://mrcodingroom.freesite.host/%E8%AA%9E%E6%B3%95%E6%95%99%E5%AD%B8markdown%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8-%E8%AA%9E%E6%B3%95%E5%A4%A7%E5%85%A8/">Markdown語法大全</a><br><a href="https://markdown.tw/">Markdown官網</a></p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ASCII，Unicode 和UTF-8的演變</title>
-    <url>/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因之前業務上的介接踩到json開頭有Bom表標記符號的坑，想到之前也有遇到檔案內ASCII&#x2F;Unicode&#x2F;UTF-8編碼間轉換的坑，因此決定要來搞清楚這些編碼的前世今生與編碼原理了。<br>畢竟字符編碼就是電腦技術中傳遞訊息的基石</p>
-<span id="more"></span>
-
-<h2 id="行前複習"><a href="#行前複習" class="headerlink" title="行前複習"></a>行前複習</h2><p>電腦能辨認的只有資訊就是2進位位元，<br>位元(bit): 0 &#x2F; 1兩種狀態<br>位元組(byte): 8bit</p>
-<h2 id="各編碼的誕生"><a href="#各編碼的誕生" class="headerlink" title="各編碼的誕生"></a>各編碼的誕生</h2><ul>
-<li>ASCII:<br>全名是 <code>American Standard Code for Information Interchange</code>，譯成中文為美國資訊交換標準程式碼。<br>當初的設計只用來滿足英語系國家因此只有用7位元(128種字元)來記錄每個字元的編碼，包含A-Z,a-z,0-9與一些保留字元與符號</li>
-</ul>
-<blockquote>
-<p>白話文:美國為英語系國家編出一本收錄128字元的編碼字典</p>
-</blockquote>
-<ul>
-<li>EASCII:<br>如上述因ASCII編碼範圍只考慮到英語系國家導致沒有辦法滿足歐洲或拉丁語系國家使用的字元，因此再把ASCII擴編成8位元(256種字元)來擴充許多符號與希臘或拉丁符號使用</li>
-</ul>
-<blockquote>
-<p>白話文:非英語系國家在ASCII的基礎上擴充屬於自己的語系字元(在128 &#x3D;&gt; 255這段範圍中新增，因0-127一樣是繼承ASCII中的字元)</p>
-</blockquote>
-<ul>
-<li><p>衍生問題:統一前的一Byte各表<br>如上所介紹在非英語系國家中都會在編碼字典中(128 &#x3D;&gt; 255這段範圍中新增自己語系字元)<br>就會發生在法文語系中第150字元的符號在法文是某個字，在同一個第150字元的符號卻是希伯來文是另一個字，造成一Byte各表的狀況。</p>
-</li>
-<li><p>生活中的案例:<br>email或是某個檔案的內容可能發送方跟接收方使用不同語系，因此在讀檔案時用錯誤的編碼方式轉換就會出現亂碼等等</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p>Unicode:<br>為了解決以上所述一Byte各表的問題，需要一部收錄全部語系字元的編碼表(16進位制紀錄的字典)，讓每個字元所代表的位元組都是獨一無二的。<br>於是Unicode就誕生了(簡稱萬國碼&#x2F;國際碼)，一部收錄全世界各字元符號的編碼對照表(字典)</p>
-</li>
-<li><p>衍生問題:統一後的一Byte各表:<br>由於Unicode只記錄每個字元所對照的16進位值，但因電腦只看得懂0和1，所以我們需要將Unicode轉換為0和1的二元碼才能在電腦上運行。<br>當時沒有建立一套標準來表達所對照出來的16進位值要用甚麼方式表達成2進位制，因此就出現了以下幾個問題</p>
-</li>
-</ul>
-<ol>
-<li><p>如何區別Unicode 和ASCII<br>如果一個字元的16進位值轉成2進位制時是3個Byte，電腦怎麼知道這3個Byte的值是表達成一個字元 還是 3個1 Byte的字元?</p>
-</li>
-<li><p>避免資料儲存的資源浪費<br>如果表達的Byte要用固定長度表示，例:要固定用4Byte長度表示所以字元，但字母A只需要用1個Byte表示即可卻要多印左補3個Byte都是0來符合4個Byte長度的表示式這會造成儲存上的資源浪費</p>
-</li>
-</ol>
-<ul>
-<li>Unicode各種轉換表演<br>而Unicode定義了幾種轉換方式，也就是我們常聽到的 <code>Unicode Transformation Format</code> （UTF）！<ul>
-<li>UTF-8:<br> UTF-8是一個可變長度的編碼，使用1到4個位元組(Byte)來表達一個字元，並能與ASCII相容。因為它可以判斷要以多少位元組來表示字元，所以UTF-8成為全世界最廣泛被使用的編碼方式。<br> 以下為UTF-8的表達規則<ol>
-<li><p>對於單字節(只需1Byte表達)的符號，位元組的第一位設為0，後面7位元為這個符號的Unicode碼。因此對於英文字母，UTF-8 編碼和ASCII 碼是相同的。<br> 例:下圖中序列一的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_1.jpg" alt="Unicode_Sample_1"></p>
-</li>
-<li><p>對於n位元組的符號（n &gt; 1），第一個位元組的前n位都設為1，第n + 1位元設為0，後面位元組的前兩位一律設為10。剩下x的位置，都是這個符號的Unicode碼可以填入的位置，填入的方向是從最後一個Byte位置開始由<code>右 =&gt; 左填入x</code>，若還有x則<code>左補0</code>填滿。</p>
-</li>
-</ol>
-</li>
-</ul>
-<p> 例:下圖中序列2-4的表示法(紅框部分)，字母x表示可用編碼的位元<br> <img src="/Whats-Up-Coding/IT_Exp/IT_Exp_Unicode_Story/Unicode_Sample_2.jpg" alt="Unicode_Sample_2"><br> 根據上面的範例來解讀就是:<br>      1. 若第1個Byte開頭是0的話代表這個字元是1個Byte就可以表達的。<br>      2. 若第1個Byte開頭是1的話就看有N個1就代表這個字元需要用N個Byte來表達</p>
-<ul>
-<li>其他實作方式還包括UTF-16（字元以兩個位元組或四個位元組表示）和UTF-32（字元用四個位元組表示），在此就不多做介紹。</li>
-</ul>
-</li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是近期對轉碼相關歷史緣由的統整,如有遇到相同疑問的讀者希望這篇對你有幫助，共勉之</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://zi-hi.com/UTF-8">字嗨</a></li>
-<li><a href="https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字元編碼筆記：ASCII，Unicode 和UTF-8</a></li>
-<li><a href="https://docs.f5ezcode.in/cs-basic/di-er-zhang-1111-+-1-1112/2.3-ren-de-tong-ascii-code-unicode">2.3 電腦與人的溝通 - ASCII code, Unicode</a></li>
-<li><a href="https://web.ntnu.edu.tw/~algo/Code.html">code</a></li>
-<li><a href="https://www.digikey.tw/zh/resources/conversion-calculators/conversion-calculator-number-conversion">數字系統換算器</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>踩坑日常</category>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>Unicode</tag>
-        <tag>ASCII</tag>
-        <tag>UTF-8</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo留言板功能</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>留言板是部落格功能上的硬需求，可開啟與讀者的互動也是種增進技術的交流，或許就會遇到志同道合的夥伴。</p>
-<span id="more"></span>
-
-<h2 id="套件選擇與介紹"><a href="#套件選擇與介紹" class="headerlink" title="套件選擇與介紹"></a>套件選擇與介紹</h2><p>目前常用的第三方留言板套件有以下三種方案可提供，大約簡述一下三者的優劣與自己的選擇</p>
-<ul>
-<li><p>Disqus<br>由截圖可發現Disqus登入留言的方式很多種，可以互動的讀者範圍也相對廣，缺點是會有廣告干擾造成畫面不簡潔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Disqus_Demo.jpg" alt="Disqus_Demo"></p>
-</li>
-<li><p>Utterances<br>Utterances是透過串接 GitHub issue 的方式來完成留言區的功能，因此留言的前提條件是必需有GitHub 帳號，簡單來說如果在文章底下留言的話，他會同步在該 GitHub 專案留下一個 issue 同步留言，另一個優點是沒有廣告。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Demo.jpg" alt="Utterances_Demo"></p>
-</li>
-<li><p>Gitalk<br>Gitalk也是透過串接 GitHub issue 的方式來完成留言區的功能，但以下這篇文章有討論Gitalk在<strong>Github OAuth</strong> 授權範圍可以擴展到全部的Repository，但Utterances折衷下可選擇只授權單一Repository權限。<br><a href="https://www.v2ex.com/t/535608">建议大家弃用 Gitalk 和 Gitment 等权限过高的 Github OAuth App</a><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Gitalk_Demo.jpg" alt="Gitalk_Demo"></p>
-</li>
-</ul>
-<p>目前是選擇Utterances來使用，如果是技術相關文章交流，工程師一定都會有GitHub吧?<br>所以我是反向想縮小範圍來達到與大家一起交流的媒合機率。</p>
-<h2 id="安裝步驟"><a href="#安裝步驟" class="headerlink" title="安裝步驟"></a>安裝步驟</h2><ol>
-<li><p>進入 <a href="https://utteranc.es/">Utterances</a> 的連結後，看到 Repository 的區塊將開放留言的專案名稱放上去(下圖範例)不是直接放上Repository的網址！<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install1.jpg" alt="Utterances_Install1"></p>
-</li>
-<li><p>在上面填寫專案名稱時可注意一下裡面提醒的第2點，記得GitHub上安裝 <a href="https://github.com/apps/utterances">utterances app</a> 否則用戶無法發表評論。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install2.jpg" alt="Utterances_Install2"></p>
-</li>
-<li><p>進入 <a href="https://github.com/apps/utterances">utterances app</a> 後會看到以下畫面，這邊就是上面優缺點提到的權限範圍問題，可選擇開放全部專案或是單一指定專案評論系統的功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install3.jpg" alt="Utterances_Install3"></p>
-</li>
-<li><p>再回到Step1的畫面移動到 [Blog Post ↔️ Issue Mapping]區塊，這邊主要只是看你想要在留言的標題上附帶哪些資訊連結而已，沒有特別要求直接照預設選就好。</p>
-</li>
-<li><p>移到Theme選擇留言板主題，畫面會依你選擇的主題顯示預覽主題</p>
-</li>
-<li><p>將[Enable Utterances] 區塊提供的 JavaScript 程式碼貼到本機端Hexo資料夾以下路徑<br>theme -&gt; next -&gt; layout -&gt; _partials -&gt; comments.njk 的檔案中(next是指你用的主題資料夾)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install5.jpg" alt="Utterances_Install5"></p>
-</li>
-<li><p>點開comments.njk檔後，找到程式碼片段</p>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br></pre></td></tr></table></figure>
-<p>  並在程式碼下方貼上Step6複製的程式碼(記得縮排，如下圖所示)</p>
-  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.<span class="property">comments</span> %&#125;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;username/repository&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-dark&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>最後在 theme -&gt; next -&gt;_config.yml 最下面加入以下片段(如果設定檔中已經有Utterances的設定區塊，將enable改成True就好):</p>
- <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/Utterances_Install6.jpg" alt="Utterances_Install6"></p>
-</li>
-</ol>
-<h2 id="關閉指定頁面留言區"><a href="#關閉指定頁面留言區" class="headerlink" title="關閉指定頁面留言區"></a>關閉指定頁面留言區</h2><p>依上述步驟設定就會在每個頁面都保有留言版功能，但像標籤&#x2F;分類&#x2F;關於的頁面一般不會開啟留言版功能，根據以下步驟我們可以指定不需開啟留言版的頁面做設定。<br>我們只要在指定文章開頭加上 comments: false，就可將指定的文章關閉留言版功能。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_MessageBoard/SetSwitchUtterances.jpg" alt="SetSwitchUtterances"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹Utterances的留言板套件安裝流程，若之後需求改變也可以參考安裝Disqus，這兩個目前應該是最多人用的留言板套件。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
-<li><a href="https://blog.kyomind.tw/hexo-blog-reply/">Hexo 新增 utterances 留言板與方案選擇思路</a></li>
-<li><a href="https://nijialin.com/2021/05/15/hexo-utterances-comment/">在 Hexo 的 Next 樣板中引入 utterances 的留言區</a></li>
-<li><a href="https://annkuoq.github.io/blog/2020-03-09-add-utterances-comment-widget-to-hexo/">在 Hexo 安裝 utterances 留言版</a></li>
-<li><a href="https://guiblogs.com/hexo30-13/">為自己的 Hexo 部落格增加 Disqus 留言功能</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo_主題[next]功能小補帖</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_Next_Additional/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此系列教學最後一篇補上使用Hexo後關於Next主題相關的小套件與設定。<br>提醒小套件的功能視需求而安裝,畢竟安裝太多小套件也是會有執行後效能的問題浮現。</p>
@@ -814,60 +889,6 @@
         <tag>Tutorial</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo_SEO設定</title>
-    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這篇就來聊聊SEO的相關基本設定,讓自己在Google的搜尋中容易被搜尋到吧</p>
-<span id="more"></span>
-
-<h2 id="Google-Search-Console註冊"><a href="#Google-Search-Console註冊" class="headerlink" title="Google Search Console註冊"></a>Google Search Console註冊</h2><p>若要在Google 的SEO上做相關設定需先進入 <a href="https://search.google.com/search-console/about">Google Search Console</a> ,可以讓我們在 Google 搜尋引擎登錄新建的網站,提供檢索分析,管理你的網站在搜尋引擎上的SEO表現 ,讓我們更加了解網站的流量和被查詢的關鍵字等。</p>
-<ol>
-<li><p>進入Google Search Console 從左上角選擇新增資源後,建議先選擇網站前置字元的方式驗證,網址欄位輸入部落格首頁網址像是: <code>https://username.github.io/RepoName/</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/RegisterSeo_1.jpg" alt="RegisterSeo_1"></p>
-</li>
-<li><p>下一步會提供幾個方式(html&#x2F;GA&#x2F;代碼管理器&#x2F;網域名稱供應商…)來驗證這個網站是本人所擁有,這裡建議先用最簡單的html方式驗證,網頁會請你下載一個html檔案,下載後將檔案中的內修改為以下格式(若沒在內容中加入 <code>layout: false</code> 後面驗證會導致失敗)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/Verification_3.jpg" alt="Verification_3"></p>
-</li>
-<li><p>將修改後的html檔案放在Hexo目錄的Source資料夾中(與_post同階層)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/FileLayer_4.jpg" alt="FileLayer_4"></p>
-</li>
-<li><p>修改後我們將剛剛加入的html檔案佈署到網站中，所以別忘輸入以下語法做完整的佈署</p>
- <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>佈署完成後會在Google Search Console 左邊選單中的設定中,看到擁有驗證權已經變成綠勾勾了<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/RegisterOk_5.jpg" alt="RegisterOk_5"></p>
-</li>
-<li><p>完成這步驟後,要等幾天的時間讓 Google Search Console 分析出部落格有哪些熱門關鍵字以及哪些地方可以優化，到時在看他的數據建議調整優化。</p>
-</li>
-<li><p>若想確認網站是否已經登入Google的搜尋引擎中另一個方法是可以在Google搜尋中輸入 <code>site:部落格網址</code>,若搜尋結果有出現部落格代表已經登入成功<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/BlogSearch_6.jpg" alt="BlogSearch_6"></p>
-</li>
-</ol>
-<h2 id="Sitemap-註冊"><a href="#Sitemap-註冊" class="headerlink" title="Sitemap 註冊"></a>Sitemap 註冊</h2><p>註冊成功網站後,由於新網站曝光度不高的狀況下,我們要讓網站下的網址(例如:每篇內容)可被Google的爬蟲搜尋到裡面的關鍵字等,因此需要產生一份網站地圖給搜尋引擎爬蟲使用,讓他收錄網站下的每個連結網址的內容提升關鍵字的曝光度。</p>
-<ol>
-<li><p>回到Hexo中呼叫CMD後,輸入以下語法安裝自動生成網站地圖的套件</p>
- <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-sitemap</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure></li>
-<li><p>在Hexo根目錄中的_config.yml中新增以下語法後存檔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/SitemapConfig_7.jpg" alt="SitemapConfig_7"></p>
-</li>
-<li><p>套件產生site.xml檔後佈署到網站上</p>
- <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>佈署完成後可在網站網址的後面加上 <code>/sitemap.xml</code>  (例如: <code>https://部落格網址/sitemap.xml</code>)看是否有類似以下畫面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/SitemapXml_8.jpg" alt="SitemapXml_8"></p>
-</li>
-<li><p>確認有佈署成功後將sitemap檔案註冊到 Google Search Console,回到Google Search Console頁面點選左邊選單的產生索引 ⇒ Sitemap 在新增 Sitemap的欄位貼上 sitemap.xml<br>即可在下方的 已提交的Sitemap中看看狀態是否為成功。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/RegisterSitemapXml_9.jpg" alt="RegisterSitemapXml_9"></p>
-</li>
-<li><p>這樣 Google 的爬蟲就會定期去看 sitemap.xml 檔案是否有更新，若有更新它就會去爬你的部落格並加入到搜尋引擎中。</p>
-</li>
-</ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹部落格在SEO中的基本登入設定,在登入成功與收錄成功所花費的時間,我也真的不太了解,有聽說1-2禮拜也有幾天的,目前這塊自己也在摸索中,與大家一起努力調整自己的SEO吧。當然如果有高手也歡迎提點指教</p>
-<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a href="https://askie.today/upload-sitemap-google-search-console-seo-hexo-blog/">輕鬆地提交 Hexo 部落格的 Sitemap.xml 到 Google Search Console</a><br><a href="https://ithelp.ithome.com.tw/articles/10249885">試著學 Hexo - SEO 篇 - Google Search Console</a></p>
-]]></content>
-      <categories>
-        <category>教學</category>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>2023</tag>
-        <tag>Tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>SEO</tag>
       </tags>
   </entry>
   <entry>
@@ -965,6 +986,60 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo_SEO設定</title>
+    <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這篇就來聊聊SEO的相關基本設定,讓自己在Google的搜尋中容易被搜尋到吧</p>
+<span id="more"></span>
+
+<h2 id="Google-Search-Console註冊"><a href="#Google-Search-Console註冊" class="headerlink" title="Google Search Console註冊"></a>Google Search Console註冊</h2><p>若要在Google 的SEO上做相關設定需先進入 <a href="https://search.google.com/search-console/about">Google Search Console</a> ,可以讓我們在 Google 搜尋引擎登錄新建的網站,提供檢索分析,管理你的網站在搜尋引擎上的SEO表現 ,讓我們更加了解網站的流量和被查詢的關鍵字等。</p>
+<ol>
+<li><p>進入Google Search Console 從左上角選擇新增資源後,建議先選擇網站前置字元的方式驗證,網址欄位輸入部落格首頁網址像是: <code>https://username.github.io/RepoName/</code><br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/RegisterSeo_1.jpg" alt="RegisterSeo_1"></p>
+</li>
+<li><p>下一步會提供幾個方式(html&#x2F;GA&#x2F;代碼管理器&#x2F;網域名稱供應商…)來驗證這個網站是本人所擁有,這裡建議先用最簡單的html方式驗證,網頁會請你下載一個html檔案,下載後將檔案中的內修改為以下格式(若沒在內容中加入 <code>layout: false</code> 後面驗證會導致失敗)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/Verification_3.jpg" alt="Verification_3"></p>
+</li>
+<li><p>將修改後的html檔案放在Hexo目錄的Source資料夾中(與_post同階層)<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/FileLayer_4.jpg" alt="FileLayer_4"></p>
+</li>
+<li><p>修改後我們將剛剛加入的html檔案佈署到網站中，所以別忘輸入以下語法做完整的佈署</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>佈署完成後會在Google Search Console 左邊選單中的設定中,看到擁有驗證權已經變成綠勾勾了<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/RegisterOk_5.jpg" alt="RegisterOk_5"></p>
+</li>
+<li><p>完成這步驟後,要等幾天的時間讓 Google Search Console 分析出部落格有哪些熱門關鍵字以及哪些地方可以優化，到時在看他的數據建議調整優化。</p>
+</li>
+<li><p>若想確認網站是否已經登入Google的搜尋引擎中另一個方法是可以在Google搜尋中輸入 <code>site:部落格網址</code>,若搜尋結果有出現部落格代表已經登入成功<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/BlogSearch_6.jpg" alt="BlogSearch_6"></p>
+</li>
+</ol>
+<h2 id="Sitemap-註冊"><a href="#Sitemap-註冊" class="headerlink" title="Sitemap 註冊"></a>Sitemap 註冊</h2><p>註冊成功網站後,由於新網站曝光度不高的狀況下,我們要讓網站下的網址(例如:每篇內容)可被Google的爬蟲搜尋到裡面的關鍵字等,因此需要產生一份網站地圖給搜尋引擎爬蟲使用,讓他收錄網站下的每個連結網址的內容提升關鍵字的曝光度。</p>
+<ol>
+<li><p>回到Hexo中呼叫CMD後,輸入以下語法安裝自動生成網站地圖的套件</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-sitemap</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure></li>
+<li><p>在Hexo根目錄中的_config.yml中新增以下語法後存檔<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/SitemapConfig_7.jpg" alt="SitemapConfig_7"></p>
+</li>
+<li><p>套件產生site.xml檔後佈署到網站上</p>
+ <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span>     <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">cl</span>    <span class="string">--</span> <span class="string">清除之前建立的靜態檔案</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">generate</span>  <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">g</span>     <span class="string">--</span> <span class="string">產生修改後靜態頁面</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">server</span>    <span class="string">或</span>  <span class="string">$</span> <span class="string">hexo</span> <span class="string">s</span>     <span class="string">--</span> <span class="string">在本機可預覽網站</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>佈署完成後可在網站網址的後面加上 <code>/sitemap.xml</code>  (例如: <code>https://部落格網址/sitemap.xml</code>)看是否有類似以下畫面<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/SitemapXml_8.jpg" alt="SitemapXml_8"></p>
+</li>
+<li><p>確認有佈署成功後將sitemap檔案註冊到 Google Search Console,回到Google Search Console頁面點選左邊選單的產生索引 ⇒ Sitemap 在新增 Sitemap的欄位貼上 sitemap.xml<br>即可在下方的 已提交的Sitemap中看看狀態是否為成功。<br><img src="/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SeoSetting/RegisterSitemapXml_9.jpg" alt="RegisterSitemapXml_9"></p>
+</li>
+<li><p>這樣 Google 的爬蟲就會定期去看 sitemap.xml 檔案是否有更新，若有更新它就會去爬你的部落格並加入到搜尋引擎中。</p>
+</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上介紹部落格在SEO中的基本登入設定,在登入成功與收錄成功所花費的時間,我也真的不太了解,有聽說1-2禮拜也有幾天的,目前這塊自己也在摸索中,與大家一起努力調整自己的SEO吧。當然如果有高手也歡迎提點指教</p>
+<h4 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h4><p><a href="https://askie.today/upload-sitemap-google-search-console-seo-hexo-blog/">輕鬆地提交 Hexo 部落格的 Sitemap.xml 到 Google Search Console</a><br><a href="https://ithelp.ithome.com.tw/articles/10249885">試著學 Hexo - SEO 篇 - Google Search Console</a></p>
+]]></content>
+      <categories>
+        <category>教學</category>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>2023</tag>
+        <tag>Tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>SEO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>設定選單</title>
     <url>/Whats-Up-Coding/Hexo_Tutorial/Hexo_Tutorial_SetMenuLink/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>建立部落格到現在好像才發現一般首頁都會有類似關於我(about)&#x2F;分類&#x2F;標籤的相關選單連結，引導讀者可以更認識作者與文章查詢更方便的功能。</p>
@@ -1048,27 +1123,6 @@
         <tag>Tutorial</tag>
         <tag>Hexo</tag>
         <tag>Theme</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL_中文字變問號</title>
-    <url>/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有時在工作情境中需要手動執行SQL語法更新含有中文字時,難免會遇到明明程式執行的時候一樣的中文字有正常顯示,但手動執行SQL語法時,一樣的中文字卻變成了問號(?)。</p>
-<span id="more"></span>
-
-<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>手動執行SQL語法時造成有些中文顯示問號(?)是因為中文是用Unicode編碼組成,若確定輸入的中文內容會顯示問號(?)的話,可在輸入的字串前置[N]字,即可解決中文變成問號(?)的狀況。<br>例如:要更新的中文字中含有[俥]字</p>
-<h6 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> <span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_Before.jpg" alt="Modified_Before"></p>
-<h6 id="修改後"><a href="#修改後" class="headerlink" title="修改後"></a>修改後</h6><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Update</span> myTable <span class="keyword">Set</span> Address<span class="operator">=</span> N<span class="string">&#x27;俥亭&#x27;</span> <span class="keyword">Where</span> ID<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p><img src="/Whats-Up-Coding/SQL/ChineseWord_Translate_Error/Modified_After.jpg" alt="Modified_After"></p>
-]]></content>
-      <categories>
-        <category>SQL</category>
-      </categories>
-      <tags>
-        <tag>2024</tag>
-        <tag>SQL</tag>
-        <tag>Problems</tag>
       </tags>
   </entry>
   <entry>
