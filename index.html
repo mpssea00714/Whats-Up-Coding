@@ -217,7 +217,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2026-04-03 10:26:40 / 修改時間：10:50:23" itemprop="dateCreated datePublished" datetime="2026-04-03T10:26:40+08:00">2026-04-03</time>
+      <time title="創建時間：2026-04-03 10:26:40 / 修改時間：11:02:54" itemprop="dateCreated datePublished" datetime="2026-04-03T10:26:40+08:00">2026-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -239,40 +239,40 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="一、核心概念：AI-Agent-的內容管理職責"><a href="#一、核心概念：AI-Agent-的內容管理職責" class="headerlink" title="一、核心概念：AI Agent 的內容管理職責"></a>一、核心概念：AI Agent 的內容管理職責</h2><p>Context Engineering 的存在，主要為了解決語言模型（LLM）「輸入長度有限」以及「缺乏原生長期記憶」的挑戰。在此架構中，AI Agent 擔任語言模型的「內容經紀人」，負責精確篩選並控管餵給模型的資訊，確保輸入長度適中。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/1.png" alt="Context Engineering"></p>
+          <h2 id="一、核心概念：AI-Agent-的內容管理職責"><a href="#一、核心概念：AI-Agent-的內容管理職責" class="headerlink" title="一、核心概念：AI Agent 的內容管理職責"></a>一、核心概念：AI Agent 的內容管理職責</h2><p>Context Engineering 的存在，主要為了解決語言模型（LLM）「輸入長度有限」以及「缺乏原生長期記憶」的挑戰。在此架構中，AI Agent 擔任語言模型的「內容經紀人」，負責精確篩選並控管餵給模型的資訊，確保輸入長度適中。<br><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/1.png" alt="Context Engineering"></p>
 <blockquote>
 <p>語言模型沒有記憶，只能根據當下的輸入給予回覆。例如：不能只給工具 3 的輸出，需要從 <code>[人類: ...]</code> + <code>[使用工具 1]</code> + … 每一次互動內容累加到 <code>[工具 3 輸出]</code>，語言模型才知道整個事件的來龍去脈。</p>
 </blockquote>
 <h2 id="二、Context-Engineering-的四大運作機制"><a href="#二、Context-Engineering-的四大運作機制" class="headerlink" title="二、Context Engineering 的四大運作機制"></a>二、Context Engineering 的四大運作機制</h2><h3 id="1-區分上下文-Context-與提示詞-Prompt"><a href="#1-區分上下文-Context-與提示詞-Prompt" class="headerlink" title="1. 區分上下文 (Context) 與提示詞 (Prompt)"></a>1. 區分上下文 (Context) 與提示詞 (Prompt)</h3><p>在技術層面上，我們必須區分 Context 與 Prompt 的定義：</p>
 <ul>
 <li><strong>Context</strong>：涵蓋了 Agent 經歷過的所有事情，包含存在外部硬碟裡的原始數據。</li>
-<li><strong>Prompt</strong>：僅是 Context 的精選子集，是真正輸入給模型閱讀並處理的文字。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/2.png" alt="AI-Agent"><blockquote>
+<li><strong>Prompt</strong>：僅是 Context 的精選子集，是真正輸入給模型閱讀並處理的文字。<br><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/2.png" alt="AI-Agent"><blockquote>
 <p>AI Agent 的任務就是將人類的指令透過 Context Engineering 的方式，轉換成適當長度的 Prompt 給語言模型。</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="2-資訊壓縮：極簡與深度的平衡-Compression"><a href="#2-資訊壓縮：極簡與深度的平衡-Compression" class="headerlink" title="2. 資訊壓縮：極簡與深度的平衡 (Compression)"></a>2. 資訊壓縮：極簡與深度的平衡 (Compression)</h3><p>當紀錄過長時，Agent 會調用另一個模型撰寫摘要，或採用「觀察遮蔽 (Observation Masking)」技術——將冗長的工具輸出替換為「此處省略」的標籤。最優策略是結合遮蔽術與深度摘要，達成混合式的資訊壓縮，避免模型因為資訊過多而「噎死」。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/3.png" alt="Observation Masking"></p>
+<h3 id="2-資訊壓縮：極簡與深度的平衡-Compression"><a href="#2-資訊壓縮：極簡與深度的平衡-Compression" class="headerlink" title="2. 資訊壓縮：極簡與深度的平衡 (Compression)"></a>2. 資訊壓縮：極簡與深度的平衡 (Compression)</h3><p>當紀錄過長時，Agent 會調用另一個模型撰寫摘要，或採用「觀察遮蔽 (Observation Masking)」技術——將冗長的工具輸出替換為「此處省略」的標籤。最優策略是結合遮蔽術與深度摘要，達成混合式的資訊壓縮，避免模型因為資訊過多而「噎死」。<br><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/3.png" alt="Observation Masking"></p>
 <blockquote>
 <p><strong>觀察遮蔽</strong>：不需要將某個輸出內容全部加載到 Context 中，而是把輸出內容先產出成一份文件，再用 <code>[指定讀一份文件]</code> 的語句取代，避免把整個文件內容加載進 Context 而佔用大量長度。</p>
 </blockquote>
-<p><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/4.png" alt="Context Engineering Summary"></p>
+<p><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/4.png" alt="Context Engineering Summary"></p>
 <blockquote>
 <p><strong>深度摘要</strong>：將原本已經一大串的 Context 請語言模型做重點摘要後，收斂成更短的語句，再輸入給另一個語言模型。</p>
 </blockquote>
 <h3 id="3-源頭過濾與按需加載：裝備你的技能包-Filtering-Loading"><a href="#3-源頭過濾與按需加載：裝備你的技能包-Filtering-Loading" class="headerlink" title="3. 源頭過濾與按需加載：裝備你的技能包 (Filtering &amp; Loading)"></a>3. 源頭過濾與按需加載：裝備你的技能包 (Filtering &amp; Loading)</h3><p>這部分是 Context Engineering 最靈活的展現。我們可以將資訊獲取的過程類比為遊戲玩家的資源管理：</p>
 <ul>
 <li><strong>Prompt（裝備中的技能包）</strong>：這是此時此刻餵進模型的關鍵資訊，如同玩家為了應付眼前的 Boss，剛從商店買來並「立刻裝備」的特殊技能。</li>
-<li><strong>Non-prompt（儲存進度的記憶卡）</strong>：這是存放在硬碟中的原始數據，就像已經通關的「遊戲存檔」，隨時等待被呼叫。AI Agent 會像老練玩家一樣，根據任務需求自主執行 Save（存檔）與 Load（讀取）指令，只從龐大數據中萃取相關內容，實現按需加載，避免一開始就擠爆記憶空間。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/10.png" alt="Filtering &amp; Loading"></li>
+<li><strong>Non-prompt（儲存進度的記憶卡）</strong>：這是存放在硬碟中的原始數據，就像已經通關的「遊戲存檔」，隨時等待被呼叫。AI Agent 會像老練玩家一樣，根據任務需求自主執行 Save（存檔）與 Load（讀取）指令，只從龐大數據中萃取相關內容，實現按需加載，避免一開始就擠爆記憶空間。<br><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/10.png" alt="Filtering &amp; Loading"></li>
 </ul>
-<h3 id="4-子代理：外科手術式的自主修剪-Subagent"><a href="#4-子代理：外科手術式的自主修剪-Subagent" class="headerlink" title="4. 子代理：外科手術式的自主修剪 (Subagent)"></a>4. 子代理：外科手術式的自主修剪 (Subagent)</h3><p>解決記憶爆炸的另一個策略是「分身術」。當主代理遇到繁瑣任務時，會分裂出 Subagent 去執行。這會形成迷人的「鋸齒狀」空間變化：子代理在獨立空間進行大規模運算（生長），任務完成後僅回傳最終結果（Return）並抹除中間過程（修剪）。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/8.png" alt="Subagent"></p>
+<h3 id="4-子代理：外科手術式的自主修剪-Subagent"><a href="#4-子代理：外科手術式的自主修剪-Subagent" class="headerlink" title="4. 子代理：外科手術式的自主修剪 (Subagent)"></a>4. 子代理：外科手術式的自主修剪 (Subagent)</h3><p>解決記憶爆炸的另一個策略是「分身術」。當主代理遇到繁瑣任務時，會分裂出 Subagent 去執行。這會形成迷人的「鋸齒狀」空間變化：子代理在獨立空間進行大規模運算（生長），任務完成後僅回傳最終結果（Return）並抹除中間過程（修剪）。<br><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/8.png" alt="Subagent"></p>
 <blockquote>
 <p>讓 Subagent 完成指定部分任務後，將結果回傳給主要 Agent 再砍掉 Subagent，這個行為和上面的 Context 壓縮摘要的方式非常類似——都是只保留最終精華，拋棄中間過程。</p>
 </blockquote>
-<p><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/7.png" alt="Subagent2"></p>
+<p><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/7.png" alt="Subagent2"></p>
 <blockquote>
 <p>藍色線條的 Context 原本越來越長，在每個 Subagent 完成任務回傳給主 Agent 後砍掉 Subagent，就會又縮短原本 Context 所需長度。</p>
 </blockquote>
-<h2 id="三、未來趨勢：讓-AI-擔任自己的圖書館管理員"><a href="#三、未來趨勢：讓-AI-擔任自己的圖書館管理員" class="headerlink" title="三、未來趨勢：讓 AI 擔任自己的圖書館管理員"></a>三、未來趨勢：讓 AI 擔任自己的圖書館管理員</h2><p>最前沿的技術正朝向 Agentic Context Engineering 進化。當 AI 懂得像人類一樣在繁忙中萃取精華、在漫長任務中捨棄冗餘，它便具備了從單純的「文字接龍」進化到「全能助理」的跨越式能力。<br><img src="/Whats-Up-Coding/./AI-Agent-Context-Engineering/11.png" alt="Agentic Context Engineering"></p>
+<h2 id="三、未來趨勢：讓-AI-擔任自己的圖書館管理員"><a href="#三、未來趨勢：讓-AI-擔任自己的圖書館管理員" class="headerlink" title="三、未來趨勢：讓 AI 擔任自己的圖書館管理員"></a>三、未來趨勢：讓 AI 擔任自己的圖書館管理員</h2><p>最前沿的技術正朝向 Agentic Context Engineering 進化。當 AI 懂得像人類一樣在繁忙中萃取精華、在漫長任務中捨棄冗餘，它便具備了從單純的「文字接龍」進化到「全能助理」的跨越式能力。<br><img src="/Whats-Up-Coding/AI-Agent-Context-Engineering/AI-Agent-Context-Engineering/11.png" alt="Agentic Context Engineering"></p>
 <h2 id="四、總結：從「對話」到「執行」的權變"><a href="#四、總結：從「對話」到「執行」的權變" class="headerlink" title="四、總結：從「對話」到「執行」的權變"></a>四、總結：從「對話」到「執行」的權變</h2><p>Context Engineering 不僅僅是一項節省運算成本的技術，它更是 AI 從單純的「文字接龍機器」進化為「具備長跑能力之行動代理」的關鍵橋樑。透過精密的記憶調度、智慧化的資訊過濾，以及如同遊戲存檔般的按需加載機制，AI Agent 克服了硬體上的視窗限制，展現出更貼近人類直覺的運算邏輯。</p>
 <p>當我們理解了這套「內容經紀人」的運作模式後，便能更有效地優化我們的指令與任務架構。未來，AI 的強大將不再只取決於大腦（LLM）的多寡，更取決於它如何智慧地「遺忘」瑣事、精準地「記住」核心。掌握了 Context 管理的邏輯，你也就掌握了通往未來自動化生產力的金鑰。</p>
 <h2 id="五、資料來源"><a href="#五、資料來源" class="headerlink" title="五、資料來源"></a>五、資料來源</h2><ul>
@@ -340,7 +340,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2026-04-03 10:50:16" itemprop="dateModified" datetime="2026-04-03T10:50:16+08:00">2026-04-03</time>
+      <time title="修改時間：2026-04-03 10:59:19" itemprop="dateModified" datetime="2026-04-03T10:59:19+08:00">2026-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
